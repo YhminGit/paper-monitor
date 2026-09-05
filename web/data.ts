@@ -1,15 +1,20 @@
 import type { Library, Paper } from '../src/types';
 import { parseSearch, searchPapers, type SearchResult } from '../src/search';
+import { publicAbstractCoverage, type AbstractCoverage, type PublicAbstractCoverage } from './abstract-status';
 
 export const PUBLIC_MODE = import.meta.env.VITE_PUBLIC_LIBRARY === 'true';
 export const HOME_URL = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 export const DIGEST_URL = PUBLIC_MODE ? `${HOME_URL}data/latest.md` : '/api/reports/latest';
-export type PublicPaper = Paper & { publicContent?: { abstract: 'licensed' | 'withheld' | 'unavailable'; license?: string } };
+export type PublicPaper = Paper;
 export type Status = Omit<Library, 'papers'> & {
   paperCount: number;
   credentials?: { elsevier: boolean; openalex: boolean; contactEmail: boolean };
   snapshotError?: string;
   contentCounts?: { abstracts: number; summaries: number; pdfs: number; missingAbstracts: number; pdfQueued: number; oaLinks?: number; withheldAbstracts?: number };
+  abstractCoverage?: AbstractCoverage;
+  abstractCoverageByJournal?: Array<AbstractCoverage & { journalId: string }>;
+  publicAbstractCoverage?: PublicAbstractCoverage;
+  publicAbstractCoverageByJournal?: Array<PublicAbstractCoverage & { journalId: string }>;
 };
 export type Results = SearchResult;
 
@@ -64,6 +69,8 @@ export async function loadStatus(signal?: AbortSignal): Promise<Status> {
   const { papers, ...metadata } = await publicSnapshot(signal, true);
   return {
     ...metadata, paperCount: papers.length,
+    publicAbstractCoverage: publicAbstractCoverage(papers),
+    publicAbstractCoverageByJournal: metadata.journals.map(journal => ({ journalId: journal.id, ...publicAbstractCoverage(papers.filter(paper => paper.journalId === journal.id)) })),
     contentCounts: {
       abstracts: papers.filter(paper => Boolean(paper.abstract)).length,
       summaries: papers.filter(paper => Boolean(paper.summary)).length,

@@ -177,9 +177,26 @@ export function reconstructAbstract(index: Record<string, number[]> | null | und
   return abstract&&!isAvailabilityNote(abstract)?abstract:undefined;
 }
 export function isAvailabilityNote(value:string) {
- return /^(?:contains\s+full\s*text\s*:|full\s*text\s+(?:is\s+)?available(?:\s+at|\s*:|\s+from)|(?:no\s+)?abstract\s+(?:is\s+)?(?:not\s+available|unavailable)|download\s+(?:the\s+)?full\s*text\s*(?:here|:))/i.test(value.trim());
+ return /^(?:contains\s+full\s*text\s*:|full\s*text\s+(?:is\s+)?available(?:\s+at|\s*:|\s+from)|(?:no\s+)?abstract\s+(?:is\s+)?(?:not\s+available|unavailable)|download\s+(?:the\s+)?full\s*text\s*(?:here|:))/i.test(value.trim()) || isHighlightsOnly(value);
+}
+/** Publisher highlights are short bullets, not a substitute for an author abstract. */
+export function isHighlightsOnly(value: string): boolean {
+  const body = value.trim().replace(/^highlights\s*:?\s*/i, '');
+  if (!/^[•●▪‣]\s*/.test(body)) return false;
+  const points = body.split(/[•●▪‣]/).slice(1).map(point => point.trim());
+  if (points.length < 2 || points.some(point => !point)) return false;
+  return points.every(point => {
+    // Preserve prose accompanying highlights and recognizable structured author
+    // abstracts. Only a list composed entirely of short highlight claims qualifies.
+    if (/\n\s*\n/.test(point) || /(?:^|\s)(?:abstract|keywords)\s*:/i.test(point)) return false;
+    if (/^(?:background|objectives?|methods?|results?|conclusions?|purpose|findings)\s*:/i.test(point)) return false;
+    return point.split(/\s+/).length <= 55 && point.split(/[.!?]\s+(?=[A-Z])/).length <= 2;
+  });
 }
 function publisherUrl(paper: Paper): string | undefined {
+  // Elsevier requires its supported API instead of automated ScienceDirect HTML:
+  // https://www.elsevier.support/sciencedirect/answer/why-am-i-getting-a-captcha-challenge
+  if (['compedu', 'edurev', 'caeai'].includes(paper.journalId)) return undefined;
   const candidates = [paper.url, ...paper.aliases.filter(alias => alias.startsWith('url:')).map(alias => alias.slice(4)), ...paper.oaLocations.map(location => location.url)];
   for (const candidate of candidates) {
     const url = httpsUrl(candidate);
@@ -187,7 +204,6 @@ function publisherUrl(paper: Paper): string | undefined {
   }
   if (['bjet', 'berj'].includes(paper.journalId) && paper.doi) return 'https://bera-journals.onlinelibrary.wiley.com/doi/abs/' + encodeURI(paper.doi);
   if (paper.journalId === 'rer' && paper.doi) return 'https://journals.sagepub.com/doi/abs/' + encodeURI(paper.doi);
-  if (['compedu', 'edurev', 'caeai'].includes(paper.journalId) && paper.pii) return 'https://www.sciencedirect.com/science/article/pii/' + encodeURIComponent(paper.pii);
   return undefined;
 }
 async function boundedHtml(response: Response): Promise<string> {
@@ -211,9 +227,24 @@ function mergeLocation(paper: Paper, incoming: OALocation): void {
   if (match) Object.assign(match, incoming); else paper.oaLocations.push(incoming);
 }
 
-/** A factory instance holds the access-block cache for one collection run. */
-export function createPaperEnricher(request: Requester = fetchRemote) {
+/** Unlike discovery parsing, an identity check must not extract a DOI substring. */
+function exactDoi(value: unknown): string | undefined {
+  if (typeof value !== 'string') return undefined;
+  let doi = value.trim().replace(/^(?:https?:\/\/(?:dx\.)?doi\.org\/|doi:\s*)/i, '');
+  try { doi = decodeURIComponent(doi); } catch { return undefined; }
+  return /^10\.\d{4,9}\/[^\s<>"?#]+$/i.test(doi) ? doi.toLowerCase() : undefined;
+}
+interface OpenAlexLookup { data?: Data; error?: string; source: string; fetchedAt: string }
+export interface PaperEnricher {
+  (paper: Paper): Promise<string[]>;
+  /** Populate only the run-local cache; no papers or archive files are changed. */
+  prefetch(papers: readonly Paper[]): Promise<void>;
+}
+
+/** A factory instance holds the access-block and DOI lookup caches for one run. */
+export function createPaperEnricher(request: Requester = fetchRemote): PaperEnricher {
   const blocked = new Map<string, string>();
+  const openAlex = new Map<string, Promise<OpenAlexLookup>>();
   const hostKey = (url: string) => new URL(url).hostname.replace(/^www\./, '').replace(/^bera-journals\./, '');
   const checkedRequest = async (url: string, init?: RequestInit): Promise<Response> => {
     const key = hostKey(url);
@@ -228,7 +259,69 @@ export function createPaperEnricher(request: Requester = fetchRemote) {
       throw error;
     }
   };
-  return async function enrich(paper: Paper): Promise<string[]> {
+  const openAlexSource = (doi: string) => 'https://api.openalex.org/works/https://doi.org/' + encodeURIComponent(doi);
+  const openAlexRequest = async (source: string): Promise<Data> => {
+    const url = new URL(source);
+    if (process.env.OPENALEX_API_KEY) url.searchParams.set('api_key', process.env.OPENALEX_API_KEY);
+    return object(await (await checkedRequest(url.href, { headers: { Accept: 'application/json' } })).json());
+  };
+  const lookupOpenAlex = (doi: string): Promise<OpenAlexLookup> => {
+    const cached = openAlex.get(doi); if (cached) return cached;
+    const pending = (async (): Promise<OpenAlexLookup> => {
+      const source = openAlexSource(doi), fetchedAt = new Date().toISOString();
+      try {
+        const data = await openAlexRequest(source);
+        if (exactDoi(data.doi) !== doi) throw new Error('Returned DOI is missing or does not match the requested article');
+        return { data, source, fetchedAt };
+      } catch (error) { return { error: safeError(error), source, fetchedAt }; }
+    })();
+    openAlex.set(doi, pending); return pending;
+  };
+  const prefetch = async (papers: readonly Paper[]): Promise<void> => {
+    const dois = [...new Set(papers.map(paper => exactDoi(paper.doi)).filter((doi): doi is string => Boolean(doi)))];
+    // OpenAlex documents a maximum of 100 OR values and per_page=100:
+    // https://help.openalex.org/api/filtering/
+    const batchable = dois.filter(doi => !/[|,+]/.test(doi));
+    for (let offset = 0; offset < batchable.length; offset += 100) {
+      const batch = batchable.slice(offset, offset + 100).filter(doi => !openAlex.has(doi));
+      if (!batch.length) continue;
+      const pending = (async (): Promise<Map<string, OpenAlexLookup>> => {
+        const fetchedAt = new Date().toISOString();
+        const result = new Map<string, OpenAlexLookup>();
+        const url = new URL('https://api.openalex.org/works');
+        url.searchParams.set('filter', 'doi:' + batch.map(doi => 'https://doi.org/' + doi).join('|'));
+        url.searchParams.set('per_page', '100');
+        url.searchParams.set('select', 'id,doi,abstract_inverted_index,keywords,best_oa_location,locations');
+        try {
+          const response = await openAlexRequest(url.href);
+          if (!Array.isArray(response.results)) throw new Error('Batch response has no results array');
+          const count = object(response.meta).count;
+          if (typeof count === 'number' && count > response.results.length) throw new Error('Batch response was incomplete; retry required');
+          for (const doi of batch) result.set(doi, { source: openAlexSource(doi), fetchedAt, error: 'No exact DOI record was returned by the public metadata API' });
+          const seen = new Set<string>();
+          for (const item of response.results) {
+            const data = object(item), doi = exactDoi(data.doi);
+            // Results can arrive in any order. Never use titles, array positions,
+            // or an unrelated/missing DOI to attribute abstracts or OA licences.
+            if (!doi || !result.has(doi)) continue;
+            const source = openAlexSource(doi);
+            if (seen.has(doi)) result.set(doi, { source, fetchedAt, error: 'Duplicate DOI records returned; identity is ambiguous' });
+            else result.set(doi, { data, source, fetchedAt });
+            seen.add(doi);
+          }
+        } catch (error) {
+          for (const doi of batch) result.set(doi, { source: openAlexSource(doi), fetchedAt, error: safeError(error) });
+        }
+        return result;
+      })();
+      for (const doi of batch) openAlex.set(doi, pending.then(result => result.get(doi)!));
+      await pending;
+    }
+    // Literal DOI characters that collide with OpenAlex's filter grammar use
+    // encoded singleton lookups, never an altered DOI or a broadened filter.
+    await Promise.all(dois.filter(doi => /[|,+]/.test(doi)).map(lookupOpenAlex));
+  };
+  const enrich = async (paper: Paper): Promise<string[]> => {
     const errors: string[] = []; const now = new Date().toISOString();
     let oaLookupSucceeded = false;
     const publisher = publisherUrl(paper);
@@ -268,9 +361,11 @@ export function createPaperEnricher(request: Requester = fetchRemote) {
     }
     if (paper.doi) {
       try {
-        const source = 'https://api.openalex.org/works/https://doi.org/' + encodeURIComponent(paper.doi);
-        const url = new URL(source); if (process.env.OPENALEX_API_KEY) url.searchParams.set('api_key', process.env.OPENALEX_API_KEY);
-        const data = object(await (await checkedRequest(url.href, { headers: { Accept: 'application/json' } })).json());
+        const doi = exactDoi(paper.doi);
+        if (!doi) throw new Error('The paper has no valid exact DOI for metadata lookup');
+        const lookup = await lookupOpenAlex(doi);
+        if (lookup.error || !lookup.data) throw new Error(lookup.error ?? 'Metadata was unavailable');
+        const { data, source, fetchedAt } = lookup;
         oaLookupSucceeded = true;
         if (!paper.abstract) { const abstract = reconstructAbstract(data.abstract_inverted_index as Record<string, number[]> | undefined); if (abstract) { paper.abstract = abstract; paper.abstractSource = source; } }
         if (!paper.keywords.length && Array.isArray(data.keywords)) paper.keywords = data.keywords.map(value => text(object(value).display_name)).filter((value): value is string => Boolean(value));
@@ -280,9 +375,9 @@ export function createPaperEnricher(request: Requester = fetchRemote) {
           mergeLocation(paper, { url: landing, pdfUrl: httpsUrl(location.pdf_url), hostType: object(location.source).type === 'repository' ? 'repository' : 'publisher', version: text(location.version), license: text(location.license), isOa: true, source });
         }
         paper.provenance = paper.provenance.filter(value => value.source !== 'openalex');
-        paper.provenance.push({ source: 'openalex', url: source, fetchedAt: now });
+        paper.provenance.push({ source: 'openalex', url: source, fetchedAt });
       } catch (error) { errors.push('OpenAlex: ' + safeError(error)); }
-    }
+    } else errors.push('OpenAlex: No DOI is available for an exact metadata lookup; retry requires identifier recovery.');
     const directOaPdf = paper.oaLocations.some(location => location.isOa && location.pdfUrl);
     if (directOaPdf && paper.pdf.status === 'unavailable') paper.pdf = { status: 'pending' };
     else if (oaLookupSucceeded && !directOaPdf && paper.pdf.status === 'pending') paper.pdf = {
@@ -292,5 +387,6 @@ export function createPaperEnricher(request: Requester = fetchRemote) {
     paper.updatedAt = now;
     return errors;
   };
+  return Object.assign(enrich, { prefetch });
 }
 export const enrichPaper = createPaperEnricher();

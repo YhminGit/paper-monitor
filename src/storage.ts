@@ -1,13 +1,25 @@
 import { mkdir, readFile, rename, writeFile, open, unlink } from 'node:fs/promises';
 import path from 'node:path';
 import { randomUUID } from 'node:crypto';
+import { setTimeout as delay } from 'node:timers/promises';
 import { STATE, LIBRARY_PATH, COVERAGE_START, JOURNALS } from './config.js';
 import type { Library } from './types.js';
+export async function replaceFile(from:string,to:string,replace=rename,pause:(ms:number)=>Promise<unknown>=delay) {
+ // Windows indexers and sync clients can briefly hold the destination open.
+ // Retry atomic replacement; never remove the valid destination as a workaround.
+ for(let attempt=0;;attempt++) {
+  try {await replace(from,to);return;}
+  catch(error) {
+   if(attempt>=5||!['EPERM','EBUSY','EACCES'].includes((error as NodeJS.ErrnoException).code||''))throw error;
+   await pause(100*2**attempt);
+  }
+ }
+}
 export async function atomicWrite(file: string, content: string) {
  await mkdir(path.dirname(file),{recursive:true});
  const temp = `${file}.${randomUUID()}.tmp`;
  await writeFile(temp,content,'utf8');
- try { await rename(temp,file); } catch(error) { await unlink(temp).catch(()=>{}); throw error; }
+ try { await replaceFile(temp,file); } catch(error) { await unlink(temp).catch(()=>{}); throw error; }
 }
 export async function writeJson(file: string, value: unknown) { await atomicWrite(file,JSON.stringify(value,null,2)+'\n'); }
 export async function readJson<T>(file: string, fallback?: T): Promise<T> {

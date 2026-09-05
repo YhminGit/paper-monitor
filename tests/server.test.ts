@@ -114,3 +114,68 @@ test('PDF symlinks cannot escape the registered directory', async t => {
     assert.equal((await fetch(`${f.base}/api/papers/escape/pdf`)).status, 404);
   } finally { await f.cleanup(); }
 });
+
+test('abstract coverage is per journal and independent of successful article discovery', async () => {
+  const f = await fixture();
+  try {
+    const value = library([
+      paper('legacy-available'),
+      paper('available', { abstractRetrieval: { checkedAt: '2026-09-06T00:00:00Z', status: 'available', errors: [] } }),
+      paper('not-found', { abstract: undefined, abstractRetrieval: { checkedAt: '2026-09-07T00:00:00Z', status: 'not-found', errors: [] } }),
+      paper('partial', { journalId: 'jla', abstract: undefined, abstractRetrieval: { checkedAt: '2026-09-08T00:00:00Z', status: 'partial', errors: ['Publisher: HTTP 429'] } }),
+      paper('legacy-missing', { journalId: 'jla', abstract: undefined }),
+      paper('summary-only', { journalId: 'jla', abstract: '  ', summary: 'A generated full-text summary.', abstractRetrieval: { checkedAt: '2026-09-09T00:00:00Z', status: 'not-found', errors: [] } }),
+      paper('excluded', { relevance: { topic: 'unrelated', method: 'codex', confidence: 'high', reason: 'Unrelated', evidence: [] } }),
+    ]);
+    value.journals = [{ id: 'empty', name: 'Empty journal', shortName: 'Empty', issn: '1234-5678', publisher: 'wiley', url: 'https://example.org', feeds: [] }];
+    value.sources = [{ journalId: 'bjet', status: 'ok', checkedAt: '2026-09-09T00:00:00Z', lastSuccessAt: '2026-09-09T00:00:00Z', discovered: 3, errors: [] }];
+    await f.snapshot(value);
+    const status = await (await fetch(`${f.base}/api/status`)).json();
+    assert.equal(status.sources[0].status, 'ok');
+    assert.equal(status.paperCount, 6);
+    assert.deepEqual(status.abstractCoverage, { papers: 6, available: 2, missing: 4, summaries: 1, attempted: 4, partial: 1, notFound: 2, noRecordedCheck: 2, missingWithoutRecordedCheck: 1, lastCheckedAt: '2026-09-09T00:00:00Z' });
+    assert.equal(status.contentCounts.abstracts, 2);
+    assert.equal(status.contentCounts.missingAbstracts, 4);
+    const bjet = status.abstractCoverageByJournal.find((row: { journalId: string }) => row.journalId === 'bjet');
+    assert.deepEqual(bjet, { journalId: 'bjet', papers: 3, available: 2, missing: 1, summaries: 0, attempted: 2, partial: 0, notFound: 1, noRecordedCheck: 1, missingWithoutRecordedCheck: 0, lastCheckedAt: '2026-09-07T00:00:00Z' });
+    const jla = status.abstractCoverageByJournal.find((row: { journalId: string }) => row.journalId === 'jla');
+    assert.equal(jla.missing, 3);
+    assert.equal(jla.partial, 1);
+    assert.equal(jla.missingWithoutRecordedCheck, 1);
+    const empty = status.abstractCoverageByJournal.find((row: { journalId: string }) => row.journalId === 'empty');
+    assert.equal(empty.papers, 0);
+    assert.equal(empty.lastCheckedAt, undefined);
+  } finally { await f.cleanup(); }
+});
+
+test('local abstract retrieval details retain history but redact credentials, paths and bounded errors', async () => {
+  const f = await fixture();
+  try {
+    const checkedAt = '2026-09-09T00:00:00Z';
+    await f.snapshot(library([paper('partial', { abstract: undefined, abstractRetrieval: { checkedAt, status: 'partial', errors: [
+      'Publisher HTTP 403 https://user:password@example.org/article?api_key=secret-key',
+      'Repository failed at C:\\Users\\PrivatePerson\\archive\\record.json',
+      'A'.repeat(1000),
+      ...Array.from({ length: 15 }, () => 'Repeated unavailable source'),
+    ] } }), paper('legacy', { abstract: undefined })]));
+    const response = await fetch(`${f.base}/api/papers/partial`);
+    const raw = await response.text();
+    assert.equal(response.status, 200);
+    assert.doesNotMatch(raw, /user:password|secret-key|PrivatePerson/);
+    const details = JSON.parse(raw);
+    assert.equal(details.abstractRetrieval.checkedAt, checkedAt);
+    assert.equal(details.abstractRetrieval.status, 'partial');
+    assert.equal(details.abstractRetrieval.errors.length, 12);
+    assert.ok(details.abstractRetrieval.errors.every((error: string) => error.length <= 400));
+    assert.match(details.abstractRetrieval.errors[0], /HTTP 403/);
+    assert.match(details.abstractRetrieval.errors[1], /\[local path\]/);
+    assert.equal((await (await fetch(`${f.base}/api/papers/legacy`)).json()).abstractRetrieval, undefined);
+    await f.snapshot(library([paper('invalid', { abstractRetrieval: { checkedAt, status: 'partial', errors: [] } })]));
+    assert.equal((await (await fetch(`${f.base}/api/papers/invalid`)).json()).abstractRetrieval.status, 'partial');
+    const invalid = library([paper('broken')]) as any;
+    invalid.papers[0].abstractRetrieval = { checkedAt, status: 'made-up', errors: [] };
+    await f.snapshot(invalid);
+    assert.equal((await (await fetch(`${f.base}/api/papers/invalid`)).json()).id, 'invalid');
+    assert.match((await (await fetch(`${f.base}/api/status`)).json()).snapshotError, /last valid snapshot/);
+  } finally { await f.cleanup(); }
+});

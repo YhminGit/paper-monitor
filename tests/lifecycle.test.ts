@@ -222,6 +222,101 @@ test('discovery failure retains reviewed library papers, successful cursors and 
   await absent(env.file('.state', 'monitor.lock'));
 });
 
+test('metadata-only catch-up checkpoints failures, resumes without repeat requests, and preserves discovery health', { timeout: 30_000 }, async t => {
+ const env=await environment(t);const candidate=reviewedPaper();
+ delete candidate.abstract;delete candidate.abstractSource;
+ await put(env.file('.state','catalog.json'),catalog([candidate],oldId));
+ await put(env.file('output','library.json'),library([candidate],oldId));
+ const before=await readFile(env.file('output','library.json'),'utf8');
+ const args=['collect','--enrich-only','--relevant-only','--retry-missing','--enrich-limit','100','--download-limit','0'];
+ const first=await env.invoke(args);assert.equal(first.code,0,first.output);
+ assert.doesNotMatch(first.output,/Discovering/);
+ assert.match(first.output,/OFFLINE_FIXTURE_DISCOVERY_FAILURE/);
+ const progress=await json<{papers:Paper[];baseRunId:string}>(env.file('.state','enrichment-progress.json'));
+ assert.equal(progress.baseRunId,oldId);
+ assert.equal(progress.papers[0].abstractRetrieval?.status,'partial');
+ assert.ok(progress.papers[0].abstractRetrieval?.errors.length);
+ assert.equal(await readFile(env.file('output','library.json'),'utf8'),before);
+ const resumed=await env.invoke(args);assert.equal(resumed.code,0,resumed.output);
+ assert.match(resumed.output,/Resumed 1 saved metadata/);
+ assert.doesNotMatch(resumed.output,/Enriching 1|OFFLINE_FIXTURE_DISCOVERY_FAILURE/);
+ const id=resumed.output.match(/Collected run (\d{4}-\d{2}-\d{2}T[\d-]+Z-[a-f0-9]{6})/)?.[1];assert.ok(id);
+ const done=await env.invoke(['finalize',id,'--download-limit','0']);assert.equal(done.code,0,done.output);
+ const published=await json<Library>(env.file('output','library.json'));
+ assert.deepEqual(published.sources,[source()]);
+ assert.equal(published.papers[0].abstractRetrieval?.status,'partial');
+ assert.equal((await json<Catalog>(env.file('.state','catalog.json'))).cursors.bjet,previousSuccess);
+ assert.equal((await json<RunReport>(env.file('output','runs',`${id}.json`))).notifications.length,0);
+});
+
+test('interrupted first-import enrichment restores new papers without repeating API work or publishing early', { timeout: 30_000 }, async t => {
+  const env=await environment(t);
+  const checkedAt=new Date().toISOString(),today=checkedAt.slice(0,10);
+  const discovered=paper();
+  delete discovered.abstract;delete discovered.abstractSource;
+  const saved={...discovered,abstract:'A complete author abstract saved before the first import was interrupted.',abstractSource:'https://api.openalex.org/works/https://doi.org/10.1111%2Fbjet.lifecycle',updatedAt:checkedAt,abstractRetrieval:{checkedAt,status:'available' as const,errors:[]}};
+  // Model interruption after an atomic per-paper progress write, but before the
+  // first run/checkpoint or finalized catalog exists. The feed still lacks text.
+  await put(env.file('.state','enrichment-progress.json'),{papers:[saved],enriched:{[saved.id]:checkedAt}});
+  await put(env.file('.state','discovery-cache','bjet.json'),{key:JSON.stringify({since:coverageStart,today}),result:{papers:[discovered],errors:[],complete:true}});
+  await absent(env.file('.state','catalog.json'));
+  await absent(env.file('output','library.json'));
+  const resumed=await env.invoke(['collect','--journal','bjet','--retry-missing','--enrich-limit','100','--download-limit','0']);
+  assert.equal(resumed.code,0,resumed.output);
+  assert.match(resumed.output,/Resumed 1 saved metadata/);
+  assert.doesNotMatch(resumed.output,/Enriching 1|Preparing public metadata|OFFLINE_FIXTURE/);
+  await absent(env.file('output','library.json'));
+  await absent(env.file('.state','catalog.json'));
+  const id=resumed.output.match(/Collected run (\d{4}-\d{2}-\d{2}T[\d-]+Z-[a-f0-9]{6})/)?.[1];assert.ok(id,resumed.output);
+  const staged=await json<RunReport>(env.file('output','runs',`${id}.json`));
+  assert.equal(staged.papers.length,1);
+  assert.equal(staged.papers[0].abstract,saved.abstract);
+  assert.deepEqual(staged.papers[0].abstractRetrieval,saved.abstractRetrieval);
+  const checkpoint=await json<{enriched:Record<string,string>}>(env.file('output','runs',`${id}.checkpoint.json`));
+  assert.equal(checkpoint.enriched[saved.id],checkedAt);
+  await put(env.file('output','runs',`${id}.decisions.json`),{schemaVersion:1,runId:id,decisions:[decision(saved.id)]});
+  const finalized=await env.invoke(['finalize',id,'--download-limit','0']);assert.equal(finalized.code,0,finalized.output);
+  const published=await json<Library>(env.file('output','library.json'));
+  assert.equal(published.papers.length,1);
+  assert.equal(published.papers[0].abstract,saved.abstract);
+  assert.equal(published.papers[0].milestones[0].kind,'backfill');
+});
+
+test('current feed announcement with a future issue date creates an undated online-discovery milestone', { timeout: 30_000 }, async t => {
+  const env=await environment(t);
+  const now=new Date().toISOString(),today=now.slice(0,10),futureIssue=`${Number(today.slice(0,4))+1}-01`;
+  const candidate=paper('doi:10.1111/bjet.future-issue');
+  delete candidate.publishedOnline;
+  candidate.publishedIssue={value:futureIssue,precision:'month',source:'crossref:published-print'};
+  candidate.publicationDate=candidate.publishedIssue;
+  candidate.volume='100';
+  candidate.provenance=[{source:'publisher-rss',url:journal.feeds[0],fetchedAt:now}];
+  await put(env.file('.state','catalog.json'),catalog([],oldId));
+  await put(env.file('output','library.json'),library([],oldId));
+  const before=await readFile(env.file('output','library.json'),'utf8');
+  await put(env.file('.state','discovery-cache','bjet.json'),{key:JSON.stringify({since:coverageStart,today,updateSince:previousSuccess}),result:{papers:[candidate],errors:[],complete:true}});
+  const collected=await env.invoke(['collect','--journal','bjet','--enrich-limit','0','--download-limit','0']);
+  assert.equal(collected.code,0,collected.output);
+  assert.doesNotMatch(collected.output,/OFFLINE_FIXTURE/);
+  assert.equal(await readFile(env.file('output','library.json'),'utf8'),before);
+  const id=collected.output.match(/Collected run (\d{4}-\d{2}-\d{2}T[\d-]+Z-[a-f0-9]{6})/)?.[1];assert.ok(id,collected.output);
+  const staged=await json<RunReport>(env.file('output','runs',`${id}.json`));
+  assert.equal(staged.backfill,false);
+  assert.equal(staged.papers.length,1);
+  await put(env.file('output','runs',`${id}.decisions.json`),{schemaVersion:1,runId:id,decisions:[decision(candidate.id)]});
+  const finalized=await env.invoke(['finalize',id,'--download-limit','0']);assert.equal(finalized.code,0,finalized.output);
+  const published=await json<Library>(env.file('output','library.json'));
+  const actual=published.papers[0];
+  assert.equal(actual.publishedOnline,undefined);
+  assert.deepEqual(actual.publishedIssue,candidate.publishedIssue);
+  assert.equal(actual.publicationDate?.value,futureIssue);
+  assert.equal(actual.milestones.length,1);
+  assert.equal(actual.milestones[0].kind,'online');
+  assert.equal(Object.hasOwn(actual.milestones[0],'date'),false);
+  const finalizedRun=await json<RunReport>(env.file('output','runs',`${id}.json`));
+  assert.deepEqual(finalizedRun.notifications,[{paperId:candidate.id,kind:'online'}]);
+});
+
 test('missing or scanned PDF text cannot block finalization and remains queued for abstract retrieval', { timeout: 30_000 }, async t => {
   const env=await environment(t);
   // PDF parsing was completed at download time; this path checks its registered

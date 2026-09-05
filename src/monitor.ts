@@ -5,9 +5,10 @@ import { z } from 'zod';
 import { COVERAGE_START, JOURNALS, LIBRARY_PATH, OUTPUT, STATE, credentialStatus } from './config.js';
 import { atomicWrite, loadLibrary, readJson, withMonitorLock, writeJson } from './storage.js';
 import { discoverJournal } from './sources.js';
+import { recoverIdentifiers } from './identifier-recovery.js';
 import { mergePapers, identityKeys } from './identity.js';
 import { classify, relevant, isExcluded } from './relevance.js';
-import { enrichPaper, isAvailabilityNote } from './enrichment.js';
+import { createPaperEnricher, isAvailabilityNote } from './enrichment.js';
 import { downloadPaper, downloadTarget, recoverAuthorAbstract } from './downloads.js';
 import { safeError } from './http.js';
 import { dateInterval, effectiveDate } from './search.js';
@@ -21,7 +22,10 @@ export function validRunId(id:string) {if(!/^\d{4}-\d{2}-\d{2}T[\d-]+Z-[a-f0-9]{
 const reviewPath=(id:string)=>path.join(OUTPUT,'runs',`${id}.review.json`);
 export function eligibleDate(p:Paper,until:string) {
  const date=effectiveDate(p);const interval=date&&dateInterval(date.value);
- return !interval || interval.end>=COVERAGE_START&&interval.start<=until;
+ // A currently announced paper may already be assigned to a future issue while
+ // its first-online date remains unknown. Keep the real issue date, not a guess.
+ const announced=p.provenance.some(source=>source.source==='publisher-rss'&&JOURNALS.some(j=>j.id===p.journalId&&j.feeds.includes(source.url))&&source.fetchedAt.slice(0,10)<=until);
+ return !interval || interval.end>=COVERAGE_START&&(interval.start<=until||announced);
 }
 export function issueReady(p:Paper,today:string) {
  const interval=p.publishedIssue&&dateInterval(p.publishedIssue.value);
@@ -33,13 +37,37 @@ export function notices(p:Paper,previous:Paper|undefined,backfill:boolean,today:
  if(issueReady(p,today)&&!issueWasPresent)return ['issue'];
  return [];
 }
-export interface CollectOptions { journal?:string; since?:string; limit?:number; enrichLimit?:number; downloadLimit?:number; refresh?:boolean; }
+export interface CollectOptions { journal?:string; publisher?:string; since?:string; limit?:number; enrichLimit?:number; downloadLimit?:number; refresh?:boolean; enrichOnly?:boolean; relevantOnly?:boolean; retryMissing?:boolean; }
+interface EnrichmentProgress { baseRunId?:string; papers:Paper[]; enriched:Record<string,string>; }
+const progressPath=path.join(STATE,'enrichment-progress.json');
+export function enrichmentQueue(papers:Paper[],enriched:Record<string,string>,options:CollectOptions={},now=Date.now()) {
+ return papers.filter(p=>!isExcluded(p)&&(!options.journal||options.journal===p.journalId)&&(!options.publisher||JOURNALS.some(j=>j.id===p.journalId&&j.publisher===options.publisher))&&(!options.relevantOnly||relevant(p))&&(!p.abstract||!p.oaLocations.some(x=>x.isOa&&x.pdfUrl))&&
+  (!enriched[p.id]||!Number.isFinite(Date.parse(enriched[p.id]))||now-Date.parse(enriched[p.id])>7*86400000||Boolean(options.retryMissing&&!p.abstract)))
+  .sort((a,b)=>Number(relevant(b))-Number(relevant(a))||Number(Boolean(enriched[a.id]))-Number(Boolean(enriched[b.id]))||(enriched[a.id]||'').localeCompare(enriched[b.id]||'')||(effectiveDate(b)?.value||'').localeCompare(effectiveDate(a)?.value||''));
+}
+export function restoreEnrichmentProgress(state:MonitorState,progress:EnrichmentProgress|null) {
+ if(!progress||progress.baseRunId!==state.lastRunId)return false;
+ // A completed enrichment may belong to a newly discovered paper that has never
+ // reached the finalized catalog, including every paper during a first import.
+ const today=new Date().toISOString().slice(0,10);
+ const saved=progress.papers.filter(p=>JOURNALS.some(j=>j.id===p.journalId)&&eligibleDate(p,today));
+ state.papers=mergePapers([...state.papers,...saved]);
+ const ids=new Set(state.papers.map(p=>p.id));
+ for(const [id,at] of Object.entries(progress.enriched))if(ids.has(id))state.enriched[id]=at;
+ return true;
+}
 export function reviewFingerprint(p:Paper) {
  const fold=(x:string)=>x.normalize('NFKC').replace(/\s+/g,' ').trim();
  return createHash('sha256').update(JSON.stringify([fold(p.title),fold(p.abstract||''),fold(p.summary||''),p.keywords.map(fold).sort(),p.articleType])).digest('hex');
 }
 export function needsReview(p:Paper) {
  return !isExcluded(p)&&(p.relevance.method!=='codex'||p.relevance.topic==='pending'||Boolean(p.relevance.reviewedFingerprint&&p.relevance.reviewedFingerprint!==reviewFingerprint(p))||(!p.abstract&&!p.summary&&p.pdf.status==='downloaded'));
+}
+function discardAbstractPlaceholders(papers:Paper[]) {
+ for(const p of papers)if(p.abstract&&isAvailabilityNote(p.abstract)) {
+  delete p.abstract;delete p.abstractSource;
+  if(p.abstractRetrieval)p.abstractRetrieval={...p.abstractRetrieval,status:'partial',errors:[...p.abstractRetrieval.errors,'The metadata supplied a placeholder or highlights, not a complete author abstract.']};
+ }
 }
 export function fairDownloadQueue(papers:Paper[]) {
  const groups=new Map<string,Paper[]>();
@@ -81,14 +109,19 @@ export async function collect(options:CollectOptions={}) {
   const old=await loadLibrary();
   const state=await readJson<MonitorState>(statePath,{papers:[],cursors:{},enriched:{},backfilled:[]});
   for(const p of state.papers)if(p.relevance.method==='codex')p.relevance.reviewedFingerprint??=reviewFingerprint(p);
-  const journals=options.journal?JOURNALS.filter(j=>j.id===options.journal):JOURNALS;
+  const progress=await readJson<EnrichmentProgress|null>(progressPath,null);
+  const restored=restoreEnrichmentProgress(state,progress);
+  const progressPapers=new Map((restored?progress!.papers:[]).map(p=>[p.id,p]));
+  const journals=JOURNALS.filter(j=>(!options.journal||j.id===options.journal)&&(!options.publisher||j.publisher===options.publisher));
   if(!journals.length)throw new Error('Unknown journal. Use '+JOURNALS.map(x=>x.id).join(', '));
   const sources=[...old.sources];const complete:string[]=[];let papers=[...state.papers];
   const warnings:string[]=[];
   if(!credentialStatus().elsevier)warnings.push('Elsevier API key is not configured; publisher API abstract retrieval is unavailable.');
   if(!credentialStatus().openalex)warnings.push('OpenAlex is using anonymous access, which may be rate-limited.');
   if(options.limit)warnings.push('Diagnostic discovery limit applied; this run does not establish complete historical coverage.');
-  for(const journal of journals) {
+  if(options.enrichOnly)warnings.push('Metadata-only run: journal discovery timestamps and coverage cursors are unchanged.');
+  if(restored)process.stdout.write(`Resumed ${progressPapers.size} saved metadata results from the current archive generation.\n`);
+  for(const journal of options.enrichOnly?[]:journals) {
    process.stdout.write(`Discovering ${journal.shortName}...\n`);
    const since=options.since||COVERAGE_START;
    const updateSince=state.backfilled.includes(journal.id)&&!options.refresh?state.cursors[journal.id]:undefined;
@@ -108,18 +141,34 @@ export async function collect(options:CollectOptions={}) {
    process.stdout.write(`${journal.shortName}: ${result.papers.length} records; ${health.status}\n`);
   }
   papers=papers.filter(p=>eligibleDate(p,today));
-  for(const p of papers)if(p.abstract&&isAvailabilityNote(p.abstract)){delete p.abstract;delete p.abstractSource;}
+  discardAbstractPlaceholders(papers);
   for(const p of papers)if(p.relevance.method!=='codex')p.relevance=classify(p);
-  const enrichmentQueue=papers.filter(p=>!isExcluded(p)&&journals.some(j=>j.id===p.journalId)&&(!p.abstract||!p.oaLocations.some(x=>x.pdfUrl))&&(!state.enriched[p.id]||Date.now()-Date.parse(state.enriched[p.id])>7*86400000))
-   .sort((a,b)=>Number(Boolean(state.enriched[a.id]))-Number(Boolean(state.enriched[b.id]))||(state.enriched[a.id]||'').localeCompare(state.enriched[b.id]||'')||Number(relevant(b))-Number(relevant(a))||(b.publicationDate?.value||'').localeCompare(a.publicationDate?.value||''));
   const enrichLimit=options.enrichLimit??100;
-  for(const [index,p] of enrichmentQueue.slice(0,enrichLimit).entries()) {
-   process.stdout.write(`Enriching ${index+1}/${Math.min(enrichLimit,enrichmentQueue.length)}: ${p.title.slice(0,80)}\n`);
-   const errors=await enrichPaper(p);state.enriched[p.id]=new Date().toISOString();
+  const identifierQueue=enrichmentQueue(papers,state.enriched,options).filter(p=>!p.doi&&JOURNALS.some(j=>j.id===p.journalId&&j.publisher==='elsevier')).slice(0,enrichLimit);
+  if(identifierQueue.length) {
+   process.stdout.write(`Recovering exact publisher identifiers for ${identifierQueue.length} paper(s)...\n`);
+   const recovered=await recoverIdentifiers(identifierQueue);
+   papers=mergePapers([...papers,...recovered.papers]).filter(p=>eligibleDate(p,today));
+   warnings.push(...recovered.errors);
+   process.stdout.write(`Recovered ${recovered.papers.filter(p=>p.doi).length}/${identifierQueue.length} DOI records.\n`);
+  }
+  const queue=enrichmentQueue(papers,state.enriched,options).filter(p=>!(restored&&progressPapers.has(p.id)&&progressPapers.get(p.id)?.doi===p.doi&&Date.now()-Date.parse(state.enriched[p.id])<86400000));
+  const selected=queue.slice(0,enrichLimit);const enrich=createPaperEnricher();
+  if(selected.length)process.stdout.write(`Preparing public metadata for ${selected.length} paper(s)...\n`);
+  await enrich.prefetch(selected);
+  for(const [index,p] of selected.entries()) {
+   process.stdout.write(`Enriching ${index+1}/${selected.length}: ${p.title.slice(0,80)}\n`);
+   let errors:string[];
+   try {errors=await enrich(p);}catch(error){errors=[safeError(error)];}
+   const checkedAt=new Date().toISOString();state.enriched[p.id]=checkedAt;
+   p.abstractRetrieval={checkedAt,status:p.abstract?'available':errors.length?'partial':'not-found',errors:errors.map(safeError)};
    if(errors.length)process.stdout.write(errors.join('; ')+'\n');
    if(p.relevance.method!=='codex')p.relevance=classify(p);
+   progressPapers.set(p.id,p);
+   // Save completed work without exposing a half-reviewed library to readers.
+   await writeJson(progressPath,{baseRunId:state.lastRunId,papers:[...progressPapers.values()],enriched:state.enriched});
   }
-  if(enrichmentQueue.length>enrichLimit)warnings.push(`${enrichmentQueue.length-enrichLimit} records remain queued for metadata enrichment in subsequent runs.`);
+  if(queue.length>enrichLimit)warnings.push(`${queue.length-enrichLimit} records remain queued for metadata enrichment in subsequent runs.`);
   let downloads=0;const downloadLimit=options.downloadLimit??10;
   for(const p of fairDownloadQueue(papers.filter(p=>relevant(p)&&p.pdf.status!=='downloaded'&&p.oaLocations.some(l=>l.isOa&&l.pdfUrl)&&(!p.pdf.attemptedAt||Date.now()-Date.parse(p.pdf.attemptedAt)>86400000)))) {
    if(downloads>=downloadLimit)break;
@@ -158,7 +207,7 @@ export async function finalize(id:string,options:{downloadLimit?:number}={}) {
   await recoverCommit();
   const run=await readJson<RunReport>(runPath(id));
   if(run.status==='finalized'){process.stdout.write('Run already finalized; no duplicate notices.\n');return run;}
-  for(const p of run.papers)if(p.abstract&&isAvailabilityNote(p.abstract)){delete p.abstract;delete p.abstractSource;}
+  discardAbstractPlaceholders(run.papers);
   for(const p of run.papers)if(!p.abstract&&p.pdf.status==='downloaded') {
    try { await validateSummarySource(p);await recoverAuthorAbstract(p); }
    catch {
@@ -202,7 +251,7 @@ export async function finalize(id:string,options:{downloadLimit?:number}={}) {
   for(const p of run.papers.filter(relevant)) {
    const previous=identityKeys(p).map(k=>oldKeys.get(k)).find(Boolean);
    const kinds=notices(p,previous,!checkpoint.backfilled.includes(p.journalId),run.startedAt.slice(0,10));
-   for(const kind of kinds) {p.milestones.push({kind,observedAt:now,date:(kind==='issue'?p.publishedIssue:p.publicationDate)?.value,runId:id});run.notifications.push({paperId:p.id,kind});}
+   for(const kind of kinds) {p.milestones.push({kind,observedAt:now,date:(kind==='online'?p.publishedOnline:kind==='issue'?p.publishedIssue:p.publicationDate)?.value,runId:id});run.notifications.push({paperId:p.id,kind});}
   }
   const queued=run.papers.filter(p=>relevant(p)&&p.pdf.status!=='downloaded'&&p.oaLocations.some(l=>l.isOa&&l.pdfUrl)).length;
   if(queued)run.warnings.push(`${queued} open-access PDF(s) remain queued; later runs continue the archive.`);

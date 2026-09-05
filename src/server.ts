@@ -7,7 +7,7 @@ import { z } from 'zod';
 import { COVERAGE_START, JOURNALS, OUTPUT, ROOT, credentialStatus } from './config.js';
 import { parseSearch, searchPapers, SearchInputError, dateInterval } from './search.js';
 import type { Journal, Library, Paper } from './types.js';
-import { redactSecrets } from './http.js';
+import { redactSecrets, safeError } from './http.js';
 
 const paperDate = z.object({ value: z.string().refine(value => Boolean(dateInterval(value))), precision: z.enum(['day', 'month', 'year']), source: z.string() });
 const librarySchema = z.object({
@@ -17,6 +17,7 @@ const librarySchema = z.object({
   papers: z.array(z.object({
     id: z.string().min(1), doi: z.string().optional(), pii: z.string().optional(), aliases: z.array(z.string()), journalId: z.string(), title: z.string(), authors: z.array(z.string()), url: z.string(), keywords: z.array(z.string()), articleType: z.string(),
     abstract: z.string().optional(), abstractSource: z.string().optional(), summary: z.string().optional(), summarySource: z.string().optional(), summaryGeneratedAt: z.string().optional(),
+    abstractRetrieval: z.object({ checkedAt: z.string(), status: z.enum(['available', 'not-found', 'partial']), errors: z.array(z.string()) }).optional(),
     publishedOnline: paperDate.optional(), publishedIssue: paperDate.optional(), publicationDate: paperDate.optional(), volume: z.string().optional(), issue: z.string().optional(), pages: z.string().optional(), firstSeenAt: z.string(), updatedAt: z.string(),
     relevance: z.object({ topic: z.enum(['both', 'learning-analytics', 'ai', 'unrelated', 'pending']), method: z.enum(['rules', 'codex']), confidence: z.enum(['high', 'medium', 'low']), reason: z.string(), evidence: z.array(z.string()), reviewedAt: z.string().optional(), reviewedFingerprint: z.string().optional() }),
     oaLocations: z.array(z.object({ url: z.string(), pdfUrl: z.string().optional(), hostType: z.enum(['publisher', 'repository']), version: z.string().optional(), license: z.string().optional(), isOa: z.boolean(), source: z.string() })),
@@ -66,7 +67,27 @@ function sendJson(request: IncomingMessage, response: ServerResponse, status: nu
 
 function publicPaper(paper: Paper): Paper {
   const { path: _privatePath, ...pdf } = paper.pdf;
-  return { ...paper, pdf };
+  const abstractRetrieval = paper.abstractRetrieval && { ...paper.abstractRetrieval, errors: paper.abstractRetrieval.errors.slice(0, 12).map(error => safeError(error).replace(/https?:\/\/[^\s"'<>]+/gi, value => {
+    try { const url = new URL(value); url.username = ''; url.password = ''; return url.href; } catch { return '[source URL unavailable]'; }
+  }).replace(/\b[A-Za-z]:[\\/][^\r\n"']+/g, '[local path]').slice(0, 400)) };
+  return { ...paper, pdf, abstractRetrieval };
+}
+
+/** Discovery health and abstract completeness are intentionally independent. */
+function abstractCoverage(papers: readonly Paper[]) {
+  const checked = papers.filter(paper => paper.abstractRetrieval);
+  return {
+    papers: papers.length,
+    available: papers.filter(paper => Boolean(paper.abstract?.trim())).length,
+    missing: papers.filter(paper => !paper.abstract?.trim()).length,
+    summaries: papers.filter(paper => Boolean(paper.summary?.trim())).length,
+    attempted: checked.length,
+    partial: checked.filter(paper => paper.abstractRetrieval!.status === 'partial').length,
+    notFound: checked.filter(paper => paper.abstractRetrieval!.status === 'not-found').length,
+    noRecordedCheck: papers.length - checked.length,
+    missingWithoutRecordedCheck: papers.filter(paper => !paper.abstract?.trim() && !paper.abstractRetrieval).length,
+    lastCheckedAt: checked.map(paper => paper.abstractRetrieval!.checkedAt).filter(Boolean).sort().at(-1),
+  };
 }
 
 function inside(root: string, target: string): boolean {
@@ -147,7 +168,10 @@ export function createPaperServer(options: PaperServerOptions = {}): http.Server
         if (url.pathname === '/api/papers') { const results = searchPapers(library.papers, parseSearch(url.searchParams)); sendJson(request, response, 200, { ...results, papers: results.papers.map(publicPaper) }); return; }
         if (url.pathname === '/api/status') {
           const { papers, ...metadata } = library;
-          sendJson(request, response, 200, { application:'paper-monitor', ...metadata, paperCount: papers.filter(paper => ['both', 'learning-analytics', 'ai'].includes(paper.relevance.topic)).length, contentCounts:{abstracts:papers.filter(p=>p.abstract).length,summaries:papers.filter(p=>p.summary).length,pdfs:papers.filter(p=>p.pdf.status==='downloaded').length,missingAbstracts:papers.filter(p=>!p.abstract).length,pdfQueued:papers.filter(p=>p.pdf.status!=='downloaded'&&p.oaLocations.some(l=>l.isOa&&l.pdfUrl)).length}, credentials: credentialStatus(), snapshotError: store.error }); return;
+          const visible = papers.filter(paper => ['both', 'learning-analytics', 'ai'].includes(paper.relevance.topic));
+          const coverage = abstractCoverage(visible);
+          const journalIds = [...new Set([...library.journals.map(journal => journal.id), ...visible.map(paper => paper.journalId)])];
+          sendJson(request, response, 200, { application:'paper-monitor', ...metadata, paperCount: visible.length, contentCounts:{abstracts:coverage.available,summaries:coverage.summaries,pdfs:visible.filter(p=>p.pdf.status==='downloaded').length,missingAbstracts:coverage.missing,pdfQueued:visible.filter(p=>p.pdf.status!=='downloaded'&&p.oaLocations.some(l=>l.isOa&&l.pdfUrl)).length}, abstractCoverage:coverage, abstractCoverageByJournal:journalIds.map(journalId=>({journalId,...abstractCoverage(visible.filter(paper=>paper.journalId===journalId))})), credentials: credentialStatus(), snapshotError: store.error }); return;
         }
         if (url.pathname === '/api/reports/latest') {
           const filename = await registeredFile(path.join(output, 'reports'), path.join(output, 'reports', 'latest.md'));

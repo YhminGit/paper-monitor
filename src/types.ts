@@ -4,13 +4,16 @@ export interface PaperDate { value: string; precision: 'day' | 'month' | 'year';
 export interface Provenance { source: string; url: string; fetchedAt: string; }
 export interface Relevance { topic: Topic; method: 'rules' | 'codex'; confidence: 'high' | 'medium' | 'low'; reason: string; evidence: string[]; reviewedAt?: string; reviewedFingerprint?: string; }
 export interface OALocation { url: string; pdfUrl?: string; hostType: 'publisher' | 'repository'; version?: string; license?: string; isOa: boolean; source: string; }
+export interface ArticleLicense { doi:string; url:string; appliesTo:'vor'|'am'|'tdm'|'stm-asf'|'unknown'; start?:PaperDate; source:'crossref'; sourceUrl:string; fetchedAt:string; }
 export interface PdfRecord { status: 'pending' | 'downloaded' | 'unavailable' | 'blocked' | 'failed'; path?: string; sourceUrl?: string; sha256?: string; bytes?: number; license?: string; version?: string; error?: string; attemptedAt?: string; }
 export interface Milestone { kind: 'online' | 'issue' | 'backfill'; observedAt: string; date?: string; runId?: string; }
 export interface Paper {
   id: string; doi?: string; pii?: string; aliases: string[]; journalId: string; title: string; authors: string[];
   url: string; keywords: string[]; articleType: string; abstract?: string; abstractSource?: string;
   summary?: string; summarySource?: string; summaryGeneratedAt?: string;
-  publicContent?: { abstract:'licensed'|'withheld'|'unavailable'; license?:string };
+  licenses?:ArticleLicense[];
+  abstractRetrieval?:{checkedAt:string;status:'available'|'not-found'|'partial';errors:string[]};
+  publicContent?: { abstract:'licensed'|'withheld'|'unavailable'; license?:string; licenseSource?:string };
   publishedOnline?: PaperDate; publishedIssue?: PaperDate; publicationDate?: PaperDate;
   volume?: string; issue?: string; pages?: string; firstSeenAt: string; updatedAt: string;
   relevance: Relevance; oaLocations: OALocation[]; pdf: PdfRecord; milestones: Milestone[]; provenance: Provenance[];

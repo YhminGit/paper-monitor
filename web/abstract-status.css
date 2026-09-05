@@ -1,0 +1,23 @@
+.abstract-coverage-overview{border:1px solid #dce5d6;border-radius:7px;background:#fff;padding:19px 21px;margin:0 0 18px}
+.coverage-title{display:flex;align-items:baseline;justify-content:space-between;gap:15px}
+.coverage-title h2{font-size:12px;font-weight:600;color:#47603f;margin:0}
+.coverage-title>span{font-size:10px;color:#8a9781}
+.coverage-numbers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:19px 0 15px}
+.coverage-numbers>div{display:flex;flex-direction:column;gap:6px}
+.coverage-numbers strong{font-size:26px;font-weight:500;color:#3b5940;line-height:1.2}
+.coverage-numbers span{font-size:10px;color:#7c8e72;line-height:1.7}
+.abstract-coverage-overview>p{font-size:10px;color:#8b947e;line-height:1.8;margin:0;border-top:1px solid #edf0e8;padding-top:12px}
+.journal-abstract-coverage{padding-top:10px;margin-top:10px;border-top:1px solid #e0e7d9}
+.journal-abstract-coverage>span{display:block;font-size:10px;line-height:1.8;color:#829173}
+.journal-abstract-coverage b{font-weight:600;color:#5e7951}
+.abstract-state-caption{display:flex;align-items:flex-start;gap:6px;font-size:10px;line-height:1.8;color:#8b8f7b;margin:0 0 18px}
+.abstract-state-caption>svg{flex-shrink:0;margin-top:3px}
+.abstract-state-caption.available{color:#6c8a5e}
+.abstract-state-caption a{color:#66845a;text-decoration:underline;text-underline-offset:3px}
+.abstract-status-heading{display:block;font-size:12px;font-weight:600;color:#778860;margin-bottom:9px;line-height:1.6}
+.content-unavailable .abstract-check-time{font-size:10px;margin-top:12px;color:#7b8b6c}
+.content-unavailable .abstract-retry-note{font-size:10px;margin-top:12px;line-height:1.8;color:#929b83}
+.abstract-check-errors{font-size:10px;line-height:1.8;margin-top:13px;color:#937b51;overflow-wrap:anywhere}
+.abstract-check-errors summary{cursor:pointer}.abstract-check-errors ul{padding-left:17px;margin-bottom:0}.abstract-check-errors li+li{margin-top:5px}
+@media(max-width:700px){.abstract-coverage-overview{padding:16px}.coverage-title{gap:10px;flex-wrap:wrap}.coverage-title h2{font-size:11px}.coverage-title>span{font-size:9px}.coverage-numbers{gap:12px;margin-top:16px}.coverage-numbers strong{font-size:24px}.coverage-numbers span{font-size:9px}.abstract-coverage-overview>p{font-size:9px}.journal-abstract-coverage>span{font-size:10px}}
+@media(max-width:410px){.coverage-numbers{gap:9px}.coverage-numbers strong{font-size:22px}.coverage-numbers span{font-size:8px}.abstract-state-caption{font-size:9px}}

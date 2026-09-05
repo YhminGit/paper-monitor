@@ -11,3 +11,19 @@ Return to the existing Codex task, using this project directory. Run on Monday a
 7. Post the dated digest. Include all seven journal headings and their success/partial/failure status. For up to 20 reported papers include full titles and author abstracts or labeled generated summaries. For larger runs include counts and all titles, with a clickable absolute-path link to the full Markdown report. Include links to downloaded PDFs, http://127.0.0.1:3000 and https://yhmingit.github.io/paper-monitor/. Distinguish the private local abstracts/PDFs from the publicly shareable snapshot. Mention queued abstracts/PDFs without claiming the archive is complete.
 
 A PDF batch size is a per-run pacing control; there is no archive-wide count limit. Retry work continues over subsequent runs. Continue using the current task's configured model; no separate OpenAI API key is needed for review.
+
+## Abstract retrieval and catch-up
+
+The collector prioritizes relevant papers, batches DOI lookups through the public OpenAlex API, and saves completed enrichment results privately after each paper. An interrupted collection resumes compatible saved results without replacing the published archive. Discovery health and abstract retrieval coverage are separate: a feed can be healthy while abstracts remain missing. Inspect the local dashboard's abstract coverage and each paper's last recorded check. Public abstracts additionally require a verified redistribution licence; an available private abstract is not automatically public.
+
+For a staged run, compare its checkpoint `baseRunId` with the catalog's `lastRunId` before resuming. A mismatch means it was superseded by a newer finalization and must not be finalized. The CLI rejects such stale runs. If collection ended before staging, its compatible private enrichment progress will resume automatically.
+
+Do not request ScienceDirect article HTML programmatically or bypass access challenges. Use official feeds, Crossref, OpenAlex, and the supported Elsevier API when a local API key is configured. Anonymous API access may be limited; record failures and retry later rather than bypassing limits.
+
+For an explicitly requested public-source abstract catch-up, this command refreshes Elsevier's journal metadata and retries missing abstracts, without attempting PDFs:
+
+```powershell
+npm.cmd run monitor -- collect --publisher=elsevier --relevant-only --retry-missing --refresh --enrich-limit=1000 --download-limit=0
+```
+
+Review and finalize its returned run as usual. Add `--enrich-only` instead of `--refresh` to reuse the archive without advancing discovery health or coverage cursors. Normal scheduled runs retain the seven-day retry interval; `--retry-missing` is an explicit catch-up override, not a reason to hammer blocked APIs.

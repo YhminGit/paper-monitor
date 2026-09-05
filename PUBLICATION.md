@@ -12,6 +12,8 @@ The exporter reads the finalized local library and explicitly selects shareable 
 
 Public abstracts require a supported redistribution licence tied to the actual content source; free access alone is not permission to republish. Ambiguous abstracts are withheld with a publisher link, even when they are available in the personal dashboard. Generated summaries remain explicitly labeled and require verified source material. Third-party content retains its original rights and attribution. See [Crossref's licensing guidance](https://www.crossref.org/documentation/retrieve-metadata/).
 
+For DOI-specific OpenAlex or Crossref abstracts, the exporter can verify a publisher-deposited Crossref licence for the **same DOI and version of record**. It requires matching retrieval provenance and an effective CC BY, CC BY-SA or CC0 licence, and displays its evidence link. Accepted-manuscript, text-mining, unspecified-version, future/embargoed and ambiguous or unsupported licences do not authorize this route. Crossref's [version and start-date documentation](https://www.crossref.org/documentation/schema-library/markup-guide-metadata-segments/license-information/) explains these distinctions. A metadata refresh replaces the previous recorded licence set; stale permissive proofs must not survive a newer restrictive record. Existing article-specific JLA rights checks and verified repository-text checks remain separate.
+
 PDFs are **not uploaded**. Visitors use lawful publisher/repository links. The public OA-link filter is different from the personal dashboard's downloaded-PDF filter. Public keyword search covers only the text actually published in the public snapshot; withheld abstracts are not shipped as hidden searchable data.
 
 ## Local export and preview

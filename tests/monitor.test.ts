@@ -4,10 +4,11 @@ import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { mergePapers, normalizeDoi } from '../src/identity.js';
-import { eligibleDate, issueReady, notices, needsReview } from '../src/monitor.js';
+import { eligibleDate, issueReady, notices, needsReview, enrichmentQueue, restoreEnrichmentProgress } from '../src/monitor.js';
 import { classify, isExcluded } from '../src/relevance.js';
-import { atomicWrite, readJson } from '../src/storage.js';
+import { atomicWrite, readJson, replaceFile } from '../src/storage.js';
 import type { Paper } from '../src/types.js';
+import { JOURNALS } from '../src/config.js';
 
 function paper(id: string, overrides: Partial<Paper> = {}): Paper {
   return { id, aliases: [], journalId: 'bjet', title: `Learning analytics study ${id}`, authors: ['Ada Lovelace'], url: `https://example.org/${id}`, keywords: [], articleType: 'journal-article', firstSeenAt: '2025-01-01', updatedAt: '2026-01-01', relevance: { topic: 'learning-analytics', method: 'rules', confidence: 'low', reason: 'Topic phrase', evidence: ['learning analytics'] }, oaLocations: [], pdf: { status: 'unavailable' }, milestones: [], provenance: [], ...overrides };
@@ -79,6 +80,16 @@ test('historical eligibility preserves partial dates and uses publication-date f
   assert.equal(eligibleDate(paper('issue-only-old', { publishedIssue: day('2024-12-31') }), '2026-09-05'), false);
 });
 
+test('current official feed announcements retain future issue dates without inventing online dates', () => {
+ const feed=JOURNALS.find(j=>j.id==='compedu')!.feeds[0];
+ const candidate=paper('ahead',{journalId:'compedu',publishedIssue:{value:'2027-01',precision:'month',source:'crossref:published-print'},provenance:[{source:'publisher-rss',url:feed,fetchedAt:'2026-09-05T00:00:00Z'}]});
+ assert.equal(eligibleDate(candidate,'2026-09-06'),true);
+ assert.equal(candidate.publishedOnline,undefined);
+ assert.equal(issueReady({...candidate,volume:'2027'},'2026-09-06'),false);
+ assert.equal(eligibleDate({...candidate,provenance:[{...candidate.provenance[0],url:'https://unrelated.example/feed'}]},'2026-09-06'),false);
+ assert.equal(eligibleDate({...candidate,publishedIssue:day('2024-12-31')},'2026-09-06'),false);
+});
+
 test('publication exclusions take priority over AI phrases and learning analytics alone is not AI', () => {
   for (const title of ['Correction to: ChatGPT for learning analytics', 'Editorial: Artificial intelligence', 'Book review: Learning analytics', 'Retraction: An AI tutor', 'Call for papers: Generative AI']) {
     const candidate = paper(title, { title });
@@ -112,4 +123,51 @@ test('atomic writes replace complete files and malformed state is never silently
     await writeFile(file, '{broken');
     await assert.rejects(readJson(file, { empty: true }), SyntaxError);
   } finally { await rm(root, { recursive: true, force: true }); }
+});
+
+test('metadata queue prioritizes relevant papers, honors scope, and retries missing abstracts explicitly', () => {
+ const now=Date.parse('2026-09-06T00:00:00Z');
+ const recent='2026-09-05T00:00:00Z';
+ const papers=[paper('pending',{relevance:{topic:'pending',method:'rules',confidence:'low',reason:'Not yet reviewed',evidence:[]}}),paper('relevant'),paper('retry',{journalId:'compedu'}),paper('complete',{journalId:'compedu',abstract:'Available abstract',oaLocations:[{url:'https://example.org/p',pdfUrl:'https://example.org/p.pdf',isOa:true,hostType:'publisher',source:'test'}]}),paper('excluded',{title:'Editorial: Artificial intelligence'})];
+ assert.deepEqual(enrichmentQueue(papers,{retry:recent},{},now).map(p=>p.id),['relevant','pending']);
+ assert.deepEqual(enrichmentQueue(papers,{retry:recent},{publisher:'elsevier',relevantOnly:true,retryMissing:true},now).map(p=>p.id),['retry']);
+ assert.deepEqual(enrichmentQueue(papers,{}, {journal:'bjet',relevantOnly:true},now).map(p=>p.id),['relevant']);
+ assert.equal(enrichmentQueue([paper('invalid')],{invalid:'invalid-date'},{},now).length,1);
+});
+
+test('resuming metadata never publishes or restores a stale archive generation', () => {
+ const state={papers:[paper('a')],cursors:{},enriched:{},backfilled:[],lastRunId:'current'};
+ const saved={...paper('a'),abstract:'A recovered author abstract',abstractSource:'https://example.org/a',abstractRetrieval:{checkedAt:'2026-09-06T00:00:00Z',status:'available' as const,errors:[]}};
+ assert.equal(restoreEnrichmentProgress(state,{baseRunId:'old',papers:[saved],enriched:{a:'2026-09-06'}}),false);
+ assert.equal(state.papers[0].abstract,undefined);
+ const newlyDiscovered=paper('new-discovery',{abstract:'Completed enrichment for a newly discovered paper',abstractSource:'https://example.org/new-discovery'});
+ assert.equal(restoreEnrichmentProgress(state,{baseRunId:'current',papers:[saved,newlyDiscovered],enriched:{a:'2026-09-06','new-discovery':'2026-09-06'}}),true);
+ assert.equal(state.papers.length,2);
+ assert.equal(state.papers[0].abstract,saved.abstract);
+ assert.equal(state.papers[0].abstractRetrieval?.status,'available');
+ assert.equal(state.papers[1].abstract,newlyDiscovered.abstract);
+ assert.deepEqual(state.enriched,{a:'2026-09-06','new-discovery':'2026-09-06'});
+});
+
+test('first-import progress preserves genuine new papers while rejecting unconfigured or out-of-coverage records', () => {
+ const state={papers:[] as Paper[],cursors:{},enriched:{},backfilled:[]};
+ const saved=paper('new',{abstract:'A recovered first-import abstract'});
+ const invalidJournal=paper('foreign',{journalId:'unconfigured'});
+ const old=paper('old',{publishedOnline:day('2024-12-31')});
+ assert.equal(restoreEnrichmentProgress(state,{papers:[saved,invalidJournal,old],enriched:{new:'2026-09-06',foreign:'2026-09-06',old:'2026-09-06'}}),true);
+ assert.deepEqual(state.papers.map(p=>p.id),['new']);
+ assert.equal(state.papers[0].abstract,saved.abstract);
+ assert.deepEqual(state.enriched,{new:'2026-09-06'});
+});
+
+test('atomic replacement retries transient Windows locks without deleting the destination', async () => {
+ let attempts=0;const waits:number[]=[];
+ await replaceFile('temporary','published',async(from,to)=>{assert.equal(from,'temporary');assert.equal(to,'published');if(attempts++<2)throw Object.assign(new Error('Busy'),{code:'EPERM'});},async ms=>{waits.push(ms);});
+ assert.equal(attempts,3);assert.deepEqual(waits,[100,200]);
+ attempts=0;
+ await assert.rejects(replaceFile('temporary','published',async()=>{attempts++;throw Object.assign(new Error('Permanent permission error'),{code:'EACCES'});},async()=>{}),/Permanent permission error/);
+ assert.equal(attempts,6);
+ attempts=0;
+ await assert.rejects(replaceFile('temporary','published',async()=>{attempts++;throw Object.assign(new Error('Missing source'),{code:'ENOENT'});},async()=>{}),/Missing source/);
+ assert.equal(attempts,1);
 });

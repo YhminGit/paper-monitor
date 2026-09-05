@@ -5,13 +5,13 @@ import { collect, finalize, mergeReviews } from './monitor.js';
 import { loadLibrary, readJson } from './storage.js';
 import { credentialStatus, STATE, JOURNALS } from './config.js';
 import { safeError } from './http.js';
-const {values,positionals}=parseArgs({allowPositionals:true,options:{journal:{type:'string'},since:{type:'string'},limit:{type:'string'},'enrich-limit':{type:'string'},'download-limit':{type:'string'},refresh:{type:'boolean'},help:{type:'boolean'}}});
+const {values,positionals}=parseArgs({allowPositionals:true,options:{journal:{type:'string'},publisher:{type:'string'},since:{type:'string'},limit:{type:'string'},'enrich-limit':{type:'string'},'download-limit':{type:'string'},refresh:{type:'boolean'},'enrich-only':{type:'boolean'},'relevant-only':{type:'boolean'},'retry-missing':{type:'boolean'},help:{type:'boolean'}}});
 const number=(value:string|undefined)=>{if(value===undefined)return undefined;const n=Number(value);if(!Number.isInteger(n)||n<0)throw new Error('Limits must be nonnegative integers');return n;};
 try {
  const command=positionals[0]||'status';
  if(values.help||command==='help') {
-  process.stdout.write('Paper Monitor\n  collect [--journal ID] [--enrich-limit 100] [--download-limit 10] [--refresh]\n  finalize RUN_ID [--download-limit 10]\n  status\n  unlock (only clears a lock whose PID is no longer alive)\nJournal IDs: '+JOURNALS.map(j=>j.id).join(', ')+'\n');
- }else if(command==='collect')await collect({journal:values.journal,since:values.since,limit:number(values.limit),enrichLimit:number(values['enrich-limit']),downloadLimit:number(values['download-limit']),refresh:values.refresh});
+  process.stdout.write('Paper Monitor\n  collect [--journal ID | --publisher elsevier] [--enrich-limit 100] [--download-limit 10] [--refresh]\n    --enrich-only skips discovery; --relevant-only targets library papers; --retry-missing retries absent abstracts before the seven-day cooldown\n  finalize RUN_ID [--download-limit 10]\n  status\n  unlock (only clears a lock whose PID is no longer alive)\nJournal IDs: '+JOURNALS.map(j=>j.id).join(', ')+'\n');
+ }else if(command==='collect')await collect({journal:values.journal,publisher:values.publisher,since:values.since,limit:number(values.limit),enrichLimit:number(values['enrich-limit']),downloadLimit:number(values['download-limit']),refresh:values.refresh,enrichOnly:values['enrich-only'],relevantOnly:values['relevant-only'],retryMissing:values['retry-missing']});
  else if(command==='finalize') {if(!positionals[1])throw new Error('Provide a run ID');await finalize(positionals[1],{downloadLimit:number(values['download-limit'])});}
  else if(command==='merge-reviews') {if(!positionals[1])throw new Error('Provide a run ID');await mergeReviews(positionals[1],positionals.slice(2));}
  else if(command==='status') {const library=await loadLibrary();process.stdout.write(JSON.stringify({...library,papers:undefined,paperCount:library.papers.length,credentials:credentialStatus()},null,2)+'\n');}

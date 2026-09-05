@@ -1,9 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createPaperEnricher, parsePublisherHtml, reconstructAbstract } from '../src/enrichment.js';
+import { createPaperEnricher, isAvailabilityNote, isHighlightsOnly, parsePublisherHtml, reconstructAbstract } from '../src/enrichment.js';
 import type { Paper } from '../src/types.js';
 
 const pageUrl = 'https://www.sciencedirect.com/science/article/pii/S0360131525000012';
+const wileyUrl = 'https://bera-journals.onlinelibrary.wiley.com/doi/abs/10.1111/bjet.99999';
 const doi = '10.1016/j.compedu.2025.105123';
 const authorAbstract = 'This study examines student learning processes using a validated analytical model. The complete findings and implications are reported here.';
 const htmlResponse = (html: string) => new Response(html, { headers: { 'content-type': 'text/html; charset=utf-8' } });
@@ -13,6 +14,8 @@ const articleHtml = (...content: string[]) => '<html><head>' + meta('citation_do
 function paper(overrides: Partial<Paper> = {}): Paper {
   return { id: 'doi:' + doi, doi, pii: 'S0360131525000012', aliases: ['doi:' + doi], journalId: 'compedu', title: 'Learning analytics with AI', authors: [], url: pageUrl, keywords: [], articleType: 'journal-article', firstSeenAt: '2026-09-05T00:00:00Z', updatedAt: '2026-09-05T00:00:00Z', relevance: { topic: 'both', method: 'rules', confidence: 'high', reason: 'Fixture', evidence: [] }, oaLocations: [], pdf: { status: 'pending' }, milestones: [], provenance: [], ...overrides };
 }
+const wileyPaper = (overrides: Partial<Paper> = {}) => paper({ journalId: 'bjet', url: wileyUrl, ...overrides });
+const openAlexData = (data: Record<string, unknown> = {}) => ({ doi: 'https://doi.org/' + doi, locations: [], ...data });
 
 test('extracts explicit citation/DC abstracts and preserves full paragraph content', () => {
   const citation = parsePublisherHtml(articleHtml(meta('citation_abstract', '<p>' + authorAbstract + '</p>')), pageUrl, 'compedu');
@@ -83,40 +86,40 @@ test('publisher HTML precedes OpenAlex and keeps provenance free of credential q
     const calls: string[] = [];
     const enrich = createPaperEnricher(async url => {
       calls.push(url);
-      if (new URL(url).hostname === 'www.sciencedirect.com') return htmlResponse(articleHtml(meta('citation_abstract', authorAbstract), meta('citation_pdf_url', pageUrl + '/pdfft'), meta('citation_open_access', 'true')));
-      return jsonResponse({ abstract_inverted_index: { Secondary: [0], abstract: [1] }, locations: [] });
+      if (new URL(url).hostname === 'bera-journals.onlinelibrary.wiley.com') return htmlResponse(articleHtml(meta('citation_abstract', authorAbstract), meta('citation_pdf_url', wileyUrl.replace('/abs/', '/pdf/')), meta('citation_open_access', 'true')));
+      return jsonResponse(openAlexData({ abstract_inverted_index: { Secondary: [0], abstract: [1] } }));
     });
-    const record = paper();
+    const record = wileyPaper();
     assert.deepEqual(await enrich(record), []);
     assert.equal(calls.length, 2);
-    assert.equal(calls[0], pageUrl);
+    assert.equal(calls[0], wileyUrl);
     assert.equal(record.abstract, authorAbstract);
-    assert.equal(record.abstractSource, pageUrl);
+    assert.equal(record.abstractSource, wileyUrl);
     assert.equal(record.oaLocations[0].isOa, true);
     assert.equal(record.pdf.status, 'pending');
     assert.ok(!JSON.stringify(record.provenance).includes('fixture-openalex-key'));
   } finally { if (previousKey === undefined) delete process.env.OPENALEX_API_KEY; else process.env.OPENALEX_API_KEY = previousKey; }
 });
 
-test('Elsevier META_ABS remains an optional authenticated fallback after publisher access failure', async () => {
+test('Elsevier META_ABS remains optional and authenticated without requesting ScienceDirect HTML', async () => {
   const previousKey = process.env.ELSEVIER_API_KEY;
   process.env.ELSEVIER_API_KEY = 'fixture-elsevier-key';
   try {
     const calls: string[] = [];
     const enrich = createPaperEnricher(async (url, init) => {
       const host = new URL(url).hostname; calls.push(host);
-      if (host === 'www.sciencedirect.com') return new Response('Forbidden', { status: 403 });
+      assert.notEqual(host, 'www.sciencedirect.com');
       if (host === 'api.elsevier.com') {
         assert.equal(new Headers(init?.headers).get('X-ELS-APIKey'), 'fixture-elsevier-key');
         assert.equal(new URL(url).searchParams.get('view'), 'META_ABS');
         return jsonResponse({ 'full-text-retrieval-response': { coredata: { 'dc:description': '<p>' + authorAbstract + '</p>' } } });
       }
-      return jsonResponse({ locations: [] });
+      return jsonResponse(openAlexData());
     });
     const record = paper();
     const errors = await enrich(record);
-    assert.match(errors[0], /403/);
-    assert.deepEqual(calls, ['www.sciencedirect.com', 'api.elsevier.com', 'api.openalex.org']);
+    assert.deepEqual(errors, []);
+    assert.deepEqual(calls, ['api.elsevier.com', 'api.openalex.org']);
     assert.equal(record.abstract, authorAbstract);
     assert.match(record.abstractSource!, /^https:\/\/api\.elsevier\.com/);
     assert.ok(!JSON.stringify(record.provenance).includes('fixture-elsevier-key'));
@@ -127,19 +130,19 @@ test('publisher 403 and 200 challenge pages suppress subsequent requests to the 
   for (const challenged of [false, true]) {
     let publisherCalls = 0;
     const enrich = createPaperEnricher(async url => {
-      if (new URL(url).hostname === 'www.sciencedirect.com') { publisherCalls++; return challenged ? htmlResponse('<html><title>Just a moment...</title><script>var cf-chl-opt=1;</script></html>') : new Response('', { status: 403 }); }
-      return jsonResponse({ locations: [] });
+      if (new URL(url).hostname === 'bera-journals.onlinelibrary.wiley.com') { publisherCalls++; return challenged ? htmlResponse('<html><title>Just a moment...</title><script>var cf-chl-opt=1;</script></html>') : new Response('', { status: 403 }); }
+      return jsonResponse(openAlexData());
     });
-    await enrich(paper());
-    const errors = await enrich(paper({ doi: '10.1016/j.compedu.2025.105124' }));
+    await enrich(wileyPaper());
+    const errors = await enrich(wileyPaper({ doi: '10.1016/j.compedu.2025.105124' }));
     assert.equal(publisherCalls, 1);
     assert.ok(errors.some(error => error.includes('blocked earlier')));
   }
 });
 
 test('a mismatched publisher DOI cannot replace an abstract or establish OA', async () => {
-  const enrich = createPaperEnricher(async url => new URL(url).hostname === 'www.sciencedirect.com' ? htmlResponse(meta('citation_doi', '10.1000/another-article') + meta('citation_abstract', authorAbstract) + meta('citation_open_access', 'true')) : jsonResponse({ locations: [] }));
-  const record = paper();
+  const enrich = createPaperEnricher(async url => new URL(url).hostname === 'bera-journals.onlinelibrary.wiley.com' ? htmlResponse(meta('citation_doi', '10.1000/another-article') + meta('citation_abstract', authorAbstract) + meta('citation_open_access', 'true')) : jsonResponse(openAlexData()));
+  const record = wileyPaper();
   const errors = await enrich(record);
   assert.ok(errors.some(error => error.includes('does not match')));
   assert.equal(record.abstract, undefined);
@@ -147,11 +150,11 @@ test('a mismatched publisher DOI cannot replace an abstract or establish OA', as
 });
 
 test('OpenAlex can fill a missing abstract and identifies only positively open HTTPS locations', async () => {
-  const enrich = createPaperEnricher(async url => new URL(url).hostname === 'www.sciencedirect.com' ? htmlResponse(articleHtml()) : jsonResponse({ abstract_inverted_index: { Complete: [0], author: [1], abstract: [2] }, locations: [
+  const enrich = createPaperEnricher(async () => jsonResponse(openAlexData({ abstract_inverted_index: { Complete: [0], author: [1], abstract: [2] }, locations: [
     { is_oa: false, pdf_url: 'https://example.org/closed.pdf' },
     { is_oa: true, pdf_url: 'javascript:alert(1)' },
     { is_oa: true, landing_page_url: 'https://repository.example.edu/article/1', pdf_url: 'https://repository.example.edu/article/1.pdf', source: { type: 'repository' }, version: 'acceptedVersion', license: 'cc-by' },
-  ] }));
+  ] })));
   const record = paper({ pdf: { status: 'unavailable', error: 'Previously missing' } });
   await enrich(record);
   assert.equal(record.abstract, 'Complete author abstract');
@@ -162,7 +165,7 @@ test('OpenAlex can fill a missing abstract and identifies only positively open H
 
 test('successful metadata lookup marks missing PDFs unavailable with distinct reasons', async () => {
   for (const landingOnly of [false, true]) {
-    const enrich = createPaperEnricher(async url => new URL(url).hostname === 'www.sciencedirect.com' ? htmlResponse(articleHtml()) : jsonResponse({ locations: landingOnly ? [{ is_oa: true, landing_page_url: 'https://repository.example.edu/article/1' }] : [] }));
+    const enrich = createPaperEnricher(async () => jsonResponse(openAlexData({ locations: landingOnly ? [{ is_oa: true, landing_page_url: 'https://repository.example.edu/article/1' }] : [] })));
     const record = paper(); await enrich(record);
     assert.equal(record.pdf.status, 'unavailable');
     assert.match(record.pdf.error!, landingOnly ? /landing page/ : /No open-access PDF location/);
@@ -170,7 +173,7 @@ test('successful metadata lookup marks missing PDFs unavailable with distinct re
 });
 
 test('metadata enrichment preserves downloaded and failed PDF states', async () => {
-  const enrich = createPaperEnricher(async url => new URL(url).hostname === 'www.sciencedirect.com' ? htmlResponse(articleHtml(meta('citation_pdf_url', pageUrl + '/pdfft'), meta('citation_open_access', 'true'))) : jsonResponse({ locations: [] }));
+  const enrich = createPaperEnricher(async () => jsonResponse(openAlexData()));
   for (const status of ['downloaded', 'failed'] as const) {
     const record = paper({ pdf: { status, path: 'fixture.pdf', error: status === 'failed' ? 'Temporary download failure' : undefined } });
     const previous = { ...record.pdf }; await enrich(record);
@@ -182,20 +185,20 @@ test('API access denials are cached independently while publisher data remains a
   let openalexCalls = 0;
   let publisherCalls = 0;
   const enrich = createPaperEnricher(async url => {
-    if (new URL(url).hostname === 'www.sciencedirect.com') { publisherCalls++; return htmlResponse(articleHtml(meta('citation_abstract', authorAbstract))); }
+    if (new URL(url).hostname === 'bera-journals.onlinelibrary.wiley.com') { publisherCalls++; return htmlResponse(articleHtml(meta('citation_abstract', authorAbstract))); }
     openalexCalls++;
     return new Response('', { status: 403 });
   });
-  await enrich(paper());
-  const record = paper(); const errors = await enrich(record);
+  await enrich(wileyPaper());
+  const record = wileyPaper(); const errors = await enrich(record);
   assert.equal(openalexCalls, 1);
   assert.equal(publisherCalls, 2);
   assert.equal(record.abstract, authorAbstract);
-  assert.ok(errors.some(error => error.includes('blocked earlier')));
+  assert.ok(errors.some(error => error.includes('403')));
 });
 
 test('failed lookups leave PDF work pending and oversized publisher pages are rejected', async () => {
-  const record = paper({ doi: undefined, pii: undefined });
+  const record = wileyPaper({ doi: undefined, pii: undefined });
   const enrich = createPaperEnricher(async () => new Response('not downloaded', { headers: { 'content-type': 'text/html', 'content-length': String(6 * 1024 * 1024) } }));
   const errors = await enrich(record);
   assert.ok(errors.some(error => error.includes('exceeds 5 MB')));
@@ -206,4 +209,165 @@ test('failed lookups leave PDF work pending and oversized publisher pages are re
 test('OpenAlex reconstruction tolerates malformed positions without unbounded allocation', () => {
   assert.equal(reconstructAbstract({ evidence: [1], First: [0], rejected: [-1, 50000, 1.2] }), 'First evidence');
   assert.equal(reconstructAbstract(undefined), undefined);
+});
+
+test('highlight-only metadata is not an author abstract and the cleanup helper recognizes it', () => {
+  const highlights = '• Handwriting is a key skill for primary students. • Early detection can identify handwriting difficulties. • The platform offers a digital assessment.';
+  assert.equal(isHighlightsOnly(highlights), true);
+  assert.equal(isAvailabilityNote(highlights), true);
+  assert.equal(isHighlightsOnly('Highlights\n\n' + highlights), true);
+  const index: Record<string, number[]> = {};
+  highlights.split(' ').forEach((word, position) => { (index[word] ??= []).push(position); });
+  assert.equal(reconstructAbstract(index), undefined);
+  assert.equal(isHighlightsOnly(authorAbstract + '\n\nHighlights\n' + highlights), false);
+  assert.equal(isHighlightsOnly(highlights + '\n\n' + authorAbstract), false);
+  assert.equal(isHighlightsOnly('• Background: Our study examines learning traces. • Methods: We analyze traces. • Results: Findings are presented. • Conclusions: The results inform teaching.'), false);
+  assert.equal(isHighlightsOnly('A complete abstract discusses several • symbols within its prose.'), false);
+  assert.equal(isHighlightsOnly('• A single bullet is insufficient to identify a highlights-only list.'), false);
+});
+
+test('all Elsevier journal families use metadata APIs only, including fallback publisher aliases', async () => {
+  const previousKey = process.env.ELSEVIER_API_KEY;
+  delete process.env.ELSEVIER_API_KEY;
+  try {
+    for (const journalId of ['compedu', 'edurev', 'caeai']) {
+      const calls: string[] = [];
+      const enrich = createPaperEnricher(async url => {
+        calls.push(url); assert.equal(new URL(url).hostname, 'api.openalex.org');
+        return jsonResponse(openAlexData());
+      });
+      const record = paper({ journalId, aliases: ['url:' + pageUrl], oaLocations: [{ url: pageUrl, isOa: true, source: 'Fixture', hostType: 'publisher' }] });
+      assert.deepEqual(await enrich(record), []);
+      assert.equal(calls.length, 1);
+      const missingDoiErrors = await enrich(paper({ journalId, doi: undefined, url: undefined }));
+      assert.ok(missingDoiErrors.some(error => error.includes('No DOI is available')));
+      assert.equal(calls.length, 1);
+      assert.ok(!record.provenance.some(item => item.source === 'publisher-html'));
+    }
+  } finally { if (previousKey !== undefined) process.env.ELSEVIER_API_KEY = previousKey; }
+});
+
+test('singleton OpenAlex responses require an exact DOI before applying any metadata', async () => {
+  for (const responseDoi of [undefined, '10.1000/unrelated', 'https://unrelated.example/10.1016/j.compedu.2025.105123', 'prefix ' + doi, doi + '?another=work']) {
+    const enrich = createPaperEnricher(async () => jsonResponse(openAlexData({ doi: responseDoi, abstract_inverted_index: { Wrong: [0], article: [1] }, keywords: [{ display_name: 'Incorrect' }], locations: [{ is_oa: true, pdf_url: 'https://repository.example.edu/wrong.pdf' }] })));
+    const record = paper();
+    assert.ok((await enrich(record)).some(error => error.includes('DOI')));
+    assert.equal(record.abstract, undefined);
+    assert.deepEqual(record.keywords, []);
+    assert.deepEqual(record.oaLocations, []);
+    assert.deepEqual(record.provenance, []);
+    assert.equal(record.pdf.status, 'pending');
+  }
+});
+
+test('prefetch batches 100 unique DOIs, handles shuffled results, and does not mutate papers', async () => {
+  const records = Array.from({ length: 205 }, (_, index) => paper({ id: 'doi:10.1000/batch.' + index, doi: '10.1000/batch.' + index }));
+  const duplicate = paper({ doi: 'https://doi.org/10.1000/BATCH.0' });
+  const all = [...records, duplicate, paper({ doi: undefined })];
+  const before = JSON.stringify(all), calls: string[] = [];
+  const enrich = createPaperEnricher(async input => {
+    calls.push(input); const url = new URL(input);
+    assert.equal(url.origin + url.pathname, 'https://api.openalex.org/works');
+    assert.equal(url.searchParams.get('per_page'), '100');
+    assert.ok(url.searchParams.get('select')!.split(',').includes('doi'));
+    const requested = url.searchParams.get('filter')!.slice(4).split('|');
+    assert.ok(requested.length <= 100);
+    return jsonResponse({ meta: { count: requested.length }, results: requested.reverse().map(doi => ({ doi, abstract_inverted_index: { [doi.split('/').at(-1)!]: [0], abstract: [1] }, locations: [] })) });
+  });
+  await enrich.prefetch(all);
+  assert.equal(calls.length, 3);
+  assert.equal(JSON.stringify(all), before);
+  await enrich.prefetch(all);
+  for (const record of [...records, duplicate]) {
+    assert.deepEqual(await enrich(record), []);
+    assert.equal(record.abstract, record.doi!.toLowerCase().split('/').at(-1) + ' abstract');
+    assert.ok(record.abstractSource!.startsWith('https://api.openalex.org/works/https://doi.org/10.1000%2Fbatch.'));
+    assert.equal(record.provenance[0].url, record.abstractSource);
+  }
+  assert.equal(calls.length, 3);
+});
+
+test('batch missing, mismatched, and duplicate identities stay unavailable without singleton retries', async () => {
+  const records = ['match', 'missing', 'duplicate', 'spoof'].map(name => paper({ doi: '10.1000/' + name }));
+  let calls = 0;
+  const enrich = createPaperEnricher(async () => {
+    calls++;
+    const result = (doi: string) => ({ doi, abstract_inverted_index: { Found: [0], abstract: [1] }, locations: [] });
+    return jsonResponse({ results: [result('10.1000/duplicate'), result('10.1000/unrequested'), result('https://doi.org/10.1000/match'), result('https://other.example/10.1000/spoof'), result('10.1000/duplicate'), { abstract_inverted_index: { Misattributed: [0] } }] });
+  });
+  await enrich.prefetch(records);
+  assert.deepEqual(await enrich(records[0]), []);
+  assert.equal(records[0].abstract, 'Found abstract');
+  for (const record of records.slice(1)) {
+    assert.ok((await enrich(record)).some(error => /DOI|identity/.test(error)));
+    assert.equal(record.abstract, undefined);
+    assert.deepEqual(record.provenance, []);
+    assert.equal(record.pdf.status, 'pending');
+  }
+  await enrich.prefetch(records);
+  assert.equal(calls, 1);
+});
+
+test('unavailable public batch API becomes per-paper errors, suppresses blocked hosts, and can retry next run', async () => {
+  for (const status of [401, 403, 429]) {
+    let calls = 0;
+    const records = Array.from({ length: 101 }, (_, index) => paper({ doi: '10.1000/unavailable.' + index }));
+    const enrich = createPaperEnricher(async () => { calls++; return new Response('', { status }); });
+    await assert.doesNotReject(enrich.prefetch(records));
+    for (const record of records) {
+      assert.ok((await enrich(record)).some(error => /HTTP|blocked earlier/.test(error)));
+      assert.equal(record.abstract, undefined);
+      assert.equal(record.pdf.status, 'pending');
+    }
+    assert.equal(calls, 1);
+    const nextRun = createPaperEnricher(async () => jsonResponse({ results: [{ doi: records[0].doi, abstract_inverted_index: { Recovered: [0], abstract: [1] } }] }));
+    await nextRun.prefetch([records[0]]); assert.deepEqual(await nextRun(records[0]), []);
+    assert.equal(records[0].abstract, 'Recovered abstract');
+  }
+});
+
+test('invalid JSON and truncated batch envelopes fail closed while preserving pre-existing content', async () => {
+  for (const response of [() => new Response('{ invalid', { headers: { 'content-type': 'application/json' } }), () => jsonResponse({ error: 'unavailable' }), () => jsonResponse({ meta: { count: 2 }, results: [openAlexData()] }), () => new Response('', { status: 503 })]) {
+    let calls = 0;
+    const enrich = createPaperEnricher(async () => { calls++; return response(); });
+    const record = paper({ abstract: authorAbstract, abstractSource: 'https://publisher.example/abstract', keywords: ['Existing'], pdf: { status: 'downloaded', path: 'unchanged.pdf' } });
+    await assert.doesNotReject(enrich.prefetch([record]));
+    assert.ok((await enrich(record)).length);
+    assert.equal(record.abstract, authorAbstract);
+    assert.equal(record.abstractSource, 'https://publisher.example/abstract');
+    assert.deepEqual(record.keywords, ['Existing']);
+    assert.equal(record.pdf.path, 'unchanged.pdf');
+    assert.equal(calls, 1);
+  }
+});
+
+test('special DOI filter characters use encoded singleton URLs without widening the batch query', async () => {
+  const records = ['10.1000/a,b', '10.1000/a|b', '10.1000/a+b'].map(doi => paper({ doi }));
+  let calls = 0;
+  const enrich = createPaperEnricher(async input => {
+    calls++; const url = new URL(input);
+    assert.equal(url.searchParams.get('filter'), null);
+    const requestedDoi = decodeURIComponent(url.pathname.split('/https://doi.org/')[1]);
+    assert.ok(records.some(record => record.doi === requestedDoi));
+    return jsonResponse(openAlexData({ doi: requestedDoi }));
+  });
+  await enrich.prefetch(records);
+  for (const record of records) assert.deepEqual(await enrich(record), []);
+  assert.equal(calls, records.length);
+});
+
+test('prefetch credentials never enter DOI-specific abstract or OA provenance', async () => {
+  const previousKey = process.env.OPENALEX_API_KEY;
+  process.env.OPENALEX_API_KEY = 'fixture-batch-secret';
+  try {
+    const enrich = createPaperEnricher(async input => {
+      assert.equal(new URL(input).searchParams.get('api_key'), 'fixture-batch-secret');
+      return jsonResponse({ results: [openAlexData({ abstract_inverted_index: { Author: [0], abstract: [1] }, locations: [{ is_oa: true, pdf_url: 'https://repository.example.edu/paper.pdf' }] })] });
+    });
+    const record = paper(); await enrich.prefetch([record]); await enrich(record);
+    assert.equal(record.abstractSource, 'https://api.openalex.org/works/https://doi.org/' + encodeURIComponent(doi));
+    assert.equal(record.provenance[0].url, record.abstractSource);
+    assert.equal(record.oaLocations[0].source, record.abstractSource);
+    assert.ok(!JSON.stringify(record).includes('fixture-batch-secret'));
+  } finally { if (previousKey === undefined) delete process.env.OPENALEX_API_KEY; else process.env.OPENALEX_API_KEY = previousKey; }
 });

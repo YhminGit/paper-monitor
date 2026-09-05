@@ -22,7 +22,24 @@ export function mergePaper(old: Paper, incoming: Paper): Paper {
  result.publicationDate=result.publishedOnline||result.publishedIssue||incoming.publicationDate||old.publicationDate;
  result.aliases=[...new Set([...identityKeys(old),...identityKeys(incoming)])];
  result.oaLocations=[...new Map([...old.oaLocations,...incoming.oaLocations].map(x=>[x.pdfUrl||x.url,x])).values()];
- result.provenance=[...new Map([...old.provenance,...incoming.provenance].map(x=>[x.source+':'+x.url,x])).values()];
+ const provenance=new Map<string,Paper['provenance'][number]>();
+ for(const item of [...old.provenance,...incoming.provenance]) {
+  const key=item.source+':'+item.url,previous=provenance.get(key);
+  if(item.source==='crossref'&&previous&&Date.parse(previous.fetchedAt)>Date.parse(item.fetchedAt))continue;
+  provenance.set(key,item);
+ }
+ result.provenance=[...provenance.values()];
+ // A fresh Crossref record replaces its licence set, including an explicit empty set.
+ // Feed/enrichment updates without licence metadata must not erase existing proofs.
+ const resultDoi=result.doi?normalizeDoi(result.doi):undefined;
+ if(old.licenses!==undefined||incoming.licenses!==undefined) {
+  const sourceUrl=resultDoi?`https://api.crossref.org/works/${encodeURIComponent(resultDoi)}`:undefined;
+  const freshness=(paper:Paper)=>Math.max(0,...paper.provenance.filter(item=>item.source==='crossref'&&item.url===sourceUrl).map(item=>Date.parse(item.fetchedAt)||0));
+  const useIncoming=incoming.licenses!==undefined&&incoming.doi&&normalizeDoi(incoming.doi)===resultDoi&&freshness(incoming)>=freshness(old);
+  const evidence=useIncoming?incoming.licenses!:old.licenses||[];
+  result.licenses=evidence.filter(license=>resultDoi&&normalizeDoi(license.doi)===resultDoi);
+ }
+ if(incoming.abstractRetrieval&&(!old.abstractRetrieval||Date.parse(incoming.abstractRetrieval.checkedAt)>=Date.parse(old.abstractRetrieval.checkedAt)))result.abstractRetrieval=incoming.abstractRetrieval;
  result.updatedAt=incoming.updatedAt;
  if(incoming.relevance.method==='codex'&&(old.relevance.method!=='codex'||(incoming.relevance.reviewedAt||'')>(old.relevance.reviewedAt||'')))result.relevance=incoming.relevance;
  if(incoming.pdf.status==='downloaded'&&old.pdf.status!=='downloaded')result.pdf=incoming.pdf;

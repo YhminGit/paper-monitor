@@ -13,9 +13,11 @@ import type { Journal, Library, Paper, PaperDate, SourceHealth } from './types.j
 const timestamp=z.string().refine(value=>/^\d{4}-\d{2}-\d{2}(?:T.*)?$/.test(value)&&Number.isFinite(Date.parse(value)),'Invalid timestamp');
 const date=z.object({value:z.string().refine(value=>Boolean(dateInterval(value))),precision:z.enum(['year','month','day']),source:z.string()}).refine(value=>value.value.length===({year:4,month:7,day:10}[value.precision]),'Date precision mismatch');
 const location=z.object({url:z.string(),pdfUrl:z.string().optional(),hostType:z.enum(['publisher','repository']),version:z.string().optional(),license:z.string().optional(),isOa:z.boolean(),source:z.string()});
+const articleLicense=z.object({doi:z.string(),url:z.string(),appliesTo:z.enum(['vor','am','tdm','stm-asf','unknown']),start:date.optional(),source:z.literal('crossref'),sourceUrl:z.string(),fetchedAt:timestamp});
 const paperSchema=z.object({
  id:z.string().min(1),doi:z.string().optional(),pii:z.string().optional(),journalId:z.string(),title:z.string().min(1),authors:z.array(z.string()),url:z.string(),keywords:z.array(z.string()),articleType:z.string(),
  abstract:z.string().optional(),abstractSource:z.string().optional(),summary:z.string().optional(),summarySource:z.string().optional(),summaryGeneratedAt:timestamp.optional(),
+ licenses:z.array(articleLicense).optional(),
  publishedOnline:date.optional(),publishedIssue:date.optional(),publicationDate:date.optional(),volume:z.string().optional(),issue:z.string().optional(),pages:z.string().optional(),firstSeenAt:timestamp,updatedAt:timestamp,
  relevance:z.object({topic:z.enum(['both','learning-analytics','ai','unrelated','pending']),method:z.enum(['rules','codex']),confidence:z.enum(['high','medium','low'])}),
  oaLocations:z.array(location),pdf:z.object({status:z.enum(['pending','downloaded','unavailable','blocked','failed']),path:z.string().optional(),sourceUrl:z.string().optional(),sha256:z.string().optional(),license:z.string().optional(),version:z.string().optional()}),
@@ -109,6 +111,48 @@ async function verifiedDownload(p:InputPaper,output:string):Promise<boolean> {
   return createHash('sha256').update(await readFile(file)).digest('hex')===p.pdf.sha256&&(await readFile(text,'utf8')).trim().length>=100;
  }catch{return false;}
 }
+function exactDoi(value?:string):string|undefined {
+ if(!value)return undefined;
+ const doi=value.trim().replace(/^https?:\/\/(?:dx\.)?doi\.org\//i,'').replace(/^doi:\s*/i,'').toLowerCase();
+ return /^10\.\d{4,9}\/[^\s<>"?#\\]+$/.test(doi)?doi:undefined;
+}
+/** Only an exact DOI-addressed API record can bind an aggregator abstract to a licence. */
+function aggregatorRecord(value?:string):{provider:'crossref'|'openalex';doi:string}|undefined {
+ const safe=safePublicUrl(value);if(!safe)return undefined;
+ try {
+  const url=new URL(value!);
+  if(url.protocol!=='https:'||url.search||url.hash||url.port||!url.pathname.startsWith('/works/'))return undefined;
+  const provider=url.hostname==='api.crossref.org'?'crossref':url.hostname==='api.openalex.org'?'openalex':undefined;
+  if(!provider)return undefined;
+  const identifier=decodeURIComponent(url.pathname.slice('/works/'.length));
+  if(provider==='openalex'&&!/^https:\/\/doi\.org\//i.test(identifier))return undefined;
+  if(provider==='crossref'&&!/^10\./.test(identifier))return undefined;
+  const doi=exactDoi(identifier);return doi?{provider,doi}:undefined;
+ }catch{return undefined;}
+}
+function crossrefAbstractLicense(p:InputPaper,asOf:string):{license:string;source:string}|undefined {
+ const doi=exactDoi(p.doi),record=aggregatorRecord(p.abstractSource);
+ if(!p.abstract||!p.authors.length||!doi||!record||record.doi!==doi)return undefined;
+ const hasAbstractProvenance=p.provenance.some(item=>{
+  const source=aggregatorRecord(item.url);
+  return item.source===record.provider&&source?.provider===record.provider&&source.doi===doi&&sameUrl(item.url,p.abstractSource);
+ });
+ if(!hasAbstractProvenance)return undefined;
+ const eligible=(p.licenses||[]).filter(proof=>{
+  const source=aggregatorRecord(proof.sourceUrl);
+  if(proof.source!=='crossref'||proof.appliesTo!=='vor'||exactDoi(proof.doi)!==doi||source?.provider!=='crossref'||source.doi!==doi||Date.parse(proof.fetchedAt)>Date.parse(asOf))return false;
+  if(proof.start&&dateInterval(proof.start.value)!.end>asOf.slice(0,10))return false;
+  return p.provenance.some(item=>item.source==='crossref'&&sameUrl(item.url,proof.sourceUrl)&&item.fetchedAt===proof.fetchedAt);
+ });
+ if(!eligible.length)return undefined;
+ // Licence changes have their own effective dates. Do not fall back to an older
+ // permissive licence when the current VoR terms are absent or nonpermissive.
+ const latest=eligible.reduce((date,proof)=>{const start=proof.start?dateInterval(proof.start.value)!.end:'';return start>date?start:date;},'');
+ const current=eligible.filter(proof=>(proof.start?dateInterval(proof.start.value)!.end:'')===latest);
+ const permissions=current.map(proof=>safePublicUrl(proof.url)&&licensed(proof.url));
+ if(permissions.some(permission=>!permission))return undefined;
+ return {license:permissions[0]!,source:safePublicUrl(current[0].sourceUrl)!};
+}
 async function abstractLicense(p:InputPaper,publisher:Journal['publisher'],output:string):Promise<string|undefined> {
  if(!p.abstract||!p.abstractSource||!p.authors.length)return undefined;
  // JLA's author copyright policy explicitly licences the published work under
@@ -142,13 +186,16 @@ const reasons={both:'This paper relates to learning analytics and artificial int
 const versions=new Set(['publishedVersion','acceptedVersion','submittedVersion']);
 function publicDate(value?:PaperDate):PaperDate|undefined{return value?{value:value.value,precision:value.precision,source:'Publication metadata'}:undefined;}
 
-export async function createPublicLibrary(input:unknown,output:string):Promise<Library> {
+export async function createPublicLibrary(input:unknown,output:string,asOf=new Date().toISOString()):Promise<Library> {
+ if(!timestamp.safeParse(asOf).success)throw new Error('Invalid public export time');
+ const exportTime=new Date(asOf).toISOString();
  const parsed=inputSchema.parse(input);
  const papers:Paper[]=[];
  for(const p of parsed.papers) {
   if(!['both','learning-analytics','ai'].includes(p.relevance.topic)||isExcluded(p))continue;
   const journal=parsed.journals.find(journal=>journal.id===p.journalId)!;
-  const license=await abstractLicense(p,journal.publisher,output);
+  const crossrefPermission=crossrefAbstractLicense(p,exportTime);
+  const license=crossrefPermission?.license??await abstractLicense(p,journal.publisher,output);
   const summaryOk=Boolean(p.summary&&p.summaryGeneratedAt&&p.relevance.method==='codex'&&p.summary.trim().split(/\s+/).length>=150&&p.summary.trim().split(/\s+/).length<=250&&sameUrl(p.summarySource,p.pdf.sourceUrl)&&await verifiedDownload(p,output));
   const topic=p.relevance.topic as keyof typeof reasons;
   const oaLocations=p.oaLocations.filter(item=>item.isOa&&safePublicUrl(item.url)).map(item=>({url:safePublicUrl(item.url)!,pdfUrl:safePublicUrl(item.pdfUrl),hostType:item.hostType,version:versions.has(item.version||'')?item.version:undefined,license:licensed(item.license),isOa:true,source:'Public OA metadata'}));
@@ -156,7 +203,7 @@ export async function createPublicLibrary(input:unknown,output:string):Promise<L
    publishedOnline:publicDate(p.publishedOnline),publishedIssue:publicDate(p.publishedIssue),publicationDate:publicDate(p.publicationDate),volume:p.volume?plain(p.volume):undefined,issue:p.issue?plain(p.issue):undefined,pages:p.pages?plain(p.pages):undefined,
    firstSeenAt:p.firstSeenAt,updatedAt:p.updatedAt,relevance:{topic,method:p.relevance.method,confidence:p.relevance.confidence,reason:reasons[topic],evidence:[]},oaLocations,
    pdf:{status:'unavailable',sourceUrl:safePublicUrl(p.pdf.sourceUrl),license:licensed(p.pdf.license),version:versions.has(p.pdf.version||'')?p.pdf.version:undefined},
-   milestones:p.milestones.map(item=>({kind:item.kind,observedAt:item.observedAt,date:item.date})),provenance:[],publicContent:{abstract:p.abstract?(license?'licensed':'withheld'):'unavailable',license},
+   milestones:p.milestones.map(item=>({kind:item.kind,observedAt:item.observedAt,date:item.date})),provenance:[],publicContent:{abstract:p.abstract?(license?'licensed':'withheld'):'unavailable',license,...(crossrefPermission?{licenseSource:crossrefPermission.source}:{})},
   };
   if(license){paper.abstract=plain(p.abstract!);paper.abstractSource=safePublicUrl(p.abstractSource);}
   if(summaryOk){paper.summary=plain(p.summary!);paper.summarySource=safePublicUrl(p.summarySource);paper.summaryGeneratedAt=p.summaryGeneratedAt;}

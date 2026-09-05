@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
 import { fetchRemote } from './http.js';
-import type { Journal, OALocation, Paper, PaperDate } from './types.js';
+import type { ArticleLicense, Journal, OALocation, Paper, PaperDate } from './types.js';
 
 type Data = Record<string, unknown>;
 export interface DiscoveryOptions { since: string; until: string; updateSince?: string; limit?: number; }
@@ -136,6 +136,24 @@ function newPaper(journal: Journal, fields: Partial<Paper> & { title: string; ur
   };
 }
 
+/** Preserve version-specific licence evidence separately from OA/download locations. */
+export function parseCrossrefLicenses(value:unknown,doi:string,now:string):ArticleLicense[] {
+  const sourceUrl=`https://api.crossref.org/works/${encodeURIComponent(doi)}`;
+  const licenses:ArticleLicense[]=[];
+  for(const entry of asArray(value)) {
+    const record=asObject(entry),url=safeUrl(record.URL);
+    if(!url)continue;
+    const version=oneLine(record['content-version']).toLowerCase();
+    const appliesTo:ArticleLicense['appliesTo']=['vor','am','tdm','stm-asf'].includes(version)?version as ArticleLicense['appliesTo']:'unknown';
+    const startRecord=asObject(record.start);
+    const start=record.start===undefined?undefined:Object.hasOwn(startRecord,'date-parts')?dateFromParts(record.start,'crossref:license-start'):parseDate(startRecord['date-time'],'crossref:license-start');
+    // A malformed supplied start must not become an unrestricted lifetime licence.
+    if(record.start!==undefined&&!start)continue;
+    licenses.push({doi,url,appliesTo,start,source:'crossref',sourceUrl,fetchedAt:now});
+  }
+  return [...new Map(licenses.map(license=>[`${license.url}|${license.appliesTo}|${license.start?.value||''}`,license])).values()];
+}
+
 /** Crossref links may be subscription/TDM URLs. OA enrichment happens separately. */
 export function parseCrossrefWork(value: unknown, journal: Journal, now = new Date().toISOString()): Paper | undefined {
   const work = asObject(value);
@@ -162,6 +180,7 @@ export function parseCrossrefWork(value: unknown, journal: Journal, now = new Da
     authors: asArray(work.author).map(author => { const record = asObject(author); return oneLine(record.name) || [oneLine(record.given), oneLine(record.family)].filter(Boolean).join(' '); }).filter(Boolean),
     keywords: unique(values(work.subject)), articleType: oneLine(work.type) || 'journal-article',
     abstract, abstractSource: abstract ? sourceUrl : undefined,
+    licenses: doi ? parseCrossrefLicenses(work.license,doi,now) : [],
     publishedOnline: online, publishedIssue: issueDate ?? (issue ? issued : undefined), publicationDate,
     volume, issue, pages: oneLine(work.page) || oneLine(work['article-number']) || undefined,
   }, 'crossref', sourceUrl, now);
