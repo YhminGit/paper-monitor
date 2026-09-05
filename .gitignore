@@ -1,0 +1,16 @@
+node_modules/
+dist/
+dist-public/
+.env
+.env.*
+!.env.example
+output/
+.state/
+tmp/
+*.log
+playwright-report/
+test-results/
+.codex/
+.agents/
+.DS_Store
+Thumbs.db

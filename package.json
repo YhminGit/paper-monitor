@@ -1,0 +1,13 @@
+{
+  "name": "paper-monitor", "version": "1.0.0", "private": true, "type": "module",
+  "engines": { "node": ">=22.14.0" },
+  "scripts": {
+    "monitor": "tsx src/cli.ts", "web": "tsx src/server.ts", "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build", "test": "tsx --test tests/*.test.ts", "typecheck": "tsc --noEmit",
+    "export:public": "tsx src/public-export.ts", "publish:public": "tsx src/public-publish.ts", "build:public": "tsc --noEmit && vite build --mode public",
+    "check:public": "tsx src/check-public.ts",
+    "preview:public": "vite preview --mode public --host 127.0.0.1 --port 4173 --strictPort"
+  },
+  "dependencies": { "dotenv": "^16.6.1", "fast-xml-parser": "^5.3.0", "pdfjs-dist": "^6.2.108", "react": "^19.1.1", "react-dom": "^19.1.1", "undici": "^7.16.0", "zod": "^4.1.5" },
+  "devDependencies": { "@types/node": "^22.18.0", "@types/react": "^19.1.12", "@types/react-dom": "^19.1.9", "@vitejs/plugin-react": "^5.0.2", "tsx": "^4.20.5", "typescript": "^5.9.2", "vite": "^7.1.4" }
+}
