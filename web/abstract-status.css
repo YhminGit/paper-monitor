@@ -15,6 +15,10 @@
 .abstract-state-caption.available{color:#6c8a5e}
 .abstract-state-caption a{color:#66845a;text-decoration:underline;text-underline-offset:3px}
 .abstract-status-heading{display:block;font-size:12px;font-weight:600;color:#778860;margin-bottom:9px;line-height:1.6}
+.abstract-filter-row{grid-column:1/-1;display:flex;align-items:center;flex-wrap:wrap;gap:10px 16px;border-top:1px solid #edf0e8;padding-top:15px;min-width:0}
+.abstract-filter-row>label{font-size:11px;font-weight:600;color:#47603f}
+.abstract-filter-row>select{font:inherit;font-size:11px;min-height:40px;max-width:100%;padding:8px 30px 8px 12px;border:1px solid #dce5d6;border-radius:5px;background:#fff;color:#47603f}
+.abstract-filter-row>p{flex-basis:100%;font-size:10px;line-height:1.8;margin:0;color:#7c8e72}
 .content-unavailable .abstract-check-time{font-size:10px;margin-top:12px;color:#7b8b6c}
 .content-unavailable .abstract-retry-note{font-size:10px;margin-top:12px;line-height:1.8;color:#929b83}
 .abstract-check-errors{font-size:10px;line-height:1.8;margin-top:13px;color:#937b51;overflow-wrap:anywhere}

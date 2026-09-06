@@ -20,6 +20,8 @@ For a hidden background server on Windows, run `.\start-dashboard.ps1` instead o
 
 Search by title or author, all entered keywords, inclusive publication dates, journals, topic groups, and saved PDF availability. Filters are stored in the URL. Publication dates prefer first-online dates; partial dates retain their actual precision. A paper is listed once, with its publication events in its detail page.
 
+The always-visible **Abstract availability** selector switches between **All papers** and **Abstract available**. On the public site, only licensed author abstracts readable there qualify; withheld abstracts and generated summaries do not. Locally, papers with a collected author abstract qualify. This filter combines with other searches, resets pagination when changed, and is bookmarkable with `?abstract=available`.
+
 ## Collection workflow
 
 Seven journals are configured in `src/config.ts`: BJET, BERJ, Computers & Education, Journal of Learning Analytics, Review of Educational Research, Educational Research Review, and Computers and Education: Artificial Intelligence. Historical collection begins January 1, 2025.

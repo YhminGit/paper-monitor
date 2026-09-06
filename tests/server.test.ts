@@ -78,6 +78,18 @@ test('serves search, details, SPA, reports and rejects invalid routes and origin
   } finally { await f.cleanup(); }
 });
 
+test('abstract availability works through the API and rejects unknown values', async () => {
+  const f = await fixture();
+  try {
+    await f.snapshot(library([paper('available'), paper('missing', { abstract: undefined }), paper('summary-only', { abstract: undefined, summary: 'Generated text.' })]));
+    assert.equal((await (await fetch(`${f.base}/api/papers`)).json()).total, 3);
+    const result = await (await fetch(`${f.base}/api/papers?abstract=available&name=ADA`)).json();
+    assert.equal(result.total, 1);
+    assert.equal(result.papers[0].id, 'available');
+    assert.equal((await fetch(`${f.base}/api/papers?abstract=maybe`)).status, 400);
+  } finally { await f.cleanup(); }
+});
+
 test('registered PDFs support ranges and attachment while paths remain private', async () => {
   const f = await fixture();
   try {

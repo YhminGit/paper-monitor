@@ -61,3 +61,11 @@ The public snapshot has 231 licensed abstracts, 309 withheld abstracts, 126 miss
 - ScienceDirect article HTML is no longer requested by enrichment. Publisher access challenges are not bypassed, and no Elsevier/OpenAlex credentials were supplied.
 
 Counts are point-in-time results, not a claim of complete publisher coverage. The existing scheduled workflow continues retries with public sources.
+
+## Abstract availability filter — September 6, 2026
+
+- 185 automated tests passed. New cases cover readable author text versus whitespace, summaries, withheld content and status-only records; combined filters; bookmarked pagination; empty results; and API input validation.
+- TypeScript, local/public builds and the public artifact gate passed. No archive data or publication dates were changed.
+- Browser preview verified 666 all papers versus 231 papers with readable public abstracts, pagination/reload/Back, page reset when changing availability, combined author/keyword/journal search, licensed-abstract details, and a no-results state for a publicly withheld abstract. No horizontal overflow at 639- or 390-pixel viewport widths; no browser console errors.
+- Local API returned 540 papers with collected author abstracts. The local dashboard was started on loopback port 3000 with the updated search logic.
+- For DOI `10.1016/j.compedu.2026.105746`, the live Crossref record reports volume 256 and January 2027 as the print/issue date, with no first-online date. The dashboard correctly falls back to that issue date. DOI registration on September 1, 2026 is not treated as the first-online publication date.

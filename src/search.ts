@@ -9,6 +9,7 @@ export interface SearchFilters {
   journals: string[];
   topics: Topic[];
   pdf: 'any' | 'downloaded' | 'unavailable';
+  abstract: 'any' | 'available';
   sort: 'newest' | 'oldest';
   page: number;
 }
@@ -45,6 +46,8 @@ export function parseSearch(params: URLSearchParams): SearchFilters {
   if (params.has('pageSize') && params.get('pageSize') !== String(PAGE_SIZE)) throw new SearchInputError('Page size is fixed at 25.');
   const pdf = params.get('pdf') || 'any';
   if (!['any', 'downloaded', 'unavailable'].includes(pdf)) throw new SearchInputError('Unknown PDF availability filter.');
+  const abstract = params.get('abstract') || 'any';
+  if (!['any', 'available'].includes(abstract)) throw new SearchInputError('Unknown abstract availability filter.');
   const sort = params.get('sort') || 'newest';
   if (!['newest', 'oldest'].includes(sort)) throw new SearchInputError('Sort must be newest or oldest.');
   const topics = [...new Set(params.getAll('topic').filter(Boolean))];
@@ -52,7 +55,7 @@ export function parseSearch(params: URLSearchParams): SearchFilters {
   return {
     name: (params.get('name') || '').trim(), keywords: (params.get('keywords') || '').trim(), from, to,
     journals: [...new Set(params.getAll('journal').filter(Boolean))], topics: topics as Topic[],
-    pdf: pdf as SearchFilters['pdf'], sort: sort as SearchFilters['sort'], page: Number(pageValue),
+    pdf: pdf as SearchFilters['pdf'], abstract: abstract as SearchFilters['abstract'], sort: sort as SearchFilters['sort'], page: Number(pageValue),
   };
 }
 
@@ -74,6 +77,8 @@ export function searchPapers(papers: readonly Paper[], filters: SearchFilters): 
     if (filters.topics.length && !filters.topics.includes(paper.relevance.topic)) return false;
     if (filters.pdf === 'downloaded' && paper.pdf.status !== 'downloaded') return false;
     if (filters.pdf === 'unavailable' && paper.pdf.status === 'downloaded') return false;
+    // Availability means readable author text, not a summary or an off-site source link.
+    if (filters.abstract === 'available' && (!paper.abstract?.trim() || (paper.publicContent && paper.publicContent.abstract !== 'licensed'))) return false;
     if (lower || upper) {
       const date = effectiveDate(paper);
       const interval = date && dateInterval(date.value);
