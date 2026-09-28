@@ -1,10 +1,10 @@
 # Paper Monitor public library
 
-Updated: 2026\-09\-27T10\:03\:23\.344Z
+Updated: 2026\-09\-28T13\:53\:26\.777Z
 Coverage: 2025\-01\-01 onward
-684 relevant papers.
-253 abstracts with supported redistribution licences.
-1 clearly labeled generated summaries.
+685 relevant papers.
+254 abstracts with supported redistribution licences.
+2 clearly labeled generated summaries.
 
 Public files contain bibliographic metadata and permitted text only. PDFs and private local reports are not published.
 
