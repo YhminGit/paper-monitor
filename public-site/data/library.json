@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-07T02:03:55.247Z",
+  "generatedAt": "2026-10-08T12:37:48.467Z",
   "coverageStart": "2025-01-01",
   "journals": [
     {
@@ -94,7 +94,7 @@
       },
       "pages": "bjet.70079",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:42.308Z",
+      "updatedAt": "2026-10-08T12:33:22.477Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -124,9 +124,15 @@
       "journalId": "bjet",
       "title": "From emotion regulation to academic success: A self‐determination theory‐based emotional agent‐mediated approach",
       "authors": [
-        "Xiao‐Li Zheng, Zi‐Ying Lyu, Shi‐Ying Wang, Feng Wang, Xi Kong, Gwo‐Jen Hwang, Yun‐Fang Tu"
+        "Xiao‐Li Zheng",
+        "Zi‐Ying Lyu",
+        "Shi‐Ying Wang",
+        "Feng Wang",
+        "Xi Kong",
+        "Gwo‐Jen Hwang",
+        "Yun‐Fang Tu"
       ],
-      "url": "",
+      "url": "https://bera-journals.onlinelibrary.wiley.com/doi/10.1111/bjet.70083",
       "keywords": [
         "ORIGINAL ARTICLE"
       ],
@@ -143,7 +149,7 @@
       },
       "pages": "bjet.70083",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:42.308Z",
+      "updatedAt": "2026-10-08T12:33:22.503Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -204,7 +210,7 @@
       "issue": "5",
       "pages": "1221-1271",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:42.597Z",
+      "updatedAt": "2026-10-08T12:33:21.099Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -278,7 +284,7 @@
       "issue": "5",
       "pages": "1191-1220",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:42.596Z",
+      "updatedAt": "2026-10-08T12:33:21.113Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -340,7 +346,7 @@
       "issue": "5",
       "pages": "1272-1298",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:42.308Z",
+      "updatedAt": "2026-10-08T12:33:05.729Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -402,7 +408,7 @@
       "issue": "5",
       "pages": "1320-1347",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:42.308Z",
+      "updatedAt": "2026-10-08T12:33:21.124Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -473,7 +479,7 @@
       "issue": "5",
       "pages": "1374-1394",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:42.308Z",
+      "updatedAt": "2026-10-08T12:33:21.134Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -543,7 +549,7 @@
       "issue": "5",
       "pages": "1395-1419",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:42.308Z",
+      "updatedAt": "2026-10-08T12:33:21.151Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -605,7 +611,7 @@
       "issue": "5",
       "pages": "1348-1373",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:42.308Z",
+      "updatedAt": "2026-10-08T12:33:05.729Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -660,7 +666,7 @@
       },
       "pages": "bjet.70081",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:42.308Z",
+      "updatedAt": "2026-10-08T12:33:22.526Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -717,7 +723,7 @@
       },
       "pages": "bjet.70082",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:42.308Z",
+      "updatedAt": "2026-10-08T12:33:22.552Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -766,7 +772,7 @@
       },
       "pages": "bjet.70080",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:42.308Z",
+      "updatedAt": "2026-10-08T12:33:22.580Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -815,7 +821,7 @@
       },
       "pages": "bjet.70078",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:42.308Z",
+      "updatedAt": "2026-10-08T12:33:22.625Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -864,7 +870,7 @@
       },
       "pages": "bjet.70077",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:42.308Z",
+      "updatedAt": "2026-10-08T12:33:05.729Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -930,7 +936,7 @@
       },
       "pages": "bjet.70074",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:42.308Z",
+      "updatedAt": "2026-10-08T12:33:05.729Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -996,7 +1002,7 @@
       },
       "pages": "bjet.70070",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:42.308Z",
+      "updatedAt": "2026-10-08T12:33:05.729Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -1054,7 +1060,7 @@
       },
       "pages": "bjet.70069",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:42.308Z",
+      "updatedAt": "2026-10-08T12:33:05.729Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -1103,7 +1109,7 @@
       },
       "pages": "bjet.70065",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:42.308Z",
+      "updatedAt": "2026-10-08T12:33:05.729Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -1161,7 +1167,7 @@
       },
       "pages": "bjet.70067",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:42.308Z",
+      "updatedAt": "2026-10-08T12:33:05.729Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -1223,7 +1229,7 @@
       },
       "pages": "bjet.70047",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:42.592Z",
+      "updatedAt": "2026-10-08T12:33:06.334Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -1268,12 +1274,9 @@
       "journalId": "bjet",
       "title": "Algorithm aversion revisited: The role of AI literacy and attitudes towards AI in shaping perceptions of AI ‐generated texts",
       "authors": [
-        "Matthias Carl Laupichler",
-        "Nils Knoth",
-        "Johannes Schleiss",
-        "Tobias Raupach"
+        "Matthias Carl Laupichler, Nils Knoth, Johannes Schleiss, Tobias Raupach"
       ],
-      "url": "https://bera-journals.onlinelibrary.wiley.com/doi/10.1111/bjet.70035",
+      "url": "",
       "keywords": [
         "ORIGINAL ARTICLE"
       ],
@@ -1290,7 +1293,7 @@
       },
       "pages": "bjet.70035",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:42.590Z",
+      "updatedAt": "2026-10-08T12:33:05.729Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -1355,7 +1358,7 @@
       },
       "pages": "bjet.70027",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:56.064Z",
+      "updatedAt": "2026-10-08T12:33:06.334Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -1404,7 +1407,7 @@
       },
       "pages": "bjet.70032",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:42.308Z",
+      "updatedAt": "2026-10-08T12:33:05.729Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -1464,7 +1467,7 @@
       },
       "pages": "bjet.70029",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:42.308Z",
+      "updatedAt": "2026-10-08T12:33:05.729Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -1526,7 +1529,7 @@
       },
       "pages": "bjet.70018",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:56.176Z",
+      "updatedAt": "2026-10-08T12:33:06.334Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -1575,7 +1578,7 @@
       },
       "pages": "bjet.70017",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:56.197Z",
+      "updatedAt": "2026-10-08T12:33:05.729Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -1631,7 +1634,7 @@
       },
       "pages": "bjet.70010",
       "firstSeenAt": "2026-09-05T15:01:53.684Z",
-      "updatedAt": "2026-10-07T01:58:42.584Z",
+      "updatedAt": "2026-10-08T12:33:06.333Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -1768,7 +1771,7 @@
       },
       "pages": "berj.70274",
       "firstSeenAt": "2026-09-05T15:01:55.251Z",
-      "updatedAt": "2026-10-07T01:58:43.164Z",
+      "updatedAt": "2026-10-08T12:33:22.442Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -1784,10 +1787,20 @@
           "license": "CC BY",
           "isOa": true,
           "source": "Public OA metadata"
+        },
+        {
+          "url": "https://hull-repository.worktribe.com/5855173/1/Published%20Article",
+          "pdfUrl": "https://hull-repository.worktribe.com/preview/5855349/British%20Educational%20Res%20J%20-%202026%20-%20Shaw%20-%20More%20than%20information%20%20%20A%20social%20listening%20and%20platform%20architecture%20analysis%20of.pdf",
+          "hostType": "repository",
+          "version": "submittedVersion",
+          "license": "CC BY",
+          "isOa": true,
+          "source": "Public OA metadata"
         }
       ],
       "pdf": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "sourceUrl": "https://hull-repository.worktribe.com/preview/5855349/British%20Educational%20Res%20J%20-%202026%20-%20Shaw%20-%20More%20than%20information%20%20%20A%20social%20listening%20and%20platform%20architecture%20analysis%20of.pdf"
       },
       "milestones": [
         {
@@ -1837,7 +1850,7 @@
       "issue": "4",
       "pages": "3063-3092",
       "firstSeenAt": "2026-09-05T15:01:55.251Z",
-      "updatedAt": "2026-10-07T01:58:43.370Z",
+      "updatedAt": "2026-10-08T12:33:07.217Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -1921,7 +1934,7 @@
       "issue": "4",
       "pages": "2959-2985",
       "firstSeenAt": "2026-09-05T15:01:55.251Z",
-      "updatedAt": "2026-10-07T01:58:43.164Z",
+      "updatedAt": "2026-10-08T12:33:06.857Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -1985,7 +1998,7 @@
       },
       "pages": "berj.70256",
       "firstSeenAt": "2026-09-05T15:01:55.251Z",
-      "updatedAt": "2026-10-07T01:58:43.164Z",
+      "updatedAt": "2026-10-08T12:33:22.605Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -2042,7 +2055,7 @@
       },
       "pages": "berj.70250",
       "firstSeenAt": "2026-09-05T15:01:55.251Z",
-      "updatedAt": "2026-10-07T01:58:43.164Z",
+      "updatedAt": "2026-10-08T12:33:22.646Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -2056,6 +2069,13 @@
           "hostType": "publisher",
           "version": "publishedVersion",
           "license": "CC BY",
+          "isOa": true,
+          "source": "Public OA metadata"
+        },
+        {
+          "url": "https://www.scopus.com/pages/publications/105045216319",
+          "hostType": "repository",
+          "version": "submittedVersion",
           "isOa": true,
           "source": "Public OA metadata"
         }
@@ -2386,7 +2406,7 @@
       "volume": "256",
       "pages": "105747",
       "firstSeenAt": "2026-09-05T15:01:57.307Z",
-      "updatedAt": "2026-10-07T01:58:55.235Z",
+      "updatedAt": "2026-10-08T12:33:08.189Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -2449,7 +2469,7 @@
       "volume": "256",
       "pages": "105746",
       "firstSeenAt": "2026-09-05T15:01:57.307Z",
-      "updatedAt": "2026-10-07T01:58:55.250Z",
+      "updatedAt": "2026-10-08T12:33:08.189Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -2513,7 +2533,7 @@
       "volume": "256",
       "pages": "105745",
       "firstSeenAt": "2026-09-05T15:01:57.307Z",
-      "updatedAt": "2026-10-07T01:58:44.354Z",
+      "updatedAt": "2026-10-08T12:33:08.189Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -2586,7 +2606,7 @@
       "volume": "256",
       "pages": "105728",
       "firstSeenAt": "2026-09-05T15:01:57.307Z",
-      "updatedAt": "2026-10-07T01:58:55.265Z",
+      "updatedAt": "2026-10-08T12:33:08.189Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -2657,7 +2677,7 @@
       "volume": "256",
       "pages": "105739",
       "firstSeenAt": "2026-09-05T15:01:57.307Z",
-      "updatedAt": "2026-10-07T01:58:55.285Z",
+      "updatedAt": "2026-10-08T12:33:08.189Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -2714,7 +2734,7 @@
       "volume": "256",
       "pages": "105743",
       "firstSeenAt": "2026-09-05T15:01:57.307Z",
-      "updatedAt": "2026-10-07T01:58:55.300Z",
+      "updatedAt": "2026-10-08T12:33:08.189Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -2775,7 +2795,7 @@
       "volume": "256",
       "pages": "105738",
       "firstSeenAt": "2026-09-05T15:01:57.307Z",
-      "updatedAt": "2026-10-07T01:58:55.313Z",
+      "updatedAt": "2026-10-08T12:33:08.189Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -2831,7 +2851,7 @@
       "volume": "254",
       "pages": "105721",
       "firstSeenAt": "2026-09-05T15:01:57.307Z",
-      "updatedAt": "2026-10-07T01:58:44.354Z",
+      "updatedAt": "2026-10-08T12:33:08.189Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -2907,7 +2927,7 @@
       "volume": "254",
       "pages": "105716",
       "firstSeenAt": "2026-09-05T15:01:57.307Z",
-      "updatedAt": "2026-10-07T01:58:55.328Z",
+      "updatedAt": "2026-10-08T12:33:08.189Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -2961,7 +2981,7 @@
       "volume": "254",
       "pages": "105719",
       "firstSeenAt": "2026-09-05T15:01:57.307Z",
-      "updatedAt": "2026-10-07T01:58:55.341Z",
+      "updatedAt": "2026-10-08T12:33:08.189Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -3018,7 +3038,7 @@
       "volume": "254",
       "pages": "105723",
       "firstSeenAt": "2026-09-05T15:01:57.307Z",
-      "updatedAt": "2026-10-07T01:58:55.356Z",
+      "updatedAt": "2026-10-08T12:33:08.189Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -3093,7 +3113,7 @@
       "volume": "254",
       "pages": "105724",
       "firstSeenAt": "2026-09-05T15:01:57.307Z",
-      "updatedAt": "2026-10-07T01:58:55.372Z",
+      "updatedAt": "2026-10-08T12:33:08.189Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -3166,7 +3186,7 @@
       "volume": "254",
       "pages": "105722",
       "firstSeenAt": "2026-09-05T15:01:57.307Z",
-      "updatedAt": "2026-10-07T01:58:55.386Z",
+      "updatedAt": "2026-10-08T12:33:08.189Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -3228,7 +3248,7 @@
       "volume": "254",
       "pages": "105700",
       "firstSeenAt": "2026-09-05T15:01:57.307Z",
-      "updatedAt": "2026-10-07T01:58:55.402Z",
+      "updatedAt": "2026-10-08T12:33:08.189Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -3288,7 +3308,7 @@
       "volume": "254",
       "pages": "105720",
       "firstSeenAt": "2026-09-05T15:01:57.307Z",
-      "updatedAt": "2026-10-07T01:58:55.420Z",
+      "updatedAt": "2026-10-08T12:33:08.189Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -3344,7 +3364,7 @@
       "volume": "254",
       "pages": "105688",
       "firstSeenAt": "2026-09-05T15:01:57.307Z",
-      "updatedAt": "2026-10-07T01:58:55.435Z",
+      "updatedAt": "2026-10-08T12:33:08.189Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -3402,7 +3422,7 @@
       "volume": "254",
       "pages": "105704",
       "firstSeenAt": "2026-09-05T15:01:57.307Z",
-      "updatedAt": "2026-10-07T01:58:44.354Z",
+      "updatedAt": "2026-10-08T12:33:20.991Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -3470,7 +3490,7 @@
       "volume": "254",
       "pages": "105656",
       "firstSeenAt": "2026-09-05T15:01:57.307Z",
-      "updatedAt": "2026-10-07T01:58:55.455Z",
+      "updatedAt": "2026-10-08T12:33:08.189Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -3544,7 +3564,7 @@
       "volume": "254",
       "pages": "105701",
       "firstSeenAt": "2026-09-05T15:01:57.307Z",
-      "updatedAt": "2026-10-07T01:58:55.473Z",
+      "updatedAt": "2026-10-08T12:33:08.189Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -3805,7 +3825,7 @@
       "volume": "226",
       "pages": "105198",
       "firstSeenAt": "2026-09-05T15:01:57.714Z",
-      "updatedAt": "2026-10-07T01:58:44.807Z",
+      "updatedAt": "2026-10-08T12:33:08.729Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -3892,7 +3912,7 @@
       "volume": "227",
       "pages": "105212",
       "firstSeenAt": "2026-09-05T15:01:57.714Z",
-      "updatedAt": "2026-10-02T02:26:47.837Z",
+      "updatedAt": "2026-10-08T12:33:08.733Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -4089,7 +4109,7 @@
       "volume": "227",
       "pages": "105224",
       "firstSeenAt": "2026-09-05T15:01:57.715Z",
-      "updatedAt": "2026-10-07T01:58:44.810Z",
+      "updatedAt": "2026-10-08T12:33:08.734Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -4230,7 +4250,7 @@
       "volume": "227",
       "pages": "105227",
       "firstSeenAt": "2026-09-05T15:01:57.715Z",
-      "updatedAt": "2026-10-07T01:58:44.812Z",
+      "updatedAt": "2026-10-08T12:33:08.739Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -4291,7 +4311,7 @@
       "volume": "227",
       "pages": "105230",
       "firstSeenAt": "2026-09-05T15:01:57.715Z",
-      "updatedAt": "2026-10-07T01:58:44.814Z",
+      "updatedAt": "2026-10-08T12:33:08.741Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -4352,7 +4372,7 @@
       "volume": "229",
       "pages": "105241",
       "firstSeenAt": "2026-09-05T15:01:57.716Z",
-      "updatedAt": "2026-10-07T01:58:44.815Z",
+      "updatedAt": "2026-10-08T12:33:08.742Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -4479,7 +4499,7 @@
       "volume": "228",
       "pages": "105245",
       "firstSeenAt": "2026-09-05T15:01:57.716Z",
-      "updatedAt": "2026-10-07T01:58:44.815Z",
+      "updatedAt": "2026-10-08T12:33:08.743Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -4548,7 +4568,7 @@
       "volume": "228",
       "pages": "105250",
       "firstSeenAt": "2026-09-05T15:01:57.716Z",
-      "updatedAt": "2026-10-07T01:58:44.817Z",
+      "updatedAt": "2026-10-08T12:33:08.743Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -4616,7 +4636,7 @@
       "volume": "228",
       "pages": "105248",
       "firstSeenAt": "2026-09-05T15:01:57.716Z",
-      "updatedAt": "2026-10-07T01:58:44.817Z",
+      "updatedAt": "2026-10-08T12:33:08.744Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -4687,7 +4707,7 @@
       "volume": "228",
       "pages": "105244",
       "firstSeenAt": "2026-09-05T15:01:57.717Z",
-      "updatedAt": "2026-10-07T01:58:44.818Z",
+      "updatedAt": "2026-10-08T12:33:08.745Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -4765,7 +4785,7 @@
       "volume": "229",
       "pages": "105251",
       "firstSeenAt": "2026-09-05T15:01:57.717Z",
-      "updatedAt": "2026-10-07T01:58:44.818Z",
+      "updatedAt": "2026-10-08T12:33:08.746Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -4884,7 +4904,7 @@
       "volume": "229",
       "pages": "105263",
       "firstSeenAt": "2026-09-05T15:01:57.717Z",
-      "updatedAt": "2026-10-07T01:58:44.819Z",
+      "updatedAt": "2026-10-08T12:33:08.747Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -5105,7 +5125,7 @@
       "volume": "232",
       "pages": "105305",
       "firstSeenAt": "2026-09-05T15:01:57.719Z",
-      "updatedAt": "2026-10-07T01:58:44.822Z",
+      "updatedAt": "2026-10-08T12:33:08.748Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -5226,7 +5246,7 @@
       "volume": "233",
       "pages": "105310",
       "firstSeenAt": "2026-09-05T15:01:57.719Z",
-      "updatedAt": "2026-10-07T01:58:44.822Z",
+      "updatedAt": "2026-10-08T12:33:08.751Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -5303,7 +5323,7 @@
       "volume": "232",
       "pages": "105306",
       "firstSeenAt": "2026-09-05T15:01:57.719Z",
-      "updatedAt": "2026-10-07T01:58:44.823Z",
+      "updatedAt": "2026-10-08T12:33:08.751Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -5361,7 +5381,7 @@
       "volume": "232",
       "pages": "105307",
       "firstSeenAt": "2026-09-05T15:01:57.720Z",
-      "updatedAt": "2026-10-07T01:58:44.823Z",
+      "updatedAt": "2026-10-08T12:33:08.752Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -5598,7 +5618,7 @@
       "volume": "234",
       "pages": "105323",
       "firstSeenAt": "2026-09-05T15:01:57.723Z",
-      "updatedAt": "2026-10-07T01:58:44.824Z",
+      "updatedAt": "2026-10-08T12:33:08.753Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -5700,7 +5720,7 @@
       "volume": "234",
       "pages": "105314",
       "firstSeenAt": "2026-09-05T15:01:57.723Z",
-      "updatedAt": "2026-10-07T01:58:44.824Z",
+      "updatedAt": "2026-10-08T12:33:08.754Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -5763,7 +5783,7 @@
       "volume": "234",
       "pages": "105329",
       "firstSeenAt": "2026-09-05T15:01:57.723Z",
-      "updatedAt": "2026-10-07T01:58:44.825Z",
+      "updatedAt": "2026-10-08T12:33:08.756Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -5835,7 +5855,7 @@
       "volume": "234",
       "pages": "105322",
       "firstSeenAt": "2026-09-05T15:01:57.724Z",
-      "updatedAt": "2026-10-07T01:58:44.828Z",
+      "updatedAt": "2026-10-08T12:33:08.759Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -5920,7 +5940,7 @@
       "volume": "235",
       "pages": "105342",
       "firstSeenAt": "2026-09-05T15:01:57.724Z",
-      "updatedAt": "2026-10-07T01:58:44.829Z",
+      "updatedAt": "2026-10-08T12:33:08.761Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -6110,7 +6130,7 @@
       "volume": "235",
       "pages": "105356",
       "firstSeenAt": "2026-09-05T15:01:57.725Z",
-      "updatedAt": "2026-10-07T01:58:44.829Z",
+      "updatedAt": "2026-10-08T12:33:08.762Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -6174,7 +6194,7 @@
       "volume": "236",
       "pages": "105362",
       "firstSeenAt": "2026-09-05T15:01:57.725Z",
-      "updatedAt": "2026-10-07T01:58:44.830Z",
+      "updatedAt": "2026-10-08T12:33:08.762Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -6324,7 +6344,7 @@
       "volume": "237",
       "pages": "105375",
       "firstSeenAt": "2026-09-05T15:01:57.725Z",
-      "updatedAt": "2026-10-07T01:58:44.831Z",
+      "updatedAt": "2026-10-08T12:33:08.763Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -6460,7 +6480,7 @@
       "volume": "237",
       "pages": "105385",
       "firstSeenAt": "2026-09-05T15:01:57.725Z",
-      "updatedAt": "2026-10-07T01:58:44.831Z",
+      "updatedAt": "2026-10-08T12:33:08.764Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -6725,7 +6745,7 @@
       "volume": "238",
       "pages": "105395",
       "firstSeenAt": "2026-09-05T15:01:57.726Z",
-      "updatedAt": "2026-10-07T01:58:54.821Z",
+      "updatedAt": "2026-10-08T12:33:08.765Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -6917,7 +6937,7 @@
       "volume": "239",
       "pages": "105363",
       "firstSeenAt": "2026-09-05T15:01:57.727Z",
-      "updatedAt": "2026-10-07T01:58:44.833Z",
+      "updatedAt": "2026-10-08T12:33:08.767Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -7049,7 +7069,7 @@
       "volume": "239",
       "pages": "105421",
       "firstSeenAt": "2026-09-05T15:01:57.727Z",
-      "updatedAt": "2026-10-07T01:58:54.982Z",
+      "updatedAt": "2026-10-08T12:33:08.768Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -7192,7 +7212,7 @@
       "volume": "239",
       "pages": "105422",
       "firstSeenAt": "2026-09-05T15:01:57.727Z",
-      "updatedAt": "2026-10-07T01:58:54.997Z",
+      "updatedAt": "2026-10-08T12:33:08.769Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -7318,7 +7338,7 @@
       "volume": "239",
       "pages": "105435",
       "firstSeenAt": "2026-09-05T15:01:57.728Z",
-      "updatedAt": "2026-10-07T01:58:55.132Z",
+      "updatedAt": "2026-10-08T12:33:08.769Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -7382,7 +7402,7 @@
       "volume": "239",
       "pages": "105433",
       "firstSeenAt": "2026-09-05T15:01:57.728Z",
-      "updatedAt": "2026-10-07T01:58:55.147Z",
+      "updatedAt": "2026-10-08T12:33:08.769Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -7509,7 +7529,7 @@
       "volume": "239",
       "pages": "105434",
       "firstSeenAt": "2026-09-05T15:01:57.728Z",
-      "updatedAt": "2026-10-07T01:58:55.175Z",
+      "updatedAt": "2026-10-08T12:33:08.771Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -7568,7 +7588,7 @@
       "volume": "239",
       "pages": "105444",
       "firstSeenAt": "2026-09-05T15:01:57.728Z",
-      "updatedAt": "2026-10-07T01:58:44.837Z",
+      "updatedAt": "2026-10-08T12:33:08.772Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -7713,7 +7733,7 @@
       "volume": "239",
       "pages": "105449",
       "firstSeenAt": "2026-09-05T15:01:57.729Z",
-      "updatedAt": "2026-10-07T01:58:55.204Z",
+      "updatedAt": "2026-10-08T12:33:08.773Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -7787,7 +7807,7 @@
       "volume": "240",
       "pages": "105448",
       "firstSeenAt": "2026-09-05T15:01:57.729Z",
-      "updatedAt": "2026-10-07T01:58:44.838Z",
+      "updatedAt": "2026-10-08T12:33:08.773Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -7950,7 +7970,7 @@
       "volume": "240",
       "pages": "105453",
       "firstSeenAt": "2026-09-05T15:01:57.730Z",
-      "updatedAt": "2026-10-07T01:58:54.655Z",
+      "updatedAt": "2026-10-08T12:33:08.774Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -8010,7 +8030,7 @@
       "volume": "240",
       "pages": "105464",
       "firstSeenAt": "2026-09-05T15:01:57.730Z",
-      "updatedAt": "2026-10-07T01:58:44.839Z",
+      "updatedAt": "2026-10-08T12:33:08.775Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -8078,7 +8098,7 @@
       "volume": "240",
       "pages": "105463",
       "firstSeenAt": "2026-09-05T15:01:57.730Z",
-      "updatedAt": "2026-10-07T01:58:54.666Z",
+      "updatedAt": "2026-10-08T12:33:08.776Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -8138,7 +8158,7 @@
       "volume": "240",
       "pages": "105465",
       "firstSeenAt": "2026-09-05T15:01:57.730Z",
-      "updatedAt": "2026-10-07T01:58:54.677Z",
+      "updatedAt": "2026-10-08T12:33:08.776Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -8267,7 +8287,7 @@
       "volume": "241",
       "pages": "105473",
       "firstSeenAt": "2026-09-05T15:01:57.731Z",
-      "updatedAt": "2026-10-07T01:58:54.566Z",
+      "updatedAt": "2026-10-08T12:33:08.777Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -8388,7 +8408,7 @@
       "volume": "241",
       "pages": "105474",
       "firstSeenAt": "2026-09-05T15:01:57.731Z",
-      "updatedAt": "2026-10-07T01:58:54.576Z",
+      "updatedAt": "2026-10-08T12:33:08.778Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -8451,7 +8471,7 @@
       "volume": "241",
       "pages": "105472",
       "firstSeenAt": "2026-09-05T15:01:57.731Z",
-      "updatedAt": "2026-10-07T01:58:44.840Z",
+      "updatedAt": "2026-10-08T12:33:08.779Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -8586,7 +8606,7 @@
       "volume": "241",
       "pages": "105485",
       "firstSeenAt": "2026-09-05T15:01:57.731Z",
-      "updatedAt": "2026-10-07T01:58:44.840Z",
+      "updatedAt": "2026-10-08T12:33:08.779Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -8658,7 +8678,7 @@
       "volume": "241",
       "pages": "105486",
       "firstSeenAt": "2026-09-05T15:01:57.731Z",
-      "updatedAt": "2026-10-07T01:58:54.587Z",
+      "updatedAt": "2026-10-08T12:33:08.780Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -8851,7 +8871,7 @@
       "volume": "241",
       "pages": "105489",
       "firstSeenAt": "2026-09-05T15:01:57.731Z",
-      "updatedAt": "2026-10-07T01:58:54.609Z",
+      "updatedAt": "2026-10-08T12:33:08.780Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -8911,7 +8931,7 @@
       "volume": "241",
       "pages": "105490",
       "firstSeenAt": "2026-09-05T15:01:57.731Z",
-      "updatedAt": "2026-10-07T01:58:54.619Z",
+      "updatedAt": "2026-10-08T12:33:08.781Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -8972,7 +8992,7 @@
       "volume": "242",
       "pages": "105493",
       "firstSeenAt": "2026-09-05T15:01:57.732Z",
-      "updatedAt": "2026-10-07T01:58:54.526Z",
+      "updatedAt": "2026-10-08T12:33:08.781Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -9033,7 +9053,7 @@
       "volume": "241",
       "pages": "105494",
       "firstSeenAt": "2026-09-05T15:01:57.732Z",
-      "updatedAt": "2026-10-07T01:58:54.631Z",
+      "updatedAt": "2026-10-08T12:33:08.783Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -9156,7 +9176,7 @@
       "volume": "242",
       "pages": "105495",
       "firstSeenAt": "2026-09-05T15:01:57.732Z",
-      "updatedAt": "2026-10-07T01:58:54.546Z",
+      "updatedAt": "2026-10-08T12:33:08.784Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -9218,7 +9238,7 @@
       "volume": "242",
       "pages": "105504",
       "firstSeenAt": "2026-09-05T15:01:57.732Z",
-      "updatedAt": "2026-10-07T01:58:44.849Z",
+      "updatedAt": "2026-10-08T12:33:08.784Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -9464,7 +9484,7 @@
       "volume": "243",
       "pages": "105514",
       "firstSeenAt": "2026-09-05T15:01:57.732Z",
-      "updatedAt": "2026-10-07T01:58:44.851Z",
+      "updatedAt": "2026-10-08T12:33:08.787Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -9533,7 +9553,7 @@
       "volume": "243",
       "pages": "105511",
       "firstSeenAt": "2026-09-05T15:01:57.733Z",
-      "updatedAt": "2026-10-07T01:58:44.851Z",
+      "updatedAt": "2026-10-08T12:33:08.787Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -9617,7 +9637,7 @@
       "volume": "242",
       "pages": "105515",
       "firstSeenAt": "2026-09-05T15:01:57.733Z",
-      "updatedAt": "2026-10-07T01:58:54.556Z",
+      "updatedAt": "2026-10-08T12:33:08.788Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -9676,7 +9696,7 @@
       "volume": "243",
       "pages": "105517",
       "firstSeenAt": "2026-09-05T15:01:57.733Z",
-      "updatedAt": "2026-10-07T01:58:44.851Z",
+      "updatedAt": "2026-10-08T12:33:08.788Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -9814,7 +9834,7 @@
       "volume": "243",
       "pages": "105527",
       "firstSeenAt": "2026-09-05T15:01:57.733Z",
-      "updatedAt": "2026-10-07T01:58:44.852Z",
+      "updatedAt": "2026-10-08T12:33:08.789Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -9897,7 +9917,7 @@
       "volume": "246",
       "pages": "105532",
       "firstSeenAt": "2026-09-05T15:01:57.733Z",
-      "updatedAt": "2026-09-19T02:32:45.476Z",
+      "updatedAt": "2026-10-08T12:33:21.399Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -10048,7 +10068,7 @@
       "volume": "244",
       "pages": "105536",
       "firstSeenAt": "2026-09-05T15:01:57.733Z",
-      "updatedAt": "2026-10-07T01:58:54.508Z",
+      "updatedAt": "2026-10-08T12:33:08.789Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -10352,7 +10372,7 @@
       "volume": "247",
       "pages": "105564",
       "firstSeenAt": "2026-09-05T15:01:57.734Z",
-      "updatedAt": "2026-10-07T01:58:44.852Z",
+      "updatedAt": "2026-10-08T12:33:21.360Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -10423,7 +10443,7 @@
       "volume": "247",
       "pages": "105573",
       "firstSeenAt": "2026-09-05T15:01:57.734Z",
-      "updatedAt": "2026-10-07T01:58:44.853Z",
+      "updatedAt": "2026-10-08T12:33:21.373Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -10556,7 +10576,7 @@
       "volume": "246",
       "pages": "105572",
       "firstSeenAt": "2026-09-05T15:01:57.734Z",
-      "updatedAt": "2026-10-07T01:58:44.853Z",
+      "updatedAt": "2026-10-08T12:33:08.792Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -10614,7 +10634,7 @@
       "volume": "247",
       "pages": "105574",
       "firstSeenAt": "2026-09-05T15:01:57.734Z",
-      "updatedAt": "2026-10-07T01:58:44.853Z",
+      "updatedAt": "2026-10-08T12:33:08.792Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -10676,7 +10696,7 @@
       "volume": "247",
       "pages": "105576",
       "firstSeenAt": "2026-09-05T15:01:57.735Z",
-      "updatedAt": "2026-10-07T01:58:44.853Z",
+      "updatedAt": "2026-10-08T12:33:21.385Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -10746,7 +10766,7 @@
       "volume": "247",
       "pages": "105578",
       "firstSeenAt": "2026-09-05T15:01:57.735Z",
-      "updatedAt": "2026-10-07T01:58:44.853Z",
+      "updatedAt": "2026-10-08T12:33:08.793Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -10872,7 +10892,7 @@
       "volume": "248",
       "pages": "105592",
       "firstSeenAt": "2026-09-05T15:01:57.735Z",
-      "updatedAt": "2026-10-07T01:58:44.854Z",
+      "updatedAt": "2026-10-08T12:33:08.794Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -11113,7 +11133,7 @@
       "volume": "249",
       "pages": "105602",
       "firstSeenAt": "2026-09-05T15:01:57.735Z",
-      "updatedAt": "2026-10-07T01:58:44.854Z",
+      "updatedAt": "2026-10-08T12:33:08.800Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -11178,7 +11198,7 @@
       "volume": "249",
       "pages": "105614",
       "firstSeenAt": "2026-09-05T15:01:57.735Z",
-      "updatedAt": "2026-10-07T01:58:44.854Z",
+      "updatedAt": "2026-10-08T12:33:21.179Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -11247,7 +11267,7 @@
       "volume": "249",
       "pages": "105615",
       "firstSeenAt": "2026-09-05T15:01:57.735Z",
-      "updatedAt": "2026-09-19T02:32:32.691Z",
+      "updatedAt": "2026-10-08T12:33:08.805Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -11332,7 +11352,7 @@
       "volume": "249",
       "pages": "105617",
       "firstSeenAt": "2026-09-05T15:01:57.735Z",
-      "updatedAt": "2026-10-07T01:58:44.855Z",
+      "updatedAt": "2026-10-08T12:33:08.805Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -11400,7 +11420,7 @@
       "volume": "249",
       "pages": "105619",
       "firstSeenAt": "2026-09-05T15:01:57.735Z",
-      "updatedAt": "2026-10-07T01:58:44.855Z",
+      "updatedAt": "2026-10-08T12:33:08.806Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -11461,7 +11481,7 @@
       "volume": "249",
       "pages": "105616",
       "firstSeenAt": "2026-09-05T15:01:57.735Z",
-      "updatedAt": "2026-10-07T01:58:44.855Z",
+      "updatedAt": "2026-10-08T12:33:21.192Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -11791,7 +11811,7 @@
       "volume": "250",
       "pages": "105640",
       "firstSeenAt": "2026-09-05T15:01:57.736Z",
-      "updatedAt": "2026-09-19T02:32:45.448Z",
+      "updatedAt": "2026-10-08T12:33:21.166Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -11867,7 +11887,7 @@
       },
       "pages": "105744",
       "firstSeenAt": "2026-09-05T15:01:57.736Z",
-      "updatedAt": "2026-10-07T01:58:44.856Z",
+      "updatedAt": "2026-10-08T12:33:08.817Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -12128,7 +12148,7 @@
       "issue": "1",
       "pages": "391-413",
       "firstSeenAt": "2026-09-05T15:01:58.271Z",
-      "updatedAt": "2026-10-07T01:58:46.434Z",
+      "updatedAt": "2026-10-08T12:33:09.451Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -12222,7 +12242,7 @@
       "issue": "1",
       "pages": "201-214",
       "firstSeenAt": "2026-09-05T15:01:58.271Z",
-      "updatedAt": "2026-10-07T01:58:46.435Z",
+      "updatedAt": "2026-10-08T12:33:09.452Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -12507,7 +12527,7 @@
       "issue": "1",
       "pages": "32-49",
       "firstSeenAt": "2026-09-05T15:01:58.272Z",
-      "updatedAt": "2026-10-07T01:58:46.436Z",
+      "updatedAt": "2026-10-08T12:33:09.454Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -12794,7 +12814,7 @@
       "issue": "1",
       "pages": "152-168",
       "firstSeenAt": "2026-09-05T15:01:58.272Z",
-      "updatedAt": "2026-10-07T01:58:46.436Z",
+      "updatedAt": "2026-10-08T12:33:09.462Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -13084,7 +13104,7 @@
       "issue": "1",
       "pages": "169-185",
       "firstSeenAt": "2026-09-05T15:01:58.272Z",
-      "updatedAt": "2026-10-07T01:58:46.437Z",
+      "updatedAt": "2026-10-08T12:33:09.466Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -13274,7 +13294,7 @@
       "issue": "1",
       "pages": "91-109",
       "firstSeenAt": "2026-09-05T15:01:58.272Z",
-      "updatedAt": "2026-10-07T01:58:46.437Z",
+      "updatedAt": "2026-10-08T12:33:09.481Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -13366,7 +13386,7 @@
       "issue": "1",
       "pages": "186-200",
       "firstSeenAt": "2026-09-05T15:01:58.273Z",
-      "updatedAt": "2026-10-07T01:58:46.438Z",
+      "updatedAt": "2026-10-08T12:33:09.485Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -13460,7 +13480,7 @@
       "issue": "1",
       "pages": "12-31",
       "firstSeenAt": "2026-09-05T15:01:58.273Z",
-      "updatedAt": "2026-10-07T01:58:46.438Z",
+      "updatedAt": "2026-10-08T12:33:09.486Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -13556,7 +13576,7 @@
       "issue": "1",
       "pages": "50-64",
       "firstSeenAt": "2026-09-05T15:01:58.273Z",
-      "updatedAt": "2026-10-07T01:58:46.438Z",
+      "updatedAt": "2026-10-08T12:33:09.488Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -13837,7 +13857,7 @@
       "issue": "2",
       "pages": "279-292",
       "firstSeenAt": "2026-09-05T15:01:58.273Z",
-      "updatedAt": "2026-10-07T01:58:46.439Z",
+      "updatedAt": "2026-10-08T12:33:09.492Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -14025,7 +14045,7 @@
       "issue": "2",
       "pages": "105-124",
       "firstSeenAt": "2026-09-05T15:01:58.273Z",
-      "updatedAt": "2026-09-27T09:57:20.656Z",
+      "updatedAt": "2026-10-08T12:33:09.495Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -14311,7 +14331,7 @@
       "issue": "2",
       "pages": "140-157",
       "firstSeenAt": "2026-09-05T15:01:58.273Z",
-      "updatedAt": "2026-09-05T15:57:50.889Z",
+      "updatedAt": "2026-10-08T12:33:09.498Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -14403,7 +14423,7 @@
       "issue": "2",
       "pages": "224-236",
       "firstSeenAt": "2026-09-05T15:01:58.274Z",
-      "updatedAt": "2026-10-07T01:58:46.440Z",
+      "updatedAt": "2026-10-08T12:33:09.506Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -14532,7 +14552,10 @@
         }
       ],
       "pdf": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "sourceUrl": "https://learning-analytics.info/index.php/JLA/article/download/8543/7911",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "version": "publishedVersion"
       },
       "milestones": [
         {
@@ -14625,7 +14648,10 @@
         }
       ],
       "pdf": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "sourceUrl": "https://learning-analytics.info/index.php/JLA/article/download/8809/7913",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "version": "publishedVersion"
       },
       "milestones": [
         {
@@ -14717,7 +14743,10 @@
         }
       ],
       "pdf": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "sourceUrl": "https://learning-analytics.info/index.php/JLA/article/download/8441/7915",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "version": "publishedVersion"
       },
       "milestones": [
         {
@@ -14970,7 +14999,7 @@
       "issue": "2",
       "pages": "83-104",
       "firstSeenAt": "2026-09-05T15:01:58.274Z",
-      "updatedAt": "2026-10-07T01:58:46.440Z",
+      "updatedAt": "2026-10-08T12:33:09.520Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -15198,7 +15227,10 @@
         }
       ],
       "pdf": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "sourceUrl": "https://learning-analytics.info/index.php/JLA/article/download/8807/7923",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "version": "publishedVersion"
       },
       "milestones": [
         {
@@ -15257,7 +15289,7 @@
       "issue": "2",
       "pages": "237-258",
       "firstSeenAt": "2026-09-05T15:01:58.274Z",
-      "updatedAt": "2026-10-07T01:58:46.441Z",
+      "updatedAt": "2026-10-08T12:33:09.524Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -15943,7 +15975,7 @@
       "issue": "3",
       "pages": "102-125",
       "firstSeenAt": "2026-09-05T15:01:58.276Z",
-      "updatedAt": "2026-09-27T09:57:20.656Z",
+      "updatedAt": "2026-10-08T12:33:09.527Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -16038,7 +16070,7 @@
       "issue": "3",
       "pages": "126-155",
       "firstSeenAt": "2026-09-05T15:01:58.276Z",
-      "updatedAt": "2026-10-07T01:58:46.441Z",
+      "updatedAt": "2026-10-08T12:33:09.537Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -16621,7 +16653,7 @@
       "issue": "1",
       "pages": "74-88",
       "firstSeenAt": "2026-09-05T15:01:58.276Z",
-      "updatedAt": "2026-10-07T01:58:46.442Z",
+      "updatedAt": "2026-10-08T12:33:09.539Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -18112,7 +18144,7 @@
       "issue": "3",
       "pages": "942-984",
       "firstSeenAt": "2026-09-05T15:02:06.245Z",
-      "updatedAt": "2026-09-07T02:55:42.988Z",
+      "updatedAt": "2026-10-08T12:33:20.289Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -18483,7 +18515,7 @@
       "volume": "48",
       "pages": "100714",
       "firstSeenAt": "2026-09-05T15:02:07.354Z",
-      "updatedAt": "2026-10-07T01:58:49.345Z",
+      "updatedAt": "2026-10-08T12:33:15.749Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -18540,7 +18572,7 @@
       "volume": "49",
       "pages": "100728",
       "firstSeenAt": "2026-09-05T15:02:07.355Z",
-      "updatedAt": "2026-10-07T01:58:49.347Z",
+      "updatedAt": "2026-10-08T12:33:15.753Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -18600,7 +18632,7 @@
       "volume": "49",
       "pages": "100737",
       "firstSeenAt": "2026-09-05T15:02:07.355Z",
-      "updatedAt": "2026-10-07T01:58:49.348Z",
+      "updatedAt": "2026-10-08T12:33:15.754Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -18661,7 +18693,7 @@
       "volume": "49",
       "pages": "100741",
       "firstSeenAt": "2026-09-05T15:02:07.355Z",
-      "updatedAt": "2026-10-07T01:58:49.348Z",
+      "updatedAt": "2026-10-08T12:33:15.756Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -18801,7 +18833,7 @@
       "volume": "49",
       "pages": "100744",
       "firstSeenAt": "2026-09-05T15:02:07.356Z",
-      "updatedAt": "2026-10-07T01:58:49.350Z",
+      "updatedAt": "2026-10-08T12:33:15.757Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -18923,7 +18955,7 @@
       "volume": "51",
       "pages": "100782",
       "firstSeenAt": "2026-09-05T15:02:07.357Z",
-      "updatedAt": "2026-10-07T01:58:54.469Z",
+      "updatedAt": "2026-10-08T12:33:15.765Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -19045,7 +19077,7 @@
       "volume": "51",
       "pages": "100787",
       "firstSeenAt": "2026-09-05T15:02:07.357Z",
-      "updatedAt": "2026-10-07T01:58:49.353Z",
+      "updatedAt": "2026-10-08T12:33:15.766Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -19183,7 +19215,7 @@
       "volume": "52",
       "pages": "100804",
       "firstSeenAt": "2026-09-05T15:02:07.357Z",
-      "updatedAt": "2026-10-07T01:58:49.506Z",
+      "updatedAt": "2026-10-08T12:33:21.214Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -19267,7 +19299,7 @@
       "volume": "52",
       "pages": "100813",
       "firstSeenAt": "2026-09-05T15:02:07.358Z",
-      "updatedAt": "2026-10-07T01:58:49.506Z",
+      "updatedAt": "2026-10-08T12:33:21.233Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -19332,7 +19364,7 @@
       "volume": "52",
       "pages": "100821",
       "firstSeenAt": "2026-09-05T15:02:07.358Z",
-      "updatedAt": "2026-10-07T01:58:49.506Z",
+      "updatedAt": "2026-10-08T12:33:15.814Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -19392,7 +19424,7 @@
       "volume": "52",
       "pages": "100833",
       "firstSeenAt": "2026-09-05T15:02:07.359Z",
-      "updatedAt": "2026-10-07T01:58:49.506Z",
+      "updatedAt": "2026-10-08T12:33:15.814Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -19463,7 +19495,7 @@
       "volume": "11",
       "pages": "100668",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -19544,7 +19576,7 @@
       "volume": "11",
       "pages": "100669",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -19614,7 +19646,7 @@
       "volume": "11",
       "pages": "100673",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -19685,7 +19717,7 @@
       "volume": "11",
       "pages": "100663",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -19756,7 +19788,7 @@
       "volume": "11",
       "pages": "100671",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.489Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -19825,7 +19857,7 @@
       "volume": "11",
       "pages": "100665",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.504Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -19909,7 +19941,7 @@
       "volume": "11",
       "pages": "100662",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -19975,7 +20007,7 @@
       "volume": "11",
       "pages": "100670",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -20040,7 +20072,7 @@
       "volume": "11",
       "pages": "100664",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.522Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -20116,7 +20148,7 @@
       "volume": "11",
       "pages": "100667",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.538Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -20194,7 +20226,7 @@
       "volume": "11",
       "pages": "100666",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.555Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -20278,7 +20310,7 @@
       "volume": "11",
       "pages": "100657",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -20348,7 +20380,7 @@
       "volume": "11",
       "pages": "100659",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.572Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -20413,7 +20445,7 @@
       "volume": "11",
       "pages": "100644",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.589Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -20483,7 +20515,7 @@
       "volume": "11",
       "pages": "100660",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.611Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -20563,7 +20595,7 @@
       "volume": "11",
       "pages": "100655",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.634Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -20638,7 +20670,7 @@
       "volume": "11",
       "pages": "100656",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.652Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -20708,7 +20740,7 @@
       "volume": "11",
       "pages": "100652",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.668Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -20773,7 +20805,7 @@
       "volume": "11",
       "pages": "100651",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -20847,7 +20879,7 @@
       "volume": "11",
       "pages": "100641",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -20919,7 +20951,7 @@
       "volume": "11",
       "pages": "100646",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -20987,7 +21019,7 @@
       "volume": "11",
       "pages": "100647",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.705Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -21013,7 +21045,8 @@
         }
       ],
       "pdf": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "sourceUrl": "https://www.sciencedirect.com/science/article/pii/S2666920X26001098/pdf"
       },
       "milestones": [
         {
@@ -21064,7 +21097,7 @@
       "volume": "11",
       "pages": "100648",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.725Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -21091,7 +21124,9 @@
         }
       ],
       "pdf": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "sourceUrl": "https://eprints.zu.edu.ua/49264/1/1.pdf",
+        "version": "submittedVersion"
       },
       "milestones": [
         {
@@ -21144,7 +21179,7 @@
       "volume": "11",
       "pages": "100649",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -21216,7 +21251,7 @@
       "volume": "11",
       "pages": "100650",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -21283,7 +21318,7 @@
       "volume": "11",
       "pages": "100642",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -21352,7 +21387,7 @@
       "volume": "11",
       "pages": "100643",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -21424,7 +21459,7 @@
       "volume": "11",
       "pages": "100634",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -21510,7 +21545,7 @@
       "volume": "11",
       "pages": "100638",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.743Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -21577,7 +21612,7 @@
       "volume": "11",
       "pages": "100640",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.764Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -21645,7 +21680,7 @@
       "volume": "11",
       "pages": "100639",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -21722,7 +21757,7 @@
       "volume": "11",
       "pages": "100632",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -21811,7 +21846,7 @@
       "volume": "11",
       "pages": "100636",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.783Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -21880,7 +21915,7 @@
       "volume": "11",
       "pages": "100637",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.807Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -21952,7 +21987,7 @@
       "volume": "11",
       "pages": "100635",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.827Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -22022,7 +22057,7 @@
       "volume": "11",
       "pages": "100633",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -22109,7 +22144,7 @@
       "volume": "11",
       "pages": "100629",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.846Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -22180,7 +22215,7 @@
       "volume": "11",
       "pages": "100624",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.867Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -22244,7 +22279,7 @@
       "volume": "11",
       "pages": "100626",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.888Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -22310,7 +22345,7 @@
       "volume": "11",
       "pages": "100630",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.910Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -22375,7 +22410,7 @@
       "volume": "11",
       "pages": "100601",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.930Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -22444,7 +22479,7 @@
       "volume": "11",
       "pages": "100631",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.953Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -22509,7 +22544,7 @@
       "volume": "11",
       "pages": "100620",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.975Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -22574,7 +22609,7 @@
       "volume": "11",
       "pages": "100625",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:55.997Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -22659,7 +22694,7 @@
       "volume": "11",
       "pages": "100675",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -22725,7 +22760,7 @@
       "volume": "11",
       "pages": "100658",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -22794,7 +22829,7 @@
       "volume": "11",
       "pages": "100653",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -22866,7 +22901,7 @@
       "volume": "11",
       "pages": "100654",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:56.019Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -22892,7 +22927,8 @@
         }
       ],
       "pdf": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "sourceUrl": "https://www.sciencedirect.com/science/article/pii/S2666920X26001165/pdf"
       },
       "milestones": [
         {
@@ -22947,7 +22983,7 @@
       "volume": "11",
       "pages": "100628",
       "firstSeenAt": "2026-09-05T15:02:07.633Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -22974,7 +23010,10 @@
         }
       ],
       "pdf": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "sourceUrl": "https://madoc.bib.uni-mannheim.de/72898/1/1-s2.0-S2666920X26000901-main.pdf",
+        "license": "CC BY",
+        "version": "acceptedVersion"
       },
       "milestones": [
         {
@@ -23116,7 +23155,7 @@
       "volume": "8",
       "pages": "100341",
       "firstSeenAt": "2026-09-05T15:02:08.688Z",
-      "updatedAt": "2026-10-07T01:58:50.630Z",
+      "updatedAt": "2026-10-08T12:33:17.239Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -23196,7 +23235,7 @@
       "volume": "8",
       "pages": "100340",
       "firstSeenAt": "2026-09-05T15:02:08.688Z",
-      "updatedAt": "2026-10-07T01:58:50.631Z",
+      "updatedAt": "2026-10-08T12:33:17.240Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -23420,7 +23459,7 @@
       "volume": "8",
       "pages": "100342",
       "firstSeenAt": "2026-09-05T15:02:08.688Z",
-      "updatedAt": "2026-10-07T01:58:50.632Z",
+      "updatedAt": "2026-10-08T12:33:17.240Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -23577,7 +23616,7 @@
       "volume": "8",
       "pages": "100346",
       "firstSeenAt": "2026-09-05T15:02:08.688Z",
-      "updatedAt": "2026-10-07T01:58:50.632Z",
+      "updatedAt": "2026-10-08T12:33:17.240Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -23654,7 +23693,7 @@
       "volume": "8",
       "pages": "100336",
       "firstSeenAt": "2026-09-05T15:02:08.688Z",
-      "updatedAt": "2026-10-07T01:58:50.632Z",
+      "updatedAt": "2026-10-08T12:33:17.241Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -23738,7 +23777,7 @@
       "volume": "8",
       "pages": "100349",
       "firstSeenAt": "2026-09-05T15:02:08.688Z",
-      "updatedAt": "2026-10-07T01:58:50.633Z",
+      "updatedAt": "2026-10-08T12:33:17.241Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -23818,7 +23857,7 @@
       "volume": "8",
       "pages": "100350",
       "firstSeenAt": "2026-09-05T15:02:08.688Z",
-      "updatedAt": "2026-10-07T01:58:50.633Z",
+      "updatedAt": "2026-10-08T12:33:17.241Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -23897,7 +23936,7 @@
       "volume": "8",
       "pages": "100348",
       "firstSeenAt": "2026-09-05T15:02:08.688Z",
-      "updatedAt": "2026-10-07T01:58:50.633Z",
+      "updatedAt": "2026-10-08T12:33:17.242Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -23986,7 +24025,7 @@
       "volume": "8",
       "pages": "100356",
       "firstSeenAt": "2026-09-05T15:02:08.688Z",
-      "updatedAt": "2026-10-07T01:58:50.634Z",
+      "updatedAt": "2026-10-08T12:33:17.242Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -24064,7 +24103,7 @@
       "volume": "8",
       "pages": "100355",
       "firstSeenAt": "2026-09-05T15:02:08.688Z",
-      "updatedAt": "2026-10-07T01:58:50.635Z",
+      "updatedAt": "2026-10-08T12:33:17.242Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -24139,7 +24178,7 @@
       "volume": "8",
       "pages": "100352",
       "firstSeenAt": "2026-09-05T15:02:08.689Z",
-      "updatedAt": "2026-10-07T01:58:50.635Z",
+      "updatedAt": "2026-10-08T12:33:17.243Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -24328,7 +24367,7 @@
       "volume": "8",
       "pages": "100347",
       "firstSeenAt": "2026-09-05T15:02:08.689Z",
-      "updatedAt": "2026-10-07T01:58:50.635Z",
+      "updatedAt": "2026-10-08T12:33:17.243Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -24407,7 +24446,7 @@
       "volume": "8",
       "pages": "100360",
       "firstSeenAt": "2026-09-05T15:02:08.689Z",
-      "updatedAt": "2026-10-07T01:58:50.636Z",
+      "updatedAt": "2026-10-08T12:33:17.243Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -24747,7 +24786,7 @@
       "volume": "8",
       "pages": "100358",
       "firstSeenAt": "2026-09-05T15:02:08.689Z",
-      "updatedAt": "2026-10-07T01:58:50.636Z",
+      "updatedAt": "2026-10-08T12:33:17.243Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -24833,7 +24872,7 @@
       "volume": "8",
       "pages": "100361",
       "firstSeenAt": "2026-09-05T15:02:08.689Z",
-      "updatedAt": "2026-10-07T01:58:50.636Z",
+      "updatedAt": "2026-10-08T12:33:17.244Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -24911,7 +24950,7 @@
       "volume": "8",
       "pages": "100362",
       "firstSeenAt": "2026-09-05T15:02:08.689Z",
-      "updatedAt": "2026-10-07T01:58:50.637Z",
+      "updatedAt": "2026-10-08T12:33:17.244Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -24988,7 +25027,7 @@
       "volume": "8",
       "pages": "100363",
       "firstSeenAt": "2026-09-05T15:02:08.689Z",
-      "updatedAt": "2026-10-07T01:58:50.637Z",
+      "updatedAt": "2026-10-08T12:33:17.244Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -25140,7 +25179,7 @@
       "volume": "8",
       "pages": "100364",
       "firstSeenAt": "2026-09-05T15:02:08.689Z",
-      "updatedAt": "2026-10-07T01:58:50.642Z",
+      "updatedAt": "2026-10-08T12:33:17.244Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -25298,7 +25337,7 @@
       "volume": "8",
       "pages": "100368",
       "firstSeenAt": "2026-09-05T15:02:08.689Z",
-      "updatedAt": "2026-10-07T01:58:50.643Z",
+      "updatedAt": "2026-10-08T12:33:17.245Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -25385,7 +25424,7 @@
       "volume": "8",
       "pages": "100371",
       "firstSeenAt": "2026-09-05T15:02:08.689Z",
-      "updatedAt": "2026-10-07T01:58:50.643Z",
+      "updatedAt": "2026-10-08T12:33:17.245Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -25458,7 +25497,7 @@
       "volume": "8",
       "pages": "100370",
       "firstSeenAt": "2026-09-05T15:02:08.689Z",
-      "updatedAt": "2026-10-07T01:58:50.644Z",
+      "updatedAt": "2026-10-08T12:33:17.246Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -25790,7 +25829,7 @@
       "volume": "8",
       "pages": "100373",
       "firstSeenAt": "2026-09-05T15:02:08.689Z",
-      "updatedAt": "2026-10-07T01:58:50.645Z",
+      "updatedAt": "2026-10-08T12:33:17.246Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -25950,7 +25989,7 @@
       "volume": "8",
       "pages": "100378",
       "firstSeenAt": "2026-09-05T15:02:08.689Z",
-      "updatedAt": "2026-10-07T01:58:50.645Z",
+      "updatedAt": "2026-10-08T12:33:17.246Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -26197,7 +26236,7 @@
       "volume": "8",
       "pages": "100379",
       "firstSeenAt": "2026-09-05T15:02:08.690Z",
-      "updatedAt": "2026-10-07T01:58:50.645Z",
+      "updatedAt": "2026-10-08T12:33:17.247Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -26282,7 +26321,7 @@
       "volume": "8",
       "pages": "100377",
       "firstSeenAt": "2026-09-05T15:02:08.690Z",
-      "updatedAt": "2026-10-07T01:58:50.646Z",
+      "updatedAt": "2026-10-08T12:33:17.247Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -26362,7 +26401,7 @@
       "volume": "8",
       "pages": "100382",
       "firstSeenAt": "2026-09-05T15:02:08.690Z",
-      "updatedAt": "2026-10-07T01:58:50.646Z",
+      "updatedAt": "2026-10-08T12:33:17.247Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -26520,7 +26559,7 @@
       "volume": "8",
       "pages": "100383",
       "firstSeenAt": "2026-09-05T15:02:08.690Z",
-      "updatedAt": "2026-10-07T01:58:50.647Z",
+      "updatedAt": "2026-10-08T12:33:17.248Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -26602,7 +26641,7 @@
       "volume": "8",
       "pages": "100374",
       "firstSeenAt": "2026-09-05T15:02:08.690Z",
-      "updatedAt": "2026-10-07T01:58:50.647Z",
+      "updatedAt": "2026-10-08T12:33:17.248Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -26992,7 +27031,7 @@
       "volume": "8",
       "pages": "100384",
       "firstSeenAt": "2026-09-05T15:02:08.690Z",
-      "updatedAt": "2026-10-07T01:58:50.647Z",
+      "updatedAt": "2026-10-08T12:33:17.248Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -27262,7 +27301,7 @@
       "volume": "8",
       "pages": "100396",
       "firstSeenAt": "2026-09-05T15:02:08.690Z",
-      "updatedAt": "2026-10-07T01:58:50.648Z",
+      "updatedAt": "2026-10-08T12:33:17.249Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -27418,7 +27457,7 @@
       "volume": "8",
       "pages": "100395",
       "firstSeenAt": "2026-09-05T15:02:08.690Z",
-      "updatedAt": "2026-10-07T01:58:50.648Z",
+      "updatedAt": "2026-10-08T12:33:17.249Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -27573,7 +27612,7 @@
       "volume": "8",
       "pages": "100398",
       "firstSeenAt": "2026-09-05T15:02:08.690Z",
-      "updatedAt": "2026-10-07T01:58:50.648Z",
+      "updatedAt": "2026-10-08T12:33:17.249Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -27723,7 +27762,7 @@
       "volume": "8",
       "pages": "100400",
       "firstSeenAt": "2026-09-05T15:02:08.690Z",
-      "updatedAt": "2026-10-07T01:58:50.649Z",
+      "updatedAt": "2026-10-08T12:33:17.253Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -27971,7 +28010,7 @@
       "volume": "8",
       "pages": "100401",
       "firstSeenAt": "2026-09-05T15:02:08.691Z",
-      "updatedAt": "2026-10-02T02:26:47.419Z",
+      "updatedAt": "2026-10-08T12:33:17.254Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -28242,7 +28281,7 @@
       "volume": "8",
       "pages": "100403",
       "firstSeenAt": "2026-09-05T15:02:08.691Z",
-      "updatedAt": "2026-10-07T01:58:50.649Z",
+      "updatedAt": "2026-10-08T12:33:17.255Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -28322,7 +28361,7 @@
       "volume": "8",
       "pages": "100408",
       "firstSeenAt": "2026-09-05T15:02:08.691Z",
-      "updatedAt": "2026-10-07T01:58:50.650Z",
+      "updatedAt": "2026-10-08T12:33:17.255Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -28397,7 +28436,7 @@
       "volume": "8",
       "pages": "100406",
       "firstSeenAt": "2026-09-05T15:02:08.691Z",
-      "updatedAt": "2026-10-07T01:58:50.650Z",
+      "updatedAt": "2026-10-08T12:33:17.255Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -28482,7 +28521,7 @@
       "volume": "8",
       "pages": "100407",
       "firstSeenAt": "2026-09-05T15:02:08.691Z",
-      "updatedAt": "2026-10-07T01:58:50.650Z",
+      "updatedAt": "2026-10-08T12:33:17.256Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -28566,7 +28605,7 @@
       "volume": "8",
       "pages": "100405",
       "firstSeenAt": "2026-09-05T15:02:08.691Z",
-      "updatedAt": "2026-10-07T01:58:50.651Z",
+      "updatedAt": "2026-10-08T12:33:17.256Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -28651,7 +28690,7 @@
       "volume": "8",
       "pages": "100410",
       "firstSeenAt": "2026-09-05T15:02:08.691Z",
-      "updatedAt": "2026-10-07T01:58:50.651Z",
+      "updatedAt": "2026-10-08T12:33:17.257Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -28729,7 +28768,7 @@
       "volume": "8",
       "pages": "100412",
       "firstSeenAt": "2026-09-05T15:02:08.691Z",
-      "updatedAt": "2026-10-07T01:58:50.651Z",
+      "updatedAt": "2026-10-08T12:33:17.257Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -28815,7 +28854,7 @@
       "volume": "8",
       "pages": "100411",
       "firstSeenAt": "2026-09-05T15:02:08.691Z",
-      "updatedAt": "2026-10-07T01:58:50.652Z",
+      "updatedAt": "2026-10-08T12:33:17.258Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -28974,7 +29013,7 @@
       "volume": "8",
       "pages": "100415",
       "firstSeenAt": "2026-09-05T15:02:08.691Z",
-      "updatedAt": "2026-10-07T01:58:50.652Z",
+      "updatedAt": "2026-10-08T12:33:17.258Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -29144,7 +29183,7 @@
       "volume": "8",
       "pages": "100416",
       "firstSeenAt": "2026-09-05T15:02:08.691Z",
-      "updatedAt": "2026-10-07T01:58:50.653Z",
+      "updatedAt": "2026-10-08T12:33:17.258Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -29225,7 +29264,7 @@
       "volume": "8",
       "pages": "100417",
       "firstSeenAt": "2026-09-05T15:02:08.691Z",
-      "updatedAt": "2026-10-07T01:58:50.653Z",
+      "updatedAt": "2026-10-08T12:33:17.259Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -29309,7 +29348,7 @@
       "volume": "8",
       "pages": "100419",
       "firstSeenAt": "2026-09-05T15:02:08.691Z",
-      "updatedAt": "2026-10-07T01:58:50.653Z",
+      "updatedAt": "2026-10-08T12:33:17.259Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -29456,7 +29495,7 @@
       "volume": "8",
       "pages": "100422",
       "firstSeenAt": "2026-09-05T15:02:08.692Z",
-      "updatedAt": "2026-10-07T01:58:50.653Z",
+      "updatedAt": "2026-10-08T12:33:17.259Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -29536,7 +29575,7 @@
       "volume": "8",
       "pages": "100421",
       "firstSeenAt": "2026-09-05T15:02:08.692Z",
-      "updatedAt": "2026-10-02T02:26:47.623Z",
+      "updatedAt": "2026-10-08T12:33:17.260Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -29615,7 +29654,7 @@
       "volume": "8",
       "pages": "100426",
       "firstSeenAt": "2026-09-05T15:02:08.692Z",
-      "updatedAt": "2026-10-07T01:58:50.654Z",
+      "updatedAt": "2026-10-08T12:33:17.260Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -29699,7 +29738,7 @@
       "volume": "8",
       "pages": "100418",
       "firstSeenAt": "2026-09-05T15:02:08.692Z",
-      "updatedAt": "2026-10-07T01:58:50.654Z",
+      "updatedAt": "2026-10-08T12:33:17.260Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -29779,7 +29818,7 @@
       "volume": "8",
       "pages": "100425",
       "firstSeenAt": "2026-09-05T15:02:08.692Z",
-      "updatedAt": "2026-10-07T01:58:50.654Z",
+      "updatedAt": "2026-10-08T12:33:17.260Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -29863,7 +29902,7 @@
       "volume": "8",
       "pages": "100424",
       "firstSeenAt": "2026-09-05T15:02:08.692Z",
-      "updatedAt": "2026-10-07T01:58:50.655Z",
+      "updatedAt": "2026-10-08T12:33:17.261Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -30232,7 +30271,7 @@
       "volume": "9",
       "pages": "100429",
       "firstSeenAt": "2026-09-05T15:02:08.694Z",
-      "updatedAt": "2026-10-07T01:58:50.655Z",
+      "updatedAt": "2026-10-08T12:33:17.261Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -30403,7 +30442,7 @@
       "volume": "8",
       "pages": "100428",
       "firstSeenAt": "2026-09-05T15:02:08.695Z",
-      "updatedAt": "2026-10-07T01:58:50.656Z",
+      "updatedAt": "2026-10-08T12:33:17.261Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -30569,7 +30608,7 @@
       "volume": "9",
       "pages": "100433",
       "firstSeenAt": "2026-09-05T15:02:08.695Z",
-      "updatedAt": "2026-10-07T01:58:50.656Z",
+      "updatedAt": "2026-10-08T12:33:17.262Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -30726,7 +30765,7 @@
       "volume": "9",
       "pages": "100436",
       "firstSeenAt": "2026-09-05T15:02:08.695Z",
-      "updatedAt": "2026-10-07T01:58:50.656Z",
+      "updatedAt": "2026-10-08T12:33:17.262Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -30887,7 +30926,7 @@
       "volume": "9",
       "pages": "100438",
       "firstSeenAt": "2026-09-05T15:02:08.695Z",
-      "updatedAt": "2026-10-07T01:58:50.657Z",
+      "updatedAt": "2026-10-08T12:33:17.263Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -31031,7 +31070,7 @@
       "volume": "9",
       "pages": "100440",
       "firstSeenAt": "2026-09-05T15:02:08.695Z",
-      "updatedAt": "2026-10-07T01:58:50.657Z",
+      "updatedAt": "2026-10-08T12:33:17.263Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -31113,7 +31152,7 @@
       "volume": "9",
       "pages": "100441",
       "firstSeenAt": "2026-09-05T15:02:08.695Z",
-      "updatedAt": "2026-10-07T01:58:50.657Z",
+      "updatedAt": "2026-10-08T12:33:17.263Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -31271,7 +31310,7 @@
       "volume": "9",
       "pages": "100443",
       "firstSeenAt": "2026-09-05T15:02:08.695Z",
-      "updatedAt": "2026-10-07T01:58:50.658Z",
+      "updatedAt": "2026-10-08T12:33:17.264Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -31359,7 +31398,7 @@
       "volume": "9",
       "pages": "100444",
       "firstSeenAt": "2026-09-05T15:02:08.696Z",
-      "updatedAt": "2026-10-07T01:58:50.658Z",
+      "updatedAt": "2026-10-08T12:33:17.265Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -31510,7 +31549,7 @@
       "volume": "9",
       "pages": "100447",
       "firstSeenAt": "2026-09-05T15:02:08.696Z",
-      "updatedAt": "2026-10-07T01:58:50.659Z",
+      "updatedAt": "2026-10-08T12:33:17.265Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -31662,7 +31701,7 @@
       "volume": "9",
       "pages": "100445",
       "firstSeenAt": "2026-09-05T15:02:08.696Z",
-      "updatedAt": "2026-10-07T01:58:50.659Z",
+      "updatedAt": "2026-10-08T12:33:17.266Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -32038,7 +32077,7 @@
       "volume": "9",
       "pages": "100455",
       "firstSeenAt": "2026-09-05T15:02:08.696Z",
-      "updatedAt": "2026-10-07T01:58:50.659Z",
+      "updatedAt": "2026-10-08T12:33:17.266Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -32583,7 +32622,7 @@
       "volume": "9",
       "pages": "100460",
       "firstSeenAt": "2026-09-05T15:02:08.697Z",
-      "updatedAt": "2026-10-07T01:58:50.660Z",
+      "updatedAt": "2026-10-08T12:33:17.267Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -32671,7 +32710,7 @@
       "volume": "9",
       "pages": "100461",
       "firstSeenAt": "2026-09-05T15:02:08.697Z",
-      "updatedAt": "2026-10-07T01:58:50.660Z",
+      "updatedAt": "2026-10-08T12:33:17.267Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -32736,7 +32775,7 @@
       "volume": "9",
       "pages": "100463",
       "firstSeenAt": "2026-09-05T15:02:08.697Z",
-      "updatedAt": "2026-10-07T01:58:50.660Z",
+      "updatedAt": "2026-10-08T12:33:17.267Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -32951,7 +32990,7 @@
       "volume": "9",
       "pages": "100469",
       "firstSeenAt": "2026-09-05T15:02:08.697Z",
-      "updatedAt": "2026-10-07T01:58:50.661Z",
+      "updatedAt": "2026-10-08T12:33:17.267Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -33403,7 +33442,7 @@
       "volume": "9",
       "pages": "100471",
       "firstSeenAt": "2026-09-05T15:02:08.697Z",
-      "updatedAt": "2026-10-07T01:58:50.661Z",
+      "updatedAt": "2026-10-08T12:33:17.268Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -33478,7 +33517,7 @@
       "volume": "9",
       "pages": "100477",
       "firstSeenAt": "2026-09-05T15:02:08.697Z",
-      "updatedAt": "2026-10-07T01:58:50.661Z",
+      "updatedAt": "2026-10-08T12:33:17.268Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -33556,7 +33595,7 @@
       "volume": "9",
       "pages": "100476",
       "firstSeenAt": "2026-09-05T15:02:08.697Z",
-      "updatedAt": "2026-10-07T01:58:50.662Z",
+      "updatedAt": "2026-10-08T12:33:17.268Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -33727,7 +33766,7 @@
       "volume": "9",
       "pages": "100475",
       "firstSeenAt": "2026-09-05T15:02:08.697Z",
-      "updatedAt": "2026-10-07T01:58:50.662Z",
+      "updatedAt": "2026-10-08T12:33:17.269Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -33793,7 +33832,7 @@
       "volume": "9",
       "pages": "100474",
       "firstSeenAt": "2026-09-05T15:02:08.697Z",
-      "updatedAt": "2026-10-07T01:58:50.662Z",
+      "updatedAt": "2026-10-08T12:33:17.270Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -33847,7 +33886,7 @@
       "volume": "9",
       "pages": "100464",
       "firstSeenAt": "2026-09-05T15:02:08.697Z",
-      "updatedAt": "2026-10-07T01:58:50.662Z",
+      "updatedAt": "2026-10-08T12:33:17.270Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -33991,7 +34030,7 @@
       "volume": "9",
       "pages": "100481",
       "firstSeenAt": "2026-09-05T15:02:08.697Z",
-      "updatedAt": "2026-10-07T01:58:50.663Z",
+      "updatedAt": "2026-10-08T12:33:17.270Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -34068,7 +34107,7 @@
       "volume": "9",
       "pages": "100482",
       "firstSeenAt": "2026-09-05T15:02:08.698Z",
-      "updatedAt": "2026-10-07T01:58:50.663Z",
+      "updatedAt": "2026-10-08T12:33:17.271Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -34363,7 +34402,7 @@
       "volume": "9",
       "pages": "100485",
       "firstSeenAt": "2026-09-05T15:02:08.698Z",
-      "updatedAt": "2026-10-07T01:58:50.663Z",
+      "updatedAt": "2026-10-08T12:33:17.271Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -34457,7 +34496,7 @@
       "volume": "9",
       "pages": "100487",
       "firstSeenAt": "2026-09-05T15:02:08.698Z",
-      "updatedAt": "2026-10-07T01:58:50.664Z",
+      "updatedAt": "2026-10-08T12:33:17.271Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -34525,7 +34564,7 @@
       "volume": "9",
       "pages": "100486",
       "firstSeenAt": "2026-09-05T15:02:08.698Z",
-      "updatedAt": "2026-10-07T01:58:50.664Z",
+      "updatedAt": "2026-10-08T12:33:17.272Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -34599,7 +34638,7 @@
       "volume": "9",
       "pages": "100488",
       "firstSeenAt": "2026-09-05T15:02:08.698Z",
-      "updatedAt": "2026-10-07T01:58:50.664Z",
+      "updatedAt": "2026-10-08T12:33:17.272Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -34791,7 +34830,7 @@
       "volume": "9",
       "pages": "100490",
       "firstSeenAt": "2026-09-05T15:02:08.698Z",
-      "updatedAt": "2026-10-07T01:58:50.665Z",
+      "updatedAt": "2026-10-08T12:33:17.273Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -34866,7 +34905,7 @@
       "volume": "9",
       "pages": "100493",
       "firstSeenAt": "2026-09-05T15:02:08.698Z",
-      "updatedAt": "2026-10-07T01:58:50.665Z",
+      "updatedAt": "2026-10-08T12:33:17.274Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -35020,7 +35059,7 @@
       "volume": "9",
       "pages": "100491",
       "firstSeenAt": "2026-09-05T15:02:08.698Z",
-      "updatedAt": "2026-10-07T01:58:50.666Z",
+      "updatedAt": "2026-10-08T12:33:17.274Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -35167,7 +35206,7 @@
       "volume": "9",
       "pages": "100497",
       "firstSeenAt": "2026-09-05T15:02:08.698Z",
-      "updatedAt": "2026-10-07T01:58:50.666Z",
+      "updatedAt": "2026-10-08T12:33:17.274Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -35255,7 +35294,7 @@
       "volume": "9",
       "pages": "100496",
       "firstSeenAt": "2026-09-05T15:02:08.698Z",
-      "updatedAt": "2026-10-07T01:58:50.666Z",
+      "updatedAt": "2026-10-08T12:33:17.274Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -35469,7 +35508,7 @@
       "volume": "9",
       "pages": "100501",
       "firstSeenAt": "2026-09-05T15:02:08.698Z",
-      "updatedAt": "2026-10-02T02:26:44.071Z",
+      "updatedAt": "2026-10-08T12:33:17.275Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -35617,7 +35656,7 @@
       "volume": "9",
       "pages": "100502",
       "firstSeenAt": "2026-09-05T15:02:08.698Z",
-      "updatedAt": "2026-10-07T01:58:50.667Z",
+      "updatedAt": "2026-10-08T12:33:17.275Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -35849,7 +35888,7 @@
       "volume": "10",
       "pages": "100499",
       "firstSeenAt": "2026-09-05T15:02:08.699Z",
-      "updatedAt": "2026-09-27T09:57:25.165Z",
+      "updatedAt": "2026-10-08T12:33:21.412Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -36169,7 +36208,7 @@
       "volume": "10",
       "pages": "100511",
       "firstSeenAt": "2026-09-05T15:02:08.699Z",
-      "updatedAt": "2026-10-07T01:58:50.667Z",
+      "updatedAt": "2026-10-08T12:33:21.427Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -36249,7 +36288,7 @@
       "volume": "10",
       "pages": "100514",
       "firstSeenAt": "2026-09-05T15:02:08.699Z",
-      "updatedAt": "2026-09-19T02:32:45.486Z",
+      "updatedAt": "2026-10-08T12:33:21.442Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -36477,7 +36516,7 @@
       "volume": "9",
       "pages": "100518",
       "firstSeenAt": "2026-09-05T15:02:08.699Z",
-      "updatedAt": "2026-10-07T01:58:50.667Z",
+      "updatedAt": "2026-10-08T12:33:17.275Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -36635,7 +36674,7 @@
       "volume": "9",
       "pages": "100524",
       "firstSeenAt": "2026-09-05T15:02:08.699Z",
-      "updatedAt": "2026-10-07T01:58:50.668Z",
+      "updatedAt": "2026-10-08T12:33:17.276Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -36717,7 +36756,7 @@
       "volume": "9",
       "pages": "100521",
       "firstSeenAt": "2026-09-05T15:02:08.699Z",
-      "updatedAt": "2026-10-07T01:58:50.668Z",
+      "updatedAt": "2026-10-08T12:33:17.276Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -36870,7 +36909,7 @@
       "volume": "9",
       "pages": "100513",
       "firstSeenAt": "2026-09-05T15:02:08.699Z",
-      "updatedAt": "2026-10-07T01:58:50.669Z",
+      "updatedAt": "2026-10-08T12:33:17.277Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -36959,7 +36998,7 @@
       "volume": "10",
       "pages": "100519",
       "firstSeenAt": "2026-09-05T15:02:08.699Z",
-      "updatedAt": "2026-10-07T01:58:50.669Z",
+      "updatedAt": "2026-10-08T12:33:21.461Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -37197,7 +37236,7 @@
       "volume": "10",
       "pages": "100509",
       "firstSeenAt": "2026-09-05T15:02:08.700Z",
-      "updatedAt": "2026-09-19T02:32:45.596Z",
+      "updatedAt": "2026-10-08T12:33:21.478Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -37275,7 +37314,7 @@
       "volume": "10",
       "pages": "100528",
       "firstSeenAt": "2026-09-05T15:02:08.700Z",
-      "updatedAt": "2026-09-19T02:32:45.602Z",
+      "updatedAt": "2026-10-08T12:33:21.492Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -37344,7 +37383,7 @@
       "volume": "10",
       "pages": "100527",
       "firstSeenAt": "2026-09-05T15:02:08.700Z",
-      "updatedAt": "2026-10-07T01:58:50.670Z",
+      "updatedAt": "2026-10-08T12:33:21.506Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -37411,7 +37450,7 @@
       "volume": "10",
       "pages": "100531",
       "firstSeenAt": "2026-09-05T15:02:08.700Z",
-      "updatedAt": "2026-09-19T02:32:45.613Z",
+      "updatedAt": "2026-10-08T12:33:21.520Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -37483,7 +37522,7 @@
       "volume": "10",
       "pages": "100529",
       "firstSeenAt": "2026-09-05T15:02:08.700Z",
-      "updatedAt": "2026-10-07T01:58:50.670Z",
+      "updatedAt": "2026-10-08T12:33:21.532Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -37556,7 +37595,7 @@
       "volume": "10",
       "pages": "100534",
       "firstSeenAt": "2026-09-05T15:02:08.700Z",
-      "updatedAt": "2026-09-19T02:32:45.623Z",
+      "updatedAt": "2026-10-08T12:33:21.545Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -37630,7 +37669,7 @@
       "volume": "10",
       "pages": "100523",
       "firstSeenAt": "2026-09-05T15:02:08.700Z",
-      "updatedAt": "2026-09-19T02:32:45.629Z",
+      "updatedAt": "2026-10-08T12:33:21.561Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -37702,7 +37741,7 @@
       "volume": "10",
       "pages": "100530",
       "firstSeenAt": "2026-09-05T15:02:08.700Z",
-      "updatedAt": "2026-10-07T01:58:50.671Z",
+      "updatedAt": "2026-10-08T12:33:21.574Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -37775,7 +37814,7 @@
       "volume": "10",
       "pages": "100533",
       "firstSeenAt": "2026-09-05T15:02:08.700Z",
-      "updatedAt": "2026-09-27T09:57:25.165Z",
+      "updatedAt": "2026-10-08T12:33:21.588Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -37853,7 +37892,7 @@
       "volume": "10",
       "pages": "100535",
       "firstSeenAt": "2026-09-05T15:02:08.700Z",
-      "updatedAt": "2026-09-19T02:32:45.651Z",
+      "updatedAt": "2026-10-08T12:33:21.602Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -37934,7 +37973,7 @@
       "volume": "10",
       "pages": "100539",
       "firstSeenAt": "2026-09-05T15:02:08.700Z",
-      "updatedAt": "2026-09-19T02:32:45.658Z",
+      "updatedAt": "2026-10-08T12:33:21.620Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -38003,7 +38042,7 @@
       "volume": "10",
       "pages": "100536",
       "firstSeenAt": "2026-09-05T15:02:08.700Z",
-      "updatedAt": "2026-10-07T01:58:50.671Z",
+      "updatedAt": "2026-10-08T12:33:21.634Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -38078,7 +38117,7 @@
       "volume": "10",
       "pages": "100538",
       "firstSeenAt": "2026-09-05T15:02:08.700Z",
-      "updatedAt": "2026-10-07T01:58:50.671Z",
+      "updatedAt": "2026-10-08T12:33:21.650Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -38154,7 +38193,7 @@
       "volume": "10",
       "pages": "100537",
       "firstSeenAt": "2026-09-05T15:02:08.700Z",
-      "updatedAt": "2026-10-07T01:58:50.672Z",
+      "updatedAt": "2026-10-08T12:33:21.672Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -38309,7 +38348,7 @@
       "volume": "10",
       "pages": "100541",
       "firstSeenAt": "2026-09-05T15:02:08.700Z",
-      "updatedAt": "2026-10-02T02:26:44.075Z",
+      "updatedAt": "2026-10-08T12:33:21.699Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -38385,7 +38424,7 @@
       "volume": "10",
       "pages": "100540",
       "firstSeenAt": "2026-09-05T15:02:08.700Z",
-      "updatedAt": "2026-10-07T01:58:50.672Z",
+      "updatedAt": "2026-10-08T12:33:17.279Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -38475,7 +38514,7 @@
       "volume": "10",
       "pages": "100545",
       "firstSeenAt": "2026-09-05T15:02:08.700Z",
-      "updatedAt": "2026-09-19T02:32:45.691Z",
+      "updatedAt": "2026-10-08T12:33:21.723Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -38542,7 +38581,7 @@
       "volume": "10",
       "pages": "100544",
       "firstSeenAt": "2026-09-05T15:02:08.700Z",
-      "updatedAt": "2026-09-27T09:57:25.166Z",
+      "updatedAt": "2026-10-08T12:33:21.747Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -38620,7 +38659,7 @@
       "volume": "10",
       "pages": "100546",
       "firstSeenAt": "2026-09-05T15:02:08.701Z",
-      "updatedAt": "2026-10-07T01:58:50.672Z",
+      "updatedAt": "2026-10-08T12:33:21.765Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -38698,7 +38737,7 @@
       "volume": "10",
       "pages": "100550",
       "firstSeenAt": "2026-09-05T15:02:08.701Z",
-      "updatedAt": "2026-09-27T09:57:25.166Z",
+      "updatedAt": "2026-10-08T12:33:21.784Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -38779,7 +38818,7 @@
       "volume": "10",
       "pages": "100551",
       "firstSeenAt": "2026-09-05T15:02:08.701Z",
-      "updatedAt": "2026-10-07T01:58:50.673Z",
+      "updatedAt": "2026-10-08T12:33:21.809Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -38859,7 +38898,7 @@
       "volume": "10",
       "pages": "100548",
       "firstSeenAt": "2026-09-05T15:02:08.701Z",
-      "updatedAt": "2026-09-27T09:57:25.166Z",
+      "updatedAt": "2026-10-08T12:33:21.829Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -38935,7 +38974,7 @@
       "volume": "10",
       "pages": "100549",
       "firstSeenAt": "2026-09-05T15:02:08.701Z",
-      "updatedAt": "2026-09-19T02:32:45.728Z",
+      "updatedAt": "2026-10-08T12:33:21.850Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -39008,7 +39047,7 @@
       "volume": "10",
       "pages": "100552",
       "firstSeenAt": "2026-09-05T15:02:08.701Z",
-      "updatedAt": "2026-10-02T02:26:44.075Z",
+      "updatedAt": "2026-10-08T12:33:21.866Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -39077,7 +39116,7 @@
       "volume": "10",
       "pages": "100554",
       "firstSeenAt": "2026-09-05T15:02:08.701Z",
-      "updatedAt": "2026-10-07T01:58:50.673Z",
+      "updatedAt": "2026-10-08T12:33:21.885Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -39147,7 +39186,7 @@
       "volume": "10",
       "pages": "100555",
       "firstSeenAt": "2026-09-05T15:02:08.701Z",
-      "updatedAt": "2026-09-19T02:32:45.749Z",
+      "updatedAt": "2026-10-08T12:33:21.903Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -39218,7 +39257,7 @@
       "volume": "10",
       "pages": "100556",
       "firstSeenAt": "2026-09-05T15:02:08.701Z",
-      "updatedAt": "2026-09-19T02:32:45.756Z",
+      "updatedAt": "2026-10-08T12:33:21.920Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -39372,7 +39411,7 @@
       "volume": "10",
       "pages": "100559",
       "firstSeenAt": "2026-09-05T15:02:08.701Z",
-      "updatedAt": "2026-10-07T01:58:50.673Z",
+      "updatedAt": "2026-10-08T12:33:17.282Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -39443,7 +39482,7 @@
       "volume": "10",
       "pages": "100558",
       "firstSeenAt": "2026-09-05T15:02:08.701Z",
-      "updatedAt": "2026-09-19T02:32:45.766Z",
+      "updatedAt": "2026-10-08T12:33:21.940Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -39514,7 +39553,7 @@
       "volume": "10",
       "pages": "100557",
       "firstSeenAt": "2026-09-05T15:02:08.701Z",
-      "updatedAt": "2026-09-19T02:32:45.771Z",
+      "updatedAt": "2026-10-08T12:33:21.962Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -39578,7 +39617,7 @@
       "volume": "10",
       "pages": "100560",
       "firstSeenAt": "2026-09-05T15:02:08.701Z",
-      "updatedAt": "2026-10-07T01:58:50.673Z",
+      "updatedAt": "2026-10-08T12:33:21.981Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -39648,7 +39687,7 @@
       "volume": "10",
       "pages": "100561",
       "firstSeenAt": "2026-09-05T15:02:08.701Z",
-      "updatedAt": "2026-10-07T01:58:50.674Z",
+      "updatedAt": "2026-10-08T12:33:22.000Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -39714,7 +39753,7 @@
       "volume": "10",
       "pages": "100567",
       "firstSeenAt": "2026-09-05T15:02:08.701Z",
-      "updatedAt": "2026-09-19T02:32:45.800Z",
+      "updatedAt": "2026-10-08T12:33:22.022Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -39879,7 +39918,7 @@
       "volume": "10",
       "pages": "100564",
       "firstSeenAt": "2026-09-05T15:02:08.701Z",
-      "updatedAt": "2026-09-19T02:32:45.810Z",
+      "updatedAt": "2026-10-08T12:33:22.057Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -39952,7 +39991,7 @@
       "volume": "10",
       "pages": "100563",
       "firstSeenAt": "2026-09-05T15:02:08.701Z",
-      "updatedAt": "2026-10-07T01:58:50.674Z",
+      "updatedAt": "2026-10-08T12:33:22.082Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -39965,6 +40004,14 @@
           "url": "https://doi.org/10.1016/j.caeai.2026.100563",
           "hostType": "publisher",
           "version": "publishedVersion",
+          "isOa": true,
+          "source": "Public OA metadata"
+        },
+        {
+          "url": "https://hdl.handle.net/2440/152069",
+          "hostType": "repository",
+          "version": "submittedVersion",
+          "license": "CC BY",
           "isOa": true,
           "source": "Public OA metadata"
         }
@@ -40019,7 +40066,7 @@
       "volume": "10",
       "pages": "100569",
       "firstSeenAt": "2026-09-05T15:02:08.702Z",
-      "updatedAt": "2026-09-19T02:32:45.825Z",
+      "updatedAt": "2026-10-08T12:33:22.100Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -40100,7 +40147,7 @@
       "volume": "10",
       "pages": "100565",
       "firstSeenAt": "2026-09-05T15:02:08.702Z",
-      "updatedAt": "2026-09-19T02:32:45.832Z",
+      "updatedAt": "2026-10-08T12:33:22.120Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -40182,7 +40229,7 @@
       "volume": "10",
       "pages": "100572",
       "firstSeenAt": "2026-09-05T15:02:08.702Z",
-      "updatedAt": "2026-10-07T01:58:50.674Z",
+      "updatedAt": "2026-10-08T12:33:22.138Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -40271,7 +40318,7 @@
       "volume": "10",
       "pages": "100576",
       "firstSeenAt": "2026-09-05T15:02:08.702Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:22.159Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -40344,7 +40391,7 @@
       "volume": "10",
       "pages": "100575",
       "firstSeenAt": "2026-09-05T15:02:08.702Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:22.178Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -40418,7 +40465,7 @@
       "volume": "10",
       "pages": "100574",
       "firstSeenAt": "2026-09-05T15:02:08.702Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:22.197Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -40490,7 +40537,7 @@
       "volume": "10",
       "pages": "100568",
       "firstSeenAt": "2026-09-05T15:02:08.702Z",
-      "updatedAt": "2026-10-07T01:58:50.675Z",
+      "updatedAt": "2026-10-08T12:33:22.222Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -40557,7 +40604,7 @@
       "volume": "10",
       "pages": "100577",
       "firstSeenAt": "2026-09-05T15:02:08.702Z",
-      "updatedAt": "2026-09-19T02:32:45.881Z",
+      "updatedAt": "2026-10-08T12:33:22.261Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -40632,7 +40679,7 @@
       "volume": "10",
       "pages": "100571",
       "firstSeenAt": "2026-09-05T15:02:08.702Z",
-      "updatedAt": "2026-10-07T01:58:50.675Z",
+      "updatedAt": "2026-10-08T12:33:22.284Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -40769,7 +40816,7 @@
       "volume": "10",
       "pages": "100570",
       "firstSeenAt": "2026-09-05T15:02:08.702Z",
-      "updatedAt": "2026-10-02T02:26:44.077Z",
+      "updatedAt": "2026-10-08T12:33:22.312Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -40837,7 +40884,7 @@
       "volume": "10",
       "pages": "100573",
       "firstSeenAt": "2026-09-05T15:02:08.702Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -40907,7 +40954,7 @@
       "volume": "10",
       "pages": "100579",
       "firstSeenAt": "2026-09-05T15:02:08.702Z",
-      "updatedAt": "2026-10-07T01:58:50.675Z",
+      "updatedAt": "2026-10-08T12:33:22.331Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -40990,7 +41037,7 @@
       "volume": "10",
       "pages": "100581",
       "firstSeenAt": "2026-09-05T15:02:08.702Z",
-      "updatedAt": "2026-09-27T09:57:25.166Z",
+      "updatedAt": "2026-10-08T12:33:22.351Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -41061,7 +41108,7 @@
       "volume": "10",
       "pages": "100580",
       "firstSeenAt": "2026-09-05T15:02:08.702Z",
-      "updatedAt": "2026-09-19T02:32:45.921Z",
+      "updatedAt": "2026-10-08T12:33:22.370Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -41146,7 +41193,7 @@
       "volume": "10",
       "pages": "100583",
       "firstSeenAt": "2026-09-05T15:02:08.702Z",
-      "updatedAt": "2026-10-07T01:58:50.676Z",
+      "updatedAt": "2026-10-08T12:33:17.288Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -41198,7 +41245,7 @@
         "David Parsons",
         "Mahsa Mohaghegh"
       ],
-      "url": "https://linkinghub.elsevier.com/retrieve/pii/S2666920X26000469",
+      "url": "https://www.sciencedirect.com/science/article/pii/S2666920X26000469",
       "keywords": [
         "Literacy",
         "Delphi",
@@ -41223,7 +41270,7 @@
       "volume": "10",
       "pages": "100584",
       "firstSeenAt": "2026-09-05T15:02:08.702Z",
-      "updatedAt": "2026-10-07T01:58:50.676Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -41304,7 +41351,7 @@
       "volume": "10",
       "pages": "100585",
       "firstSeenAt": "2026-09-05T15:02:08.702Z",
-      "updatedAt": "2026-09-19T02:32:45.930Z",
+      "updatedAt": "2026-10-08T12:33:22.394Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -41374,7 +41421,7 @@
       "volume": "10",
       "pages": "100587",
       "firstSeenAt": "2026-09-05T15:02:08.702Z",
-      "updatedAt": "2026-09-19T02:32:45.938Z",
+      "updatedAt": "2026-10-08T12:33:22.418Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -41949,7 +41996,7 @@
       "volume": "10",
       "pages": "100594",
       "firstSeenAt": "2026-09-05T15:02:08.703Z",
-      "updatedAt": "2026-10-07T01:58:50.677Z",
+      "updatedAt": "2026-10-08T12:33:17.288Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -42017,7 +42064,7 @@
       "volume": "10",
       "pages": "100593",
       "firstSeenAt": "2026-09-05T15:02:08.703Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -42091,7 +42138,7 @@
       "volume": "10",
       "pages": "100596",
       "firstSeenAt": "2026-09-05T15:02:08.703Z",
-      "updatedAt": "2026-10-07T01:58:50.677Z",
+      "updatedAt": "2026-10-08T12:33:17.289Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -42159,7 +42206,7 @@
       "volume": "10",
       "pages": "100595",
       "firstSeenAt": "2026-09-05T15:02:08.703Z",
-      "updatedAt": "2026-10-07T01:58:50.677Z",
+      "updatedAt": "2026-10-08T12:33:17.289Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -42233,7 +42280,7 @@
       "volume": "10",
       "pages": "100597",
       "firstSeenAt": "2026-09-05T15:02:08.703Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -42278,7 +42325,7 @@
         "Benjamin W. Wah",
         "Dragan Gašević"
       ],
-      "url": "https://www.sciencedirect.com/science/article/pii/S2666920X26000603",
+      "url": "https://linkinghub.elsevier.com/retrieve/pii/S2666920X26000603",
       "keywords": [
         "Training (meteorology)",
         "Feature (linguistics)",
@@ -42298,7 +42345,7 @@
       "volume": "10",
       "pages": "100598",
       "firstSeenAt": "2026-09-05T15:02:08.703Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:17.290Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -42374,7 +42421,7 @@
       "volume": "10",
       "pages": "100602",
       "firstSeenAt": "2026-09-05T15:02:08.703Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -42425,7 +42472,7 @@
         "Jennifer Anne Cleland",
         "Xiuyi Fan"
       ],
-      "url": "https://linkinghub.elsevier.com/retrieve/pii/S2666920X26000627",
+      "url": "https://www.sciencedirect.com/science/article/pii/S2666920X26000627",
       "keywords": [
         "Longitudinal study",
         "Exploratory research",
@@ -42450,7 +42497,7 @@
       "volume": "10",
       "pages": "100600",
       "firstSeenAt": "2026-09-05T15:02:08.703Z",
-      "updatedAt": "2026-10-07T01:58:50.678Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -42530,7 +42577,7 @@
       "volume": "10",
       "pages": "100604",
       "firstSeenAt": "2026-09-05T15:02:08.703Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -42594,7 +42641,7 @@
       "volume": "10",
       "pages": "100599",
       "firstSeenAt": "2026-09-05T15:02:08.703Z",
-      "updatedAt": "2026-10-07T01:58:50.678Z",
+      "updatedAt": "2026-10-08T12:33:17.290Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -42663,7 +42710,7 @@
       "volume": "10",
       "pages": "100603",
       "firstSeenAt": "2026-09-05T15:02:08.703Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -42731,7 +42778,7 @@
       "volume": "10",
       "pages": "100605",
       "firstSeenAt": "2026-09-05T15:02:08.703Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -42811,7 +42858,7 @@
       "volume": "10",
       "pages": "100611",
       "firstSeenAt": "2026-09-05T15:02:08.703Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -42881,7 +42928,7 @@
       "volume": "10",
       "pages": "100612",
       "firstSeenAt": "2026-09-05T15:02:08.703Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -42927,7 +42974,7 @@
         "Louie Giray",
         "Engin Karadag"
       ],
-      "url": "https://linkinghub.elsevier.com/retrieve/pii/S2666920X26000688",
+      "url": "https://www.sciencedirect.com/science/article/pii/S2666920X26000688",
       "keywords": [
         "Reflexivity",
         "Thematic analysis",
@@ -42954,7 +43001,7 @@
       "volume": "10",
       "pages": "100606",
       "firstSeenAt": "2026-09-05T15:02:08.703Z",
-      "updatedAt": "2026-10-07T01:58:50.678Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -43024,7 +43071,7 @@
       "volume": "10",
       "pages": "100610",
       "firstSeenAt": "2026-09-05T15:02:08.703Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -43104,7 +43151,7 @@
       "volume": "10",
       "pages": "100608",
       "firstSeenAt": "2026-09-05T15:02:08.703Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -43174,7 +43221,7 @@
       "volume": "10",
       "pages": "100614",
       "firstSeenAt": "2026-09-05T15:02:08.705Z",
-      "updatedAt": "2026-10-07T01:58:50.678Z",
+      "updatedAt": "2026-10-08T12:33:17.290Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -43232,7 +43279,7 @@
         "Shazia Sadiq",
         "Hassan Khosravi"
       ],
-      "url": "https://linkinghub.elsevier.com/retrieve/pii/S2666920X26000780",
+      "url": "https://www.sciencedirect.com/science/article/pii/S2666920X26000780",
       "keywords": [
         "Tracing",
         "Benchmark (surveying)",
@@ -43256,7 +43303,7 @@
       "volume": "10",
       "pages": "100616",
       "firstSeenAt": "2026-09-05T15:02:08.706Z",
-      "updatedAt": "2026-10-07T01:58:50.679Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -43325,7 +43372,7 @@
       "volume": "10",
       "pages": "100613",
       "firstSeenAt": "2026-09-05T15:02:08.706Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -43393,7 +43440,7 @@
       "volume": "10",
       "pages": "100609",
       "firstSeenAt": "2026-09-05T15:02:08.706Z",
-      "updatedAt": "2026-10-07T01:58:50.679Z",
+      "updatedAt": "2026-10-08T12:33:17.291Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -43465,7 +43512,7 @@
       "volume": "10",
       "pages": "100618",
       "firstSeenAt": "2026-09-05T15:02:08.706Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -43537,7 +43584,7 @@
       "volume": "10",
       "pages": "100615",
       "firstSeenAt": "2026-09-05T15:02:08.706Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -43607,7 +43654,7 @@
       "volume": "10",
       "pages": "100621",
       "firstSeenAt": "2026-09-05T15:02:08.706Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -43678,7 +43725,7 @@
       "volume": "10",
       "pages": "100617",
       "firstSeenAt": "2026-09-05T15:02:08.706Z",
-      "updatedAt": "2026-10-07T01:58:50.679Z",
+      "updatedAt": "2026-10-08T12:33:17.291Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -43744,7 +43791,7 @@
       "volume": "10",
       "pages": "100623",
       "firstSeenAt": "2026-09-05T15:02:08.706Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -43813,7 +43860,7 @@
       "volume": "10",
       "pages": "100622",
       "firstSeenAt": "2026-09-05T15:02:08.706Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -43881,7 +43928,7 @@
       },
       "pages": "100661",
       "firstSeenAt": "2026-09-05T15:02:08.706Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -43961,7 +44008,7 @@
       "issue": "4",
       "pages": "1370-1390",
       "firstSeenAt": "2026-09-05T15:28:06.566Z",
-      "updatedAt": "2026-10-07T01:58:42.564Z",
+      "updatedAt": "2026-10-08T12:33:06.329Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -44054,7 +44101,7 @@
       "issue": "4",
       "pages": "1391-1414",
       "firstSeenAt": "2026-09-05T15:28:06.566Z",
-      "updatedAt": "2026-09-19T02:32:29.909Z",
+      "updatedAt": "2026-10-08T12:33:20.981Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -44127,7 +44174,7 @@
       "issue": "6",
       "pages": "2321-2340",
       "firstSeenAt": "2026-09-05T15:28:06.567Z",
-      "updatedAt": "2026-10-07T01:58:42.566Z",
+      "updatedAt": "2026-10-08T12:33:06.330Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -44207,7 +44254,7 @@
       "issue": "2",
       "pages": "678-711",
       "firstSeenAt": "2026-09-05T15:28:06.567Z",
-      "updatedAt": "2026-10-07T01:58:42.567Z",
+      "updatedAt": "2026-10-08T12:33:06.330Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -44357,7 +44404,7 @@
       "issue": "3",
       "pages": "1053-1073",
       "firstSeenAt": "2026-09-05T15:28:06.568Z",
-      "updatedAt": "2026-10-07T01:58:42.568Z",
+      "updatedAt": "2026-10-08T12:33:20.971Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -44421,7 +44468,7 @@
       "issue": "3",
       "pages": "1028-1052",
       "firstSeenAt": "2026-09-05T15:28:06.568Z",
-      "updatedAt": "2026-09-19T02:32:29.911Z",
+      "updatedAt": "2026-10-08T12:33:06.330Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -44494,7 +44541,7 @@
       "issue": "6",
       "pages": "2404-2427",
       "firstSeenAt": "2026-09-05T15:28:06.568Z",
-      "updatedAt": "2026-09-07T02:55:43.144Z",
+      "updatedAt": "2026-10-08T12:33:20.961Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -44555,7 +44602,7 @@
       "issue": "6",
       "pages": "2428-2452",
       "firstSeenAt": "2026-09-05T15:28:06.568Z",
-      "updatedAt": "2026-10-07T01:58:42.569Z",
+      "updatedAt": "2026-10-08T12:33:20.940Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -44624,7 +44671,7 @@
       "issue": "6",
       "pages": "2453-2477",
       "firstSeenAt": "2026-09-05T15:28:06.569Z",
-      "updatedAt": "2026-10-07T01:58:42.569Z",
+      "updatedAt": "2026-10-08T12:33:20.950Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -44687,7 +44734,7 @@
       "issue": "6",
       "pages": "2502-2521",
       "firstSeenAt": "2026-09-05T15:28:06.569Z",
-      "updatedAt": "2026-09-27T09:57:18.292Z",
+      "updatedAt": "2026-10-08T12:33:20.902Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -44756,7 +44803,7 @@
       "issue": "6",
       "pages": "2478-2501",
       "firstSeenAt": "2026-09-05T15:28:06.569Z",
-      "updatedAt": "2026-09-07T02:55:43.091Z",
+      "updatedAt": "2026-10-08T12:33:20.923Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -44769,6 +44816,13 @@
           "url": "https://doi.org/10.1111/bjet.13575",
           "hostType": "publisher",
           "version": "publishedVersion",
+          "isOa": true,
+          "source": "Public OA metadata"
+        },
+        {
+          "url": "https://research.monash.edu/files/735248720/675419058-oa.pdf",
+          "hostType": "repository",
+          "version": "submittedVersion",
           "isOa": true,
           "source": "Public OA metadata"
         }
@@ -44837,7 +44891,7 @@
       "issue": "6",
       "pages": "2522-2549",
       "firstSeenAt": "2026-09-05T15:28:06.569Z",
-      "updatedAt": "2026-10-07T01:58:42.570Z",
+      "updatedAt": "2026-10-08T12:33:06.331Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -45014,7 +45068,7 @@
       "issue": "5",
       "pages": "1897-1918",
       "firstSeenAt": "2026-09-05T15:28:06.569Z",
-      "updatedAt": "2026-10-07T01:58:42.571Z",
+      "updatedAt": "2026-10-08T12:33:06.331Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -45092,7 +45146,7 @@
       "issue": "5",
       "pages": "2043-2077",
       "firstSeenAt": "2026-09-05T15:28:06.569Z",
-      "updatedAt": "2026-10-07T01:58:42.572Z",
+      "updatedAt": "2026-10-08T12:33:06.331Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -45170,7 +45224,7 @@
       "issue": "5",
       "pages": "1942-1972",
       "firstSeenAt": "2026-09-05T15:28:06.570Z",
-      "updatedAt": "2026-10-07T01:58:42.573Z",
+      "updatedAt": "2026-10-08T12:33:06.331Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -45248,7 +45302,7 @@
       "issue": "5",
       "pages": "1686-1709",
       "firstSeenAt": "2026-09-05T15:28:06.570Z",
-      "updatedAt": "2026-10-07T01:58:42.574Z",
+      "updatedAt": "2026-10-08T12:33:06.331Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -45327,7 +45381,7 @@
       "issue": "5",
       "pages": "2019-2042",
       "firstSeenAt": "2026-09-05T15:28:06.570Z",
-      "updatedAt": "2026-09-07T02:55:42.941Z",
+      "updatedAt": "2026-10-08T12:33:20.279Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -45401,7 +45455,7 @@
       "issue": "6",
       "pages": "2550-2572",
       "firstSeenAt": "2026-09-05T15:28:06.570Z",
-      "updatedAt": "2026-10-07T01:58:42.575Z",
+      "updatedAt": "2026-10-08T12:33:06.332Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -45480,7 +45534,7 @@
       "issue": "5",
       "pages": "1842-1863",
       "firstSeenAt": "2026-09-05T15:28:06.570Z",
-      "updatedAt": "2026-10-07T01:58:42.575Z",
+      "updatedAt": "2026-10-08T12:33:20.271Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -45616,7 +45670,7 @@
       "issue": "5",
       "pages": "1864-1896",
       "firstSeenAt": "2026-09-05T15:28:06.571Z",
-      "updatedAt": "2026-10-02T02:26:36.354Z",
+      "updatedAt": "2026-10-08T12:33:20.262Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -45689,7 +45743,7 @@
       "issue": "5",
       "pages": "1710-1734",
       "firstSeenAt": "2026-09-05T15:28:06.571Z",
-      "updatedAt": "2026-10-07T01:58:42.576Z",
+      "updatedAt": "2026-10-08T12:33:20.250Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -45831,7 +45885,7 @@
       "issue": "1",
       "pages": "79-111",
       "firstSeenAt": "2026-09-05T15:28:06.571Z",
-      "updatedAt": "2026-09-07T02:55:42.842Z",
+      "updatedAt": "2026-10-08T12:33:20.240Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -45979,7 +46033,7 @@
       "issue": "5",
       "pages": "2078-2101",
       "firstSeenAt": "2026-09-05T15:28:06.571Z",
-      "updatedAt": "2026-10-07T01:58:42.577Z",
+      "updatedAt": "2026-10-08T12:33:06.332Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -46143,7 +46197,7 @@
       "issue": "5",
       "pages": "2102-2124",
       "firstSeenAt": "2026-09-05T15:28:06.572Z",
-      "updatedAt": "2026-10-07T01:58:42.577Z",
+      "updatedAt": "2026-10-08T12:33:06.332Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -46218,7 +46272,7 @@
       "issue": "5",
       "pages": "2125-2145",
       "firstSeenAt": "2026-09-05T15:28:06.572Z",
-      "updatedAt": "2026-10-07T01:58:42.578Z",
+      "updatedAt": "2026-10-08T12:33:06.332Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -46315,7 +46369,8 @@
         }
       ],
       "pdf": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "sourceUrl": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/bjet.13609"
       },
       "milestones": [
         {
@@ -46392,7 +46447,8 @@
         }
       ],
       "pdf": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "sourceUrl": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/bjet.13612"
       },
       "milestones": [
         {
@@ -46454,7 +46510,7 @@
       "issue": "5",
       "pages": "1758-1783",
       "firstSeenAt": "2026-09-05T15:28:06.572Z",
-      "updatedAt": "2026-10-07T01:58:42.579Z",
+      "updatedAt": "2026-10-08T12:33:06.332Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -46629,7 +46685,7 @@
       "issue": "5",
       "pages": "1919-1941",
       "firstSeenAt": "2026-09-05T15:28:06.572Z",
-      "updatedAt": "2026-10-07T01:58:42.582Z",
+      "updatedAt": "2026-10-08T12:33:06.333Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -46770,7 +46826,7 @@
       "issue": "4",
       "pages": "1036-1064",
       "firstSeenAt": "2026-09-05T15:28:06.573Z",
-      "updatedAt": "2026-10-07T01:58:56.270Z",
+      "updatedAt": "2026-10-08T12:33:06.333Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -46911,7 +46967,7 @@
       "issue": "3",
       "pages": "619-638",
       "firstSeenAt": "2026-09-05T15:28:06.573Z",
-      "updatedAt": "2026-10-07T01:58:42.583Z",
+      "updatedAt": "2026-10-08T12:33:06.333Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -46996,7 +47052,7 @@
       "issue": "4",
       "pages": "943-964",
       "firstSeenAt": "2026-09-05T15:28:06.573Z",
-      "updatedAt": "2026-10-07T01:58:56.223Z",
+      "updatedAt": "2026-10-08T12:33:06.333Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -47141,7 +47197,7 @@
       "issue": "3",
       "pages": "674-689",
       "firstSeenAt": "2026-09-05T15:28:06.574Z",
-      "updatedAt": "2026-10-07T01:58:42.585Z",
+      "updatedAt": "2026-10-08T12:33:06.333Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -47228,7 +47284,7 @@
       "issue": "4",
       "pages": "984-1008",
       "firstSeenAt": "2026-09-05T15:28:06.574Z",
-      "updatedAt": "2026-10-07T01:58:42.585Z",
+      "updatedAt": "2026-10-08T12:33:06.334Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -47377,7 +47433,7 @@
       "issue": "1",
       "pages": "346-372",
       "firstSeenAt": "2026-09-05T15:28:06.574Z",
-      "updatedAt": "2026-10-07T01:58:56.112Z",
+      "updatedAt": "2026-10-08T12:33:06.334Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -48296,7 +48352,7 @@
       "issue": "4",
       "pages": "896-923",
       "firstSeenAt": "2026-09-05T15:28:06.579Z",
-      "updatedAt": "2026-10-07T01:58:42.593Z",
+      "updatedAt": "2026-10-08T12:33:06.334Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -48371,7 +48427,7 @@
       "issue": "3",
       "pages": "690-706",
       "firstSeenAt": "2026-09-05T15:28:06.579Z",
-      "updatedAt": "2026-10-07T01:58:42.594Z",
+      "updatedAt": "2026-10-08T12:33:06.335Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -48600,7 +48656,7 @@
       "issue": "4",
       "pages": "1065-1070",
       "firstSeenAt": "2026-09-05T15:28:06.580Z",
-      "updatedAt": "2026-10-07T01:58:42.596Z",
+      "updatedAt": "2026-10-08T12:33:06.335Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -48804,7 +48860,7 @@
       "issue": "5",
       "pages": "2340-2357",
       "firstSeenAt": "2026-09-05T15:28:07.779Z",
-      "updatedAt": "2026-10-07T01:58:43.357Z",
+      "updatedAt": "2026-10-08T12:33:07.209Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -48877,7 +48933,7 @@
       "issue": "5",
       "pages": "2573-2604",
       "firstSeenAt": "2026-09-05T15:28:07.780Z",
-      "updatedAt": "2026-10-07T01:58:43.358Z",
+      "updatedAt": "2026-10-08T12:33:07.210Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -49037,7 +49093,7 @@
       "issue": "6",
       "pages": "2777-2809",
       "firstSeenAt": "2026-09-05T15:28:07.781Z",
-      "updatedAt": "2026-10-07T01:58:43.361Z",
+      "updatedAt": "2026-10-08T12:33:07.212Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -49121,7 +49177,7 @@
       "issue": "6",
       "pages": "2893-2919",
       "firstSeenAt": "2026-09-05T15:28:07.782Z",
-      "updatedAt": "2026-10-07T01:58:56.339Z",
+      "updatedAt": "2026-10-08T12:33:07.213Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -49395,7 +49451,7 @@
       "issue": "2",
       "pages": "1219-1247",
       "firstSeenAt": "2026-09-05T15:28:07.788Z",
-      "updatedAt": "2026-10-07T01:58:56.089Z",
+      "updatedAt": "2026-10-08T12:33:07.216Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -49527,7 +49583,7 @@
       "issue": "2",
       "pages": "1442-1469",
       "firstSeenAt": "2026-09-05T15:28:07.789Z",
-      "updatedAt": "2026-10-07T01:58:43.368Z",
+      "updatedAt": "2026-10-08T12:33:07.216Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -50094,7 +50150,7 @@
       },
       "pages": "berj.70167",
       "firstSeenAt": "2026-09-05T15:28:07.796Z",
-      "updatedAt": "2026-10-07T01:58:43.371Z",
+      "updatedAt": "2026-10-08T12:33:07.218Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -50144,7 +50200,7 @@
       },
       "pages": "bjet.70087",
       "firstSeenAt": "2026-09-19T02:32:29.920Z",
-      "updatedAt": "2026-10-07T01:58:42.308Z",
+      "updatedAt": "2026-10-08T12:33:21.032Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -50160,10 +50216,20 @@
           "license": "CC BY",
           "isOa": true,
           "source": "Public OA metadata"
+        },
+        {
+          "url": "https://doi.org/10.1111/bjet.70087",
+          "pdfUrl": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/bjet.70087",
+          "hostType": "publisher",
+          "version": "publishedVersion",
+          "license": "CC BY",
+          "isOa": true,
+          "source": "Public OA metadata"
         }
       ],
       "pdf": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "sourceUrl": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/bjet.70087"
       },
       "milestones": [
         {
@@ -50207,7 +50273,7 @@
       },
       "pages": "berj.70277",
       "firstSeenAt": "2026-09-19T02:32:31.097Z",
-      "updatedAt": "2026-10-07T01:58:43.164Z",
+      "updatedAt": "2026-10-08T12:33:21.043Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -50266,15 +50332,23 @@
       },
       "pages": "105750",
       "firstSeenAt": "2026-09-19T02:32:32.691Z",
-      "updatedAt": "2026-10-07T01:58:44.354Z",
+      "updatedAt": "2026-10-08T12:33:21.054Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
-        "confidence": "medium",
+        "confidence": "high",
         "reason": "This paper relates to learning analytics.",
         "evidence": []
       },
-      "oaLocations": [],
+      "oaLocations": [
+        {
+          "url": "https://doi.org/10.1016/j.compedu.2026.105750",
+          "hostType": "publisher",
+          "version": "publishedVersion",
+          "isOa": true,
+          "source": "Public OA metadata"
+        }
+      ],
       "pdf": {
         "status": "unavailable"
       },
@@ -50286,7 +50360,7 @@
       ],
       "provenance": [],
       "publicContent": {
-        "abstract": "unavailable"
+        "abstract": "withheld"
       }
     },
     {
@@ -50323,7 +50397,7 @@
       "volume": "11",
       "pages": "100676",
       "firstSeenAt": "2026-09-19T02:32:37.835Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:21.000Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -50391,7 +50465,7 @@
       "volume": "11",
       "pages": "100674",
       "firstSeenAt": "2026-09-19T02:32:37.835Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:21.011Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -50456,7 +50530,7 @@
       "volume": "11",
       "pages": "100677",
       "firstSeenAt": "2026-09-19T02:32:37.835Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:21.021Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -50520,7 +50594,7 @@
       },
       "pages": "100678",
       "firstSeenAt": "2026-09-19T02:32:39.224Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -50588,7 +50662,7 @@
       },
       "pages": "100679",
       "firstSeenAt": "2026-09-19T02:32:39.224Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:21.065Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -50639,7 +50713,20 @@
         "Lay Poh Tan"
       ],
       "url": "https://www.sciencedirect.com/science/article/pii/S2666920X26001438",
-      "keywords": [],
+      "keywords": [
+        "ChatGPT",
+        "generative AI in education",
+        "interdisciplinary learning",
+        "STEM students",
+        "non-STEM students",
+        "student engagement",
+        "physical engagement",
+        "cognitive engagement",
+        "emotional engagement",
+        "AI literacy",
+        "technology acceptance",
+        "undergraduate students"
+      ],
       "articleType": "journal-article",
       "publishedIssue": {
         "value": "2026-09",
@@ -50653,15 +50740,24 @@
       },
       "pages": "100681",
       "firstSeenAt": "2026-09-19T02:32:39.224Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:21.075Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
-        "confidence": "medium",
+        "confidence": "high",
         "reason": "This paper relates to artificial intelligence.",
         "evidence": []
       },
-      "oaLocations": [],
+      "oaLocations": [
+        {
+          "url": "https://doi.org/10.1016/j.caeai.2026.100681",
+          "pdfUrl": "https://www.sciencedirect.com/science/article/pii/S2666920X26001438/pdf",
+          "hostType": "publisher",
+          "version": "publishedVersion",
+          "isOa": true,
+          "source": "Public OA metadata"
+        }
+      ],
       "pdf": {
         "status": "unavailable"
       },
@@ -50673,7 +50769,7 @@
       ],
       "provenance": [],
       "publicContent": {
-        "abstract": "unavailable"
+        "abstract": "withheld"
       }
     },
     {
@@ -50696,7 +50792,16 @@
         "Ryan S. Baker"
       ],
       "url": "https://www.sciencedirect.com/science/article/pii/S2666920X26001426",
-      "keywords": [],
+      "keywords": [
+        "large language models in education",
+        "metacognition",
+        "learner agency",
+        "adaptive AI",
+        "responsible AI design",
+        "AI transparency and accountability",
+        "privacy in education",
+        "transfer of learning"
+      ],
       "articleType": "journal-article",
       "publishedIssue": {
         "value": "2026-09",
@@ -50710,15 +50815,38 @@
       },
       "pages": "100680",
       "firstSeenAt": "2026-09-19T02:32:39.225Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:21.087Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
-        "confidence": "medium",
+        "confidence": "high",
         "reason": "This paper relates to artificial intelligence.",
         "evidence": []
       },
-      "oaLocations": [],
+      "oaLocations": [
+        {
+          "url": "https://doi.org/10.1016/j.caeai.2026.100680",
+          "pdfUrl": "https://www.sciencedirect.com/science/article/pii/S2666920X26001426/pdf",
+          "hostType": "publisher",
+          "version": "publishedVersion",
+          "isOa": true,
+          "source": "Public OA metadata"
+        },
+        {
+          "url": "https://arxiv.org/abs/2605.04816",
+          "pdfUrl": "https://arxiv.org/pdf/2605.04816",
+          "hostType": "repository",
+          "version": "submittedVersion",
+          "isOa": true,
+          "source": "Public OA metadata"
+        },
+        {
+          "url": "https://doi.org/10.48550/arxiv.2605.04816",
+          "hostType": "repository",
+          "isOa": true,
+          "source": "Public OA metadata"
+        }
+      ],
       "pdf": {
         "status": "unavailable"
       },
@@ -50730,7 +50858,7 @@
       ],
       "provenance": [],
       "publicContent": {
-        "abstract": "unavailable"
+        "abstract": "withheld"
       }
     },
     {
@@ -50759,7 +50887,7 @@
       },
       "pages": "bjet.70090",
       "firstSeenAt": "2026-09-27T09:57:18.298Z",
-      "updatedAt": "2026-10-07T01:58:42.308Z",
+      "updatedAt": "2026-10-08T12:33:05.729Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -50809,7 +50937,7 @@
       },
       "pages": "bjet.70088",
       "firstSeenAt": "2026-09-27T09:57:18.298Z",
-      "updatedAt": "2026-10-07T01:58:42.308Z",
+      "updatedAt": "2026-10-08T12:33:05.729Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -50874,7 +51002,7 @@
       },
       "pages": "berj.70280",
       "firstSeenAt": "2026-09-27T09:57:18.804Z",
-      "updatedAt": "2026-10-07T01:58:43.164Z",
+      "updatedAt": "2026-10-08T12:33:06.857Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -50931,7 +51059,7 @@
       },
       "pages": "105751",
       "firstSeenAt": "2026-09-27T09:57:20.292Z",
-      "updatedAt": "2026-10-07T01:58:44.354Z",
+      "updatedAt": "2026-10-08T12:33:08.189Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -51059,7 +51187,7 @@
       "volume": "11",
       "pages": "100684",
       "firstSeenAt": "2026-09-27T09:57:24.746Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -51138,7 +51266,7 @@
       "volume": "11",
       "pages": "100683",
       "firstSeenAt": "2026-09-27T09:57:24.746Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -51211,7 +51339,7 @@
       },
       "pages": "100682",
       "firstSeenAt": "2026-09-27T09:57:25.167Z",
-      "updatedAt": "2026-10-07T01:58:50.686Z",
+      "updatedAt": "2026-10-08T12:33:16.435Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -51290,7 +51418,7 @@
       },
       "pages": "105753",
       "firstSeenAt": "2026-09-28T13:47:33.315Z",
-      "updatedAt": "2026-10-07T01:58:44.856Z",
+      "updatedAt": "2026-10-08T12:33:08.817Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -51341,7 +51469,7 @@
       },
       "pages": "bjet.70089",
       "firstSeenAt": "2026-10-02T02:26:36.359Z",
-      "updatedAt": "2026-10-07T01:58:42.598Z",
+      "updatedAt": "2026-10-08T12:33:06.335Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -51395,7 +51523,7 @@
       },
       "pages": "bjet.70091",
       "firstSeenAt": "2026-10-02T02:26:36.359Z",
-      "updatedAt": "2026-10-07T01:58:54.440Z",
+      "updatedAt": "2026-10-08T12:33:06.336Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -51468,7 +51596,7 @@
       "volume": "251",
       "pages": "105642",
       "firstSeenAt": "2026-10-02T02:26:38.810Z",
-      "updatedAt": "2026-10-07T01:58:44.856Z",
+      "updatedAt": "2026-10-08T12:33:08.813Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -51545,7 +51673,7 @@
       },
       "pages": "105755",
       "firstSeenAt": "2026-10-02T02:26:38.812Z",
-      "updatedAt": "2026-10-07T01:58:44.857Z",
+      "updatedAt": "2026-10-08T12:33:08.818Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -51610,7 +51738,7 @@
       },
       "pages": "100685",
       "firstSeenAt": "2026-10-02T02:26:44.082Z",
-      "updatedAt": "2026-10-07T01:58:50.680Z",
+      "updatedAt": "2026-10-08T12:33:17.291Z",
       "relevance": {
         "topic": "both",
         "method": "codex",
@@ -51662,7 +51790,7 @@
       },
       "pages": "bjet.70092",
       "firstSeenAt": "2026-10-07T01:58:42.600Z",
-      "updatedAt": "2026-10-07T01:58:42.600Z",
+      "updatedAt": "2026-10-08T12:33:19.579Z",
       "relevance": {
         "topic": "learning-analytics",
         "method": "codex",
@@ -51670,9 +51798,19 @@
         "reason": "This paper relates to learning analytics.",
         "evidence": []
       },
-      "oaLocations": [],
+      "oaLocations": [
+        {
+          "url": "https://doi.org/10.1111/bjet.70092",
+          "pdfUrl": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/bjet.70092",
+          "hostType": "publisher",
+          "version": "publishedVersion",
+          "isOa": true,
+          "source": "Public OA metadata"
+        }
+      ],
       "pdf": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "sourceUrl": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/bjet.70092"
       },
       "milestones": [
         {
@@ -51714,7 +51852,7 @@
       },
       "pages": "bjet.70093",
       "firstSeenAt": "2026-10-07T01:58:42.601Z",
-      "updatedAt": "2026-10-07T01:58:53.785Z",
+      "updatedAt": "2026-10-08T12:33:06.336Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -51798,7 +51936,7 @@
       "volume": "252",
       "pages": "105675",
       "firstSeenAt": "2026-10-07T01:58:44.856Z",
-      "updatedAt": "2026-10-07T01:58:54.409Z",
+      "updatedAt": "2026-10-08T12:33:08.817Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -51866,7 +52004,7 @@
       },
       "pages": "105763",
       "firstSeenAt": "2026-10-07T01:58:44.859Z",
-      "updatedAt": "2026-10-07T01:58:54.420Z",
+      "updatedAt": "2026-10-08T12:33:08.821Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -51917,7 +52055,7 @@
       },
       "pages": "100686",
       "firstSeenAt": "2026-10-07T01:58:50.680Z",
-      "updatedAt": "2026-10-07T01:58:54.430Z",
+      "updatedAt": "2026-10-08T12:33:17.291Z",
       "relevance": {
         "topic": "ai",
         "method": "codex",
@@ -51947,25 +52085,94 @@
       "publicContent": {
         "abstract": "unavailable"
       }
+    },
+    {
+      "id": "doi:10.1016/j.compedu.2026.105654",
+      "doi": "10.1016/j.compedu.2026.105654",
+      "pii": "S036013152600093X",
+      "aliases": [],
+      "journalId": "compedu",
+      "title": "What teachers discuss and how they perceive and feel: Topic modeling and sentiment analysis of a generative artificial intelligence learning group on facebook",
+      "authors": [
+        "Zicong Song",
+        "Chun Lai",
+        "Xianhan Huang",
+        "Chin-Hsi Lin"
+      ],
+      "url": "https://linkinghub.elsevier.com/retrieve/pii/S036013152600093X",
+      "keywords": [
+        "generative AI",
+        "teacher perceptions",
+        "artificial intelligence in education",
+        "teacher professional development",
+        "AI ethics",
+        "AI-assisted assessment",
+        "human-AI collaboration",
+        "teacher learning communities",
+        "teacher training in AI",
+        "peer mentoring"
+      ],
+      "articleType": "journal-article",
+      "publishedIssue": {
+        "value": "2026-10",
+        "precision": "month",
+        "source": "Publication metadata"
+      },
+      "publicationDate": {
+        "value": "2026-10",
+        "precision": "month",
+        "source": "Publication metadata"
+      },
+      "volume": "251",
+      "pages": "105654",
+      "firstSeenAt": "2026-10-08T12:33:08.815Z",
+      "updatedAt": "2026-10-08T12:33:20.226Z",
+      "relevance": {
+        "topic": "both",
+        "method": "codex",
+        "confidence": "high",
+        "reason": "This paper relates to learning analytics and artificial intelligence.",
+        "evidence": []
+      },
+      "oaLocations": [
+        {
+          "url": "https://doi.org/10.1016/j.compedu.2026.105654",
+          "hostType": "publisher",
+          "version": "publishedVersion",
+          "isOa": true,
+          "source": "Public OA metadata"
+        }
+      ],
+      "pdf": {
+        "status": "unavailable"
+      },
+      "milestones": [
+        {
+          "kind": "online",
+          "observedAt": "2026-10-08T12:37:48.467Z"
+        }
+      ],
+      "provenance": [],
+      "publicContent": {
+        "abstract": "withheld"
+      }
     }
   ],
   "sources": [
     {
       "journalId": "bjet",
-      "status": "partial",
-      "checkedAt": "2026-10-07T01:58:39.670Z",
-      "lastSuccessAt": "2026-10-07T01:58:39.670Z",
-      "discovered": 78,
-      "errors": [
-        "Some source checks were unavailable."
-      ]
+      "status": "ok",
+      "checkedAt": "2026-10-08T12:33:04.344Z",
+      "lastSuccessAt": "2026-10-08T12:33:04.344Z",
+      "discovered": 73,
+      "errors": []
     },
     {
       "journalId": "berj",
       "status": "partial",
-      "checkedAt": "2026-10-07T01:58:39.670Z",
-      "lastSuccessAt": "2026-10-07T01:58:39.670Z",
-      "discovered": 138,
+      "checkedAt": "2026-10-08T12:33:04.344Z",
+      "lastSuccessAt": "2026-10-08T12:33:04.344Z",
+      "discovered": 132,
       "errors": [
         "Some source checks were unavailable."
       ]
@@ -51973,25 +52180,25 @@
     {
       "journalId": "compedu",
       "status": "ok",
-      "checkedAt": "2026-10-07T01:58:39.670Z",
-      "lastSuccessAt": "2026-10-07T01:58:39.670Z",
-      "discovered": 164,
+      "checkedAt": "2026-10-08T12:33:04.344Z",
+      "lastSuccessAt": "2026-10-08T12:33:04.344Z",
+      "discovered": 163,
       "errors": []
     },
     {
       "journalId": "jla",
       "status": "ok",
-      "checkedAt": "2026-10-07T01:58:39.670Z",
-      "lastSuccessAt": "2026-10-07T01:58:39.670Z",
-      "discovered": 19,
+      "checkedAt": "2026-10-08T12:33:04.344Z",
+      "lastSuccessAt": "2026-10-08T12:33:04.344Z",
+      "discovered": 20,
       "errors": []
     },
     {
       "journalId": "rer",
       "status": "partial",
-      "checkedAt": "2026-10-07T01:58:39.670Z",
-      "lastSuccessAt": "2026-10-07T01:58:39.670Z",
-      "discovered": 24,
+      "checkedAt": "2026-10-08T12:33:04.344Z",
+      "lastSuccessAt": "2026-10-08T12:33:04.344Z",
+      "discovered": 17,
       "errors": [
         "Some source checks were unavailable."
       ]
@@ -51999,17 +52206,17 @@
     {
       "journalId": "edurev",
       "status": "ok",
-      "checkedAt": "2026-10-07T01:58:39.670Z",
-      "lastSuccessAt": "2026-10-07T01:58:39.670Z",
-      "discovered": 87,
+      "checkedAt": "2026-10-08T12:33:04.344Z",
+      "lastSuccessAt": "2026-10-08T12:33:04.344Z",
+      "discovered": 84,
       "errors": []
     },
     {
       "journalId": "caeai",
       "status": "ok",
-      "checkedAt": "2026-10-07T01:58:39.670Z",
-      "lastSuccessAt": "2026-10-07T01:58:39.670Z",
-      "discovered": 223,
+      "checkedAt": "2026-10-08T12:33:04.344Z",
+      "lastSuccessAt": "2026-10-08T12:33:04.344Z",
+      "discovered": 215,
       "errors": []
     }
   ]
