@@ -1,8 +1,8 @@
 # Paper Monitor public library
 
-Updated: 2026\-11\-19T13\:21\:00\.519Z
+Updated: 2026\-11\-23T01\:01\:23\.553Z
 Coverage: 2025\-01\-01 onward
-740 relevant papers.
+743 relevant papers.
 280 abstracts with supported redistribution licences.
 2 clearly labeled generated summaries.
 
@@ -10,8 +10,8 @@ Public files contain bibliographic metadata and permitted text only. PDFs and pr
 
 ## Journal checks
 
-- British Journal of Educational Technology: partial
-- British Educational Research Journal: partial
+- British Journal of Educational Technology: ok
+- British Educational Research Journal: ok
 - Computers &amp; Education: ok
 - Journal of Learning Analytics: ok
 - Review of Educational Research: partial
